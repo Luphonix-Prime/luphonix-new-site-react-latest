@@ -1,0 +1,380 @@
+
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate, Link, Navigate } from 'react-router-dom';
+import { useBlog } from '../context/BlogContext';
+
+const BlogEdit = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { state, dispatch } = useBlog();
+  const { posts } = state;
+  
+  const post = posts.find(p => p.id === parseInt(id));
+  const [formData, setFormData] = useState({
+    title: '',
+    excerpt: '',
+    content: '',
+    featured_image: '',
+    tags: '',
+    author: '',
+    read_time: 5
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (post) {
+      setFormData({
+        title: post.title,
+        excerpt: post.excerpt,
+        content: post.content || '',
+        featured_image: post.featured_image,
+        tags: post.tags.join(', '),
+        author: post.author || '',
+        read_time: post.read_time
+      });
+    }
+  }, [post]);
+
+  if (!post) {
+    return <Navigate to="/blog/admin" replace />;
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const generateSlug = (title) => {
+    return title
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const updatedPost = {
+        ...post,
+        ...formData,
+        slug: generateSlug(formData.title),
+        tags: formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag),
+        read_time: parseInt(formData.read_time) || 5,
+        updated_at: new Date().toISOString()
+      };
+
+      dispatch({ type: 'UPDATE_POST', payload: updatedPost });
+      navigate('/blog/admin');
+    } catch (error) {
+      console.error('Error updating post:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="edit-post-page">
+      <section className="section">
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div style={{ marginBottom: '40px' }}>
+            <Link 
+              to="/blog/admin" 
+              style={{ 
+                color: 'var(--accent-green)', 
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                marginBottom: '30px',
+                fontSize: '14px'
+              }}
+            >
+              <i className="fas fa-arrow-left" style={{ marginRight: '10px' }}></i>
+              Back to Admin
+            </Link>
+            
+            <h1 className="section-title" style={{ textAlign: 'left', marginBottom: '10px' }}>
+              Edit Blog Post
+            </h1>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Update the details of your blog post
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+            {/* Title */}
+            <div>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '8px', 
+                color: 'var(--text-primary)',
+                fontSize: '14px',
+                fontWeight: '300'
+              }}>
+                Post Title *
+              </label>
+              <input
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                required
+                placeholder="Enter the blog post title"
+                style={{
+                  width: '100%',
+                  padding: '16px 20px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
+                  color: 'var(--text-primary)',
+                  fontSize: '16px',
+                  outline: 'none',
+                  transition: 'var(--transition-fast)'
+                }}
+              />
+            </div>
+
+            {/* Excerpt */}
+            <div>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '8px', 
+                color: 'var(--text-primary)',
+                fontSize: '14px',
+                fontWeight: '300'
+              }}>
+                Excerpt *
+              </label>
+              <textarea
+                name="excerpt"
+                value={formData.excerpt}
+                onChange={handleChange}
+                required
+                placeholder="Brief description of the post"
+                rows={3}
+                style={{
+                  width: '100%',
+                  padding: '16px 20px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
+                  color: 'var(--text-primary)',
+                  fontSize: '16px',
+                  outline: 'none',
+                  resize: 'vertical',
+                  minHeight: '80px',
+                  transition: 'var(--transition-fast)'
+                }}
+              />
+            </div>
+
+            {/* Content */}
+            <div>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '8px', 
+                color: 'var(--text-primary)',
+                fontSize: '14px',
+                fontWeight: '300'
+              }}>
+                Content *
+              </label>
+              <textarea
+                name="content"
+                value={formData.content}
+                onChange={handleChange}
+                required
+                placeholder="Write your blog post content here..."
+                rows={12}
+                style={{
+                  width: '100%',
+                  padding: '20px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
+                  color: 'var(--text-primary)',
+                  fontSize: '16px',
+                  outline: 'none',
+                  resize: 'vertical',
+                  minHeight: '300px',
+                  lineHeight: '1.6',
+                  transition: 'var(--transition-fast)'
+                }}
+              />
+            </div>
+
+            {/* Row for Featured Image and Author */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+              <div>
+                <label style={{ 
+                  display: 'block', 
+                  marginBottom: '8px', 
+                  color: 'var(--text-primary)',
+                  fontSize: '14px',
+                  fontWeight: '300'
+                }}>
+                  Featured Image URL
+                </label>
+                <input
+                  type="url"
+                  name="featured_image"
+                  value={formData.featured_image}
+                  onChange={handleChange}
+                  placeholder="https://example.com/image.jpg"
+                  style={{
+                    width: '100%',
+                    padding: '16px 20px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    color: 'var(--text-primary)',
+                    fontSize: '16px',
+                    outline: 'none',
+                    transition: 'var(--transition-fast)'
+                  }}
+                />
+              </div>
+
+              <div>
+                <label style={{ 
+                  display: 'block', 
+                  marginBottom: '8px', 
+                  color: 'var(--text-primary)',
+                  fontSize: '14px',
+                  fontWeight: '300'
+                }}>
+                  Author
+                </label>
+                <input
+                  type="text"
+                  name="author"
+                  value={formData.author}
+                  onChange={handleChange}
+                  placeholder="Author name"
+                  style={{
+                    width: '100%',
+                    padding: '16px 20px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    color: 'var(--text-primary)',
+                    fontSize: '16px',
+                    outline: 'none',
+                    transition: 'var(--transition-fast)'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Row for Tags and Read Time */}
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '20px' }}>
+              <div>
+                <label style={{ 
+                  display: 'block', 
+                  marginBottom: '8px', 
+                  color: 'var(--text-primary)',
+                  fontSize: '14px',
+                  fontWeight: '300'
+                }}>
+                  Tags (comma-separated)
+                </label>
+                <input
+                  type="text"
+                  name="tags"
+                  value={formData.tags}
+                  onChange={handleChange}
+                  placeholder="React, JavaScript, Web Development"
+                  style={{
+                    width: '100%',
+                    padding: '16px 20px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    color: 'var(--text-primary)',
+                    fontSize: '16px',
+                    outline: 'none',
+                    transition: 'var(--transition-fast)'
+                  }}
+                />
+              </div>
+
+              <div>
+                <label style={{ 
+                  display: 'block', 
+                  marginBottom: '8px', 
+                  color: 'var(--text-primary)',
+                  fontSize: '14px',
+                  fontWeight: '300'
+                }}>
+                  Read Time (minutes)
+                </label>
+                <input
+                  type="number"
+                  name="read_time"
+                  value={formData.read_time}
+                  onChange={handleChange}
+                  min="1"
+                  max="60"
+                  style={{
+                    width: '100%',
+                    padding: '16px 20px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    color: 'var(--text-primary)',
+                    fontSize: '16px',
+                    outline: 'none',
+                    transition: 'var(--transition-fast)'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Submit Buttons */}
+            <div style={{ display: 'flex', gap: '15px', justifyContent: 'flex-end', paddingTop: '20px' }}>
+              <Link 
+                to="/blog/admin"
+                style={{
+                  padding: '16px 30px',
+                  background: 'transparent',
+                  color: 'var(--text-secondary)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                  transition: 'var(--transition-fast)',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                Cancel
+              </Link>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="cta-button"
+                style={{
+                  padding: '16px 30px',
+                  fontSize: '16px',
+                  opacity: isSubmitting ? 0.7 : 1,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer'
+                }}
+              >
+                {isSubmitting ? 'Updating...' : 'Update Post'}
+                {!isSubmitting && <i className="fas fa-save" style={{ marginLeft: '10px' }}></i>}
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default BlogEdit;

@@ -1,0 +1,130 @@
+
+/* TextRevealCard Component Styles */
+.text-reveal-card-container {
+  background: #0E0E10;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  max-width: 40rem;
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.text-reveal-content {
+  height: 10rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.revealed-text {
+  position: absolute;
+  background: #0E0E10;
+  z-index: 20;
+  will-change: transform;
+  width: 100%;
+}
+
+.text-gradient {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to bottom, white, #a3a3a3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+  padding: 2.5rem 0;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.reveal-cursor {
+  height: 10rem;
+  width: 8px;
+  background: linear-gradient(to bottom, transparent, #525252, transparent);
+  position: absolute;
+  z-index: 50;
+  will-change: transform;
+}
+
+.base-text-container {
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, white, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, white, transparent);
+}
+
+.base-text {
+  font-size: 2rem;
+  font-weight: bold;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #323238;
+  background-color: #323238;
+  padding: 2.5rem 0;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.stars-container {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  display: inline-block;
+}
+
+.card-title {
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.card-description {
+  color: #a9a9a9;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-reveal-card-container {
+    padding: 24px;
+    max-width: 90vw;
+  }
+  
+  .text-reveal-content {
+    height: 8rem;
+  }
+  
+  .reveal-cursor {
+    height: 8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-gradient,
+  .base-text {
+    font-size: 1.5rem !important;
+  }
+  
+  .text-reveal-content {
+    height: 6rem;
+  }
+  
+  .reveal-cursor {
+    height: 6rem;
+  }
+  
+  .text-gradient,
+  .base-text {
+    padding: 1.5rem 0;
+  }
+}
