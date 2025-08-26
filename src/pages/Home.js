@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { services, projects } from '../data/mockData';
+import { services, projects, slides } from '../data/mockData'; // Import slides from mockData
 import { useBlog } from '../context/BlogContext';
 import RollingGallery from '../components/RollingGallery';
 import Carousel from '../components/Carousel';
@@ -20,50 +20,7 @@ const Home = () => {
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
   const recentPosts = blogPosts.slice(0, 3);
 
-  const languageSlides = [
-    {
-      src: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "React.js",
-      description: "A powerful JavaScript library for building user interfaces with component-based architecture.",
-      features: ["Virtual DOM", "Component Reusability", "Large Ecosystem", "JSX Syntax"],
-      button: "Explore React"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Node.js",
-      description: "Server-side JavaScript runtime built on Chrome's V8 engine for scalable backend applications.",
-      features: ["Event-driven", "Non-blocking I/O", "NPM Ecosystem", "Cross-platform"],
-      button: "Explore Node.js"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Python",
-      description: "Versatile programming language perfect for AI, data science, and web development.",
-      features: ["Simple Syntax", "Rich Libraries", "AI/ML Support", "Cross-platform"],
-      button: "Explore Python"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "MongoDB",
-      description: "NoSQL database that provides high performance, high availability, and easy scalability.",
-      features: ["Document-based", "Horizontal Scaling", "Flexible Schema", "Rich Queries"],
-      button: "Explore MongoDB"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "TypeScript",
-      description: "Strongly typed programming language that builds on JavaScript by adding static type definitions.",
-      features: ["Type Safety", "Enhanced IDE Support", "Better Refactoring", "Compile-time Errors"],
-      button: "Explore TypeScript"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Docker",
-      description: "Platform for developing, shipping, and running applications using containerization technology.",
-      features: ["Containerization", "Portability", "Scalability", "DevOps Integration"],
-      button: "Explore Docker"
-    }
-  ];
+  // Removed hardcoded languageSlides array
 
   useEffect(() => {
     // Add fade-in animation on scroll
@@ -241,10 +198,10 @@ const Home = () => {
             Discover the powerful technologies we use to build exceptional solutions
           </p>
           <div className="fade-in" style={{ animationDelay: '0.2s' }}>
-            <Carousel 
-            slides={languageSlides} 
-            autoRotate={true} 
-            rotationInterval={4000} 
+            <Carousel
+            slides={slides} // Use the imported slides data
+            autoRotate={true}
+            rotationInterval={4000}
           />
           </div>
         </div>

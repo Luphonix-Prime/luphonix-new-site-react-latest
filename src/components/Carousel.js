@@ -55,7 +55,7 @@ const Slide = ({
     event.currentTarget.style.opacity = "1";
   };
 
-  const { src, button, title, description, features, category, difficulty, popularity } = slide;
+  const { src, button, title, description, features, category, difficulty } = slide;
 
   const getDifficultyColor = (level) => {
     switch(level) {
@@ -112,18 +112,18 @@ const Slide = ({
             left: 0,
             width: '100%',
             height: '100%',
-            background: current === index 
-              ? 'linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(10, 10, 10, 0.95), rgba(26, 26, 46, 0.9))' 
+            background: current === index
+              ? 'linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(10, 10, 10, 0.95), rgba(26, 26, 46, 0.9))'
               : 'linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.7))',
             borderRadius: '24px',
             overflow: 'hidden',
             transition: 'all 0.4s ease-out',
-            border: current === index 
-              ? '2px solid rgba(0, 212, 170, 0.4)' 
+            border: current === index
+              ? '2px solid rgba(0, 212, 170, 0.4)'
               : '1px solid rgba(255, 255, 255, 0.1)',
             backdropFilter: 'blur(25px)',
-            boxShadow: current === index 
-              ? '0 25px 50px rgba(0, 212, 170, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)' 
+            boxShadow: current === index
+              ? '0 25px 50px rgba(0, 212, 170, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
               : '0 10px 25px rgba(0, 0, 0, 0.3)',
             transform: current === index
               ? "translate3d(calc(var(--x) / 25), calc(var(--y) / 25), 0)"
@@ -198,37 +198,6 @@ const Slide = ({
           </div>
         </div>
 
-        {/* Popularity indicator */}
-        <div style={{
-          position: 'absolute',
-          top: '20px',
-          right: '20px',
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          background: `conic-gradient(var(--accent-green) 0deg ${popularity * 3.6}deg, rgba(255,255,255,0.1) ${popularity * 3.6}deg 360deg)`,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          opacity: current === index ? 1 : 0,
-          transition: 'opacity 0.8s ease-in-out 0.5s'
-        }}>
-          <div style={{
-            width: '46px',
-            height: '46px',
-            borderRadius: '50%',
-            background: 'rgba(10, 10, 10, 0.9)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '0.7rem',
-            fontWeight: 'bold',
-            color: 'var(--accent-green)'
-          }}>
-            {popularity}%
-          </div>
-        </div>
-
         <article style={{
           position: 'relative',
           padding: '4vmin',
@@ -256,7 +225,7 @@ const Slide = ({
             {description}
           </p>
           {features && (
-            <div style={{ 
+            <div style={{
               marginBottom: '2rem',
               display: 'grid',
               gap: '0.8rem'
@@ -290,8 +259,8 @@ const Slide = ({
               ))}
             </div>
           )}
-          <div style={{ 
-            display: 'flex', 
+          <div style={{
+            display: 'flex',
             justifyContent: 'center',
             transform: `translateY(${current === index ? 0 : '20px'})`,
             opacity: current === index ? 1 : 0,
@@ -380,7 +349,7 @@ const CarouselControl = ({
   );
 };
 
-export function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
+function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const navigate = useNavigate();
@@ -490,36 +459,38 @@ export function Carousel({ slides, autoRotate = true, rotationInterval = 4000 })
         <CarouselControl
           type="previous"
           title="Go to previous technology"
-          handleClick={handlePreviousClick}
+          handleClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePreviousClick(); }}
         />
-        
+
         {/* Progress indicators */}
         <div style={{ display: 'flex', gap: '8px' }}>
           {slides.map((_, index) => (
-            <div
+            <button
               key={index}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCurrent(index); }}
+              type="button"
               style={{
                 width: current === index ? '24px' : '8px',
                 height: '8px',
                 borderRadius: '4px',
-                background: current === index 
-                  ? 'var(--accent-green)' 
+                background: current === index
+                  ? 'var(--accent-green)'
                   : 'rgba(255, 255, 255, 0.3)',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
-                boxShadow: current === index 
-                  ? '0 2px 8px rgba(0, 212, 170, 0.4)' 
-                  : 'none'
+                boxShadow: current === index
+                  ? '0 2px 8px rgba(0, 212, 170, 0.4)'
+                  : 'none',
+                border: 'none'
               }}
-              onClick={() => setCurrent(index)}
             />
           ))}
         </div>
-        
+
         <CarouselControl
           type="next"
           title="Go to next technology"
-          handleClick={handleNextClick}
+          handleClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNextClick(); }}
         />
       </div>
     </div>
