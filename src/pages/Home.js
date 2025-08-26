@@ -241,7 +241,11 @@ const Home = () => {
             Discover the powerful technologies we use to build exceptional solutions
           </p>
           <div className="fade-in" style={{ animationDelay: '0.2s' }}>
-            <Carousel slides={languageSlides} />
+            <Carousel 
+            slides={languageSlides} 
+            autoRotate={true} 
+            rotationInterval={4000} 
+          />
           </div>
         </div>
       </section>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -12,25 +11,25 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Luphonix</h3>
             <p>
-              We create cutting-edge digital experiences that transform businesses and captivate audiences. 
+              We create cutting-edge digital experiences that transform businesses and captivate audiences.
               Your partner in digital innovation and growth.
             </p>
             <div className="social-links">
-              <a href="#" className="social-link" aria-label="Twitter">
+              <button className="social-link" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="social-link" aria-label="LinkedIn">
+              </button>
+              <button className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" className="social-link" aria-label="GitHub">
+              </button>
+              <button className="social-link" aria-label="GitHub">
                 <i className="fab fa-github"></i>
-              </a>
-              <a href="#" className="social-link" aria-label="Instagram">
+              </button>
+              <button className="social-link" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="social-link" aria-label="Dribbble">
+              </button>
+              <button className="social-link" aria-label="Dribbble">
                 <i className="fab fa-dribbble"></i>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -49,10 +48,10 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Company</h4>
             <ul>
-              <li><Link to="/">About Us</Link></li>
-              <li><Link to="/projects">Our Work</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Our Work</Link></li>
               <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/contact">Careers</Link></li>
+              <li><Link to="/careers">Careers</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
@@ -60,11 +59,11 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Resources</h4>
             <ul>
-              <li><Link to="/blog">Documentation</Link></li>
-              <li><Link to="/blog">Case Studies</Link></li>
-              <li><Link to="/blog">Tutorials</Link></li>
-              <li><Link to="/contact">Support</Link></li>
-              <li><Link to="/contact">Privacy Policy</Link></li>
+              <li><Link to="/documentation">Documentation</Link></li>
+              <li><Link to="/case-studies">Case Studies</Link></li>
+              <li><Link to="/tutorials">Tutorials</Link></li>
+              <li><Link to="/support">Support</Link></li>
+              <li><Link to="/privacy">Privacy Policy</Link></li>
             </ul>
           </div>
 
