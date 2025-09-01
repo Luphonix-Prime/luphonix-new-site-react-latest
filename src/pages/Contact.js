@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Hyperspeed from '../components/Hyperspeed';
+import Model3D from '../components/Model3D';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -123,9 +124,9 @@ const Contact = () => {
           <div className="contact-info-grid" style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-            gap: '80px',
+            gap: '60px',
             alignItems: 'start',
-            maxWidth: '1400px',
+            maxWidth: '1600px',
             margin: '0 auto'
           }}>
             
@@ -210,6 +211,37 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* 3D Model Section */}
+              <div style={{ marginTop: '50px' }}>
+                <h4 style={{ 
+                  color: 'var(--text-primary)', 
+                  marginBottom: '30px',
+                  fontSize: '1.2rem',
+                  fontWeight: '300',
+                  textAlign: 'center'
+                }}>
+                  Interactive 3D Experience
+                </h4>
+                <Model3D 
+                  modelPath="/Ganesha_V2.glb"
+                  containerStyle={{
+                    marginBottom: '50px'
+                  }}
+                  showBorder={false}
+                  enableRotation={false}
+                />
+                <p style={{ 
+                  color: 'var(--text-secondary)', 
+                  textAlign: 'center',
+                  fontSize: '12px',
+                  fontWeight: '300',
+                  marginTop: '10px'
+                }}>
+                  Explore our 3D visualization capabilities
+                </p>
+              </div>
+
+              {/* Follow Us Section - Moved below 3D model */}
               <div style={{ marginTop: '50px' }}>
                 <h4 style={{ 
                   color: 'var(--text-primary)', 
