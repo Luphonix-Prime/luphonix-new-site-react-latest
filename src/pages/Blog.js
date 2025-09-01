@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useBlog } from '../context/BlogContext';
+import Model3D from '../components/Model3D';
 import '../components/BlogAnimations.css';
 
 const Blog = () => {
@@ -245,6 +246,42 @@ const Blog = () => {
               <p style={{ color: 'var(--text-muted)' }}>Try adjusting your search terms or selected tags</p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* 3D Model Experience Section */}
+      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
+        <div className="container">
+          <h2 className="section-title fade-in">3D Blog Visualization</h2>
+          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
+            Experience our content through interactive 3D technology
+          </p>
+          <div className="fade-in" style={{ 
+            animationDelay: '0.2s',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            <Model3D 
+              modelPath="/ganesha_fbx.fbx"
+              containerStyle={{
+                height: '500px',
+                background: 'linear-gradient(135deg, rgba(75, 0, 130, 0.1), rgba(255, 20, 147, 0.1))',
+                border: '1px solid rgba(75, 0, 130, 0.2)',
+                borderRadius: '20px'
+              }}
+              showBorder={true}
+              enableRotation={true}
+            />
+            <p style={{ 
+              color: 'var(--text-secondary)', 
+              textAlign: 'center',
+              fontSize: '14px',
+              fontWeight: '300',
+              marginTop: '20px'
+            }}>
+              Interactive 3D experience showcasing our blog content presentation capabilities
+            </p>
+          </div>
         </div>
       </section>
     </div>

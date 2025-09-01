@@ -4,6 +4,7 @@ import { services, projects, slides } from '../data/mockData'; // Import slides 
 import { useBlog } from '../context/BlogContext';
 import RollingGallery from '../components/RollingGallery';
 import Carousel from '../components/Carousel';
+import Model3D from '../components/Model3D';
 import '../components/BlogAnimations.css';
 
 // Utility function for class merging (assuming it's needed for Carousel or other components)
@@ -216,6 +217,42 @@ const Home = () => {
           </p>
           <div className="fade-in" style={{ animationDelay: '0.2s' }}>
             <RollingGallery />
+          </div>
+        </div>
+      </section>
+
+      {/* 3D Model Experience Section */}
+      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
+        <div className="container">
+          <h2 className="section-title fade-in">Interactive 3D Experience</h2>
+          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
+            Explore our 3D modeling and visualization capabilities
+          </p>
+          <div className="fade-in" style={{ 
+            animationDelay: '0.2s',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            <Model3D 
+              modelPath="/krishna.glb"
+              containerStyle={{
+                height: '500px',
+                background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(103, 80, 162, 0.1))',
+                border: '1px solid rgba(0, 212, 170, 0.2)',
+                borderRadius: '20px'
+              }}
+              showBorder={true}
+              enableRotation={true}
+            />
+            <p style={{ 
+              color: 'var(--text-secondary)', 
+              textAlign: 'center',
+              fontSize: '14px',
+              fontWeight: '300',
+              marginTop: '20px'
+            }}>
+              Interactive 3D model showcasing our technical expertise in 3D graphics and web technologies
+            </p>
           </div>
         </div>
       </section>

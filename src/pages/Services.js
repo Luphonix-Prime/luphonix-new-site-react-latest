@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { services } from '../data/mockData';
+import Model3D from '../components/Model3D';
 
 const Services = () => {
   useEffect(() => {
@@ -384,6 +385,42 @@ const Services = () => {
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3D Model Experience Section */}
+      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
+        <div className="container">
+          <h2 className="section-title fade-in">Experience Our 3D Capabilities</h2>
+          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
+            Interactive 3D modeling and visualization showcase
+          </p>
+          <div className="fade-in" style={{ 
+            animationDelay: '0.2s',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            <Model3D 
+              modelPath="/ganpati.glb"
+              containerStyle={{
+                height: '500px',
+                background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(103, 80, 162, 0.1))',
+                border: '1px solid rgba(255, 107, 107, 0.2)',
+                borderRadius: '20px'
+              }}
+              showBorder={true}
+              enableRotation={true}
+            />
+            <p style={{ 
+              color: 'var(--text-secondary)', 
+              textAlign: 'center',
+              fontSize: '14px',
+              fontWeight: '300',
+              marginTop: '20px'
+            }}>
+              Explore our advanced 3D modeling and web integration capabilities
+            </p>
           </div>
         </div>
       </section>
