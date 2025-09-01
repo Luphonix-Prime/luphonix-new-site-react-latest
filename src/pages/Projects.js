@@ -152,7 +152,7 @@ const Projects = () => {
             margin: '0 auto'
           }}>
             <Model3D 
-              modelPath="/krishna.glb"
+              modelPath="/lord_shiva.glb"
               containerStyle={{
                 height: '500px',
                 background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 69, 0, 0.1))',
