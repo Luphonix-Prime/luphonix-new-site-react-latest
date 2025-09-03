@@ -152,15 +152,12 @@ const Projects = () => {
             margin: '0 auto'
           }}>
             <Model3D 
-              modelPath="/lord_shiva.glb"
+              modelPath="/krishna.glb"
               containerStyle={{
-                height: '500px',
-                background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 69, 0, 0.1))',
-                border: '1px solid rgba(255, 140, 0, 0.2)',
-                borderRadius: '20px'
+                height: '500px'
               }}
-              showBorder={true}
-              enableRotation={true}
+              showBorder={false}
+              enableRotation={false}
             />
             <p style={{ 
               color: 'var(--text-secondary)', 

@@ -264,13 +264,10 @@ const Blog = () => {
             <Model3D 
               modelPath="/ganesha_fbx.fbx"
               containerStyle={{
-                height: '500px',
-                background: 'linear-gradient(135deg, rgba(75, 0, 130, 0.1), rgba(255, 20, 147, 0.1))',
-                border: '1px solid rgba(75, 0, 130, 0.2)',
-                borderRadius: '20px'
+                height: '500px'
               }}
-              showBorder={true}
-              enableRotation={true}
+              showBorder={false}
+              enableRotation={false}
             />
             <p style={{ 
               color: 'var(--text-secondary)', 

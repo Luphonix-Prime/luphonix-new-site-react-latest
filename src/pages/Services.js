@@ -404,13 +404,10 @@ const Services = () => {
             <Model3D 
               modelPath="/ganpati.glb"
               containerStyle={{
-                height: '500px',
-                background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(103, 80, 162, 0.1))',
-                border: '1px solid rgba(255, 107, 107, 0.2)',
-                borderRadius: '20px'
+                height: '500px'
               }}
-              showBorder={true}
-              enableRotation={true}
+              showBorder={false}
+              enableRotation={false}
             />
             <p style={{ 
               color: 'var(--text-secondary)', 

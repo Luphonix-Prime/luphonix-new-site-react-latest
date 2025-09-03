@@ -236,13 +236,10 @@ const Home = () => {
             <Model3D 
               modelPath="/krishna.glb"
               containerStyle={{
-                height: '500px',
-                background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(103, 80, 162, 0.1))',
-                border: '1px solid rgba(0, 212, 170, 0.2)',
-                borderRadius: '20px'
+                height: '500px'
               }}
-              showBorder={true}
-              enableRotation={true}
+              showBorder={false}
+              enableRotation={false}
             />
             <p style={{ 
               color: 'var(--text-secondary)', 
