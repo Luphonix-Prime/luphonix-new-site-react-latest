@@ -5,6 +5,7 @@ import { useBlog } from '../context/BlogContext';
 import RollingGallery from '../components/RollingGallery';
 import Carousel from '../components/Carousel';
 import Model3D from '../components/Model3D';
+import SEOHead from '../components/SEOHead';
 import '../components/BlogAnimations.css';
 
 // Utility function for class merging (assuming it's needed for Carousel or other components)
@@ -21,7 +22,19 @@ const Home = () => {
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
   const recentPosts = blogPosts.slice(0, 3);
 
-  // Removed hardcoded languageSlides array
+  // SEO structured data
+  const homePageStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Luphonix - Digital Innovation Agency | Web Development & AI Solutions",
+    "description": "Leading digital innovation agency specializing in web development, mobile apps, AI/ML solutions, 3D visualization, and cloud infrastructure. Transform your business with cutting-edge technology.",
+    "url": "https://luphonix.com",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Luphonix",
+      "serviceType": ["Web Development", "AI Development", "3D Visualization", "Mobile App Development"]
+    }
+  };
 
   useEffect(() => {
     // Add fade-in animation on scroll
@@ -39,7 +52,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home">
+    <>
+      <SEOHead
+        title="Luphonix | Digital Innovation Agency | Web Development & AI Solutions"
+        description="Leading digital innovation agency specializing in web development, mobile apps, AI/ML solutions, 3D visualization, and cloud infrastructure. Transform your business with cutting-edge technology and expert development services."
+        keywords="Luphonix, digital innovation, web development, mobile apps, AI development, machine learning, 3D visualization, WebGL, React development, Node.js, cloud infrastructure, digital transformation, software development, tech solutions, infinity solutions, custom software, API development"
+        canonical="https://luphonix.com"
+        structuredData={homePageStructuredData}
+      />
+      <div className="home">
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
@@ -328,98 +349,6 @@ const Home = () => {
             }}></div>
           </div>
 
-          {/* Additional Tech Stats */}
-          <div className="fade-in" style={{
-            animationDelay: '0.4s',
-            marginTop: '60px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '20px',
-            maxWidth: '800px',
-            margin: '60px auto 0',
-            padding: '0 20px'
-          }}>
-            <div style={{
-              textAlign: 'center',
-              padding: '25px 15px',
-              background: 'rgba(var(--card-bg-rgb), 0.3)',
-              borderRadius: '15px',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(5px)',
-              minHeight: '120px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <div style={{
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                fontWeight: 'bold',
-                color: 'var(--accent-green)',
-                marginBottom: '8px'
-              }}>15+</div>
-              <p style={{ 
-                margin: 0, 
-                color: 'var(--text-secondary)',
-                fontSize: '14px',
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}>Technologies</p>
-            </div>
-            
-            <div style={{
-              textAlign: 'center',
-              padding: '25px 15px',
-              background: 'rgba(var(--card-bg-rgb), 0.3)',
-              borderRadius: '15px',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(5px)',
-              minHeight: '120px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <div style={{
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                fontWeight: 'bold',
-                color: 'var(--accent-purple)',
-                marginBottom: '8px'
-              }}>5+</div>
-              <p style={{ 
-                margin: 0, 
-                color: 'var(--text-secondary)',
-                fontSize: '14px',
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}>Years Experience</p>
-            </div>
-            
-            <div style={{
-              textAlign: 'center',
-              padding: '25px 15px',
-              background: 'rgba(var(--card-bg-rgb), 0.3)',
-              borderRadius: '15px',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(5px)',
-              minHeight: '120px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <div style={{
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                fontWeight: 'bold',
-                color: '#FF6B6B',
-                marginBottom: '8px'
-              }}>100+</div>
-              <p style={{ 
-                margin: 0, 
-                color: 'var(--text-secondary)',
-                fontSize: '14px',
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}>Projects Delivered</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -622,7 +551,8 @@ const Home = () => {
           `}} />
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

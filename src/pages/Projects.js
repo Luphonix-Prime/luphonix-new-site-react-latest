@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react';
 import CardSwap, { Card } from '../components/CardSwap';
 import Model3D from '../components/Model3D';
 import { projects } from '../data/mockData';
+import SEOHead from '../components/SEOHead';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [filteredProjects, setFilteredProjects] = useState(projects);
+
+  const projectsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Our Projects | Luphonix Digital Innovation Portfolio",
+    "description": "Explore our portfolio of innovative digital solutions, web applications, mobile apps, AI/ML projects, and 3D visualization work.",
+    "url": "https://luphonix.com/projects"
+  };
 
   useEffect(() => {
     if (filter === 'all') {
@@ -36,7 +45,15 @@ const Projects = () => {
   const categories = ['all', 'web development', 'mobile app', 'ai/ml', 'blockchain', 'e-commerce'];
 
   return (
-    <div className="projects-page">
+    <>
+      <SEOHead
+        title="Projects | Luphonix Digital Innovation Portfolio | Web Apps & AI Solutions"
+        description="Explore our portfolio of innovative digital solutions including web applications, mobile apps, AI/ML projects, blockchain solutions, e-commerce platforms, and 3D visualization work."
+        keywords="digital projects, web application portfolio, mobile app projects, AI projects, machine learning portfolio, blockchain projects, e-commerce development, 3D visualization projects, software development portfolio"
+        canonical="https://luphonix.com/projects"
+        structuredData={projectsStructuredData}
+      />
+      <div className="projects-page">
       {/* Header Section */}
       <section className="section">
         <div className="container">
@@ -398,7 +415,8 @@ const Projects = () => {
           </Card>
         </CardSwap>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

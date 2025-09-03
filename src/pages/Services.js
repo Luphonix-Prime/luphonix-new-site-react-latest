@@ -3,8 +3,17 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { services } from '../data/mockData';
 import Model3D from '../components/Model3D';
+import SEOHead from '../components/SEOHead';
 
 const Services = () => {
+  const servicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Digital Innovation Services | Web Development, AI, 3D Visualization",
+    "description": "Comprehensive digital innovation services including web development, mobile apps, AI/ML solutions, 3D visualization, cloud infrastructure, and more.",
+    "url": "https://luphonix.com/services"
+  };
+
   useEffect(() => {
     // Add fade-in animation on scroll
     const observer = new IntersectionObserver((entries) => {
@@ -51,7 +60,15 @@ const Services = () => {
   ];
 
   return (
-    <div className="services-page">
+    <>
+      <SEOHead
+        title="Services | Luphonix Digital Innovation Agency | Web Development & AI Solutions"
+        description="Comprehensive digital innovation services including web development, mobile app development, AI/ML solutions, 3D visualization, cloud infrastructure, API development, and cybersecurity services."
+        keywords="digital services, web development services, mobile app development, AI development services, machine learning services, 3D visualization services, cloud infrastructure, API development services, cybersecurity services, digital transformation services"
+        canonical="https://luphonix.com/services"
+        structuredData={servicesStructuredData}
+      />
+      <div className="services-page">
       {/* Hero Section */}
       <section className="section">
         <div className="container">
@@ -467,7 +484,8 @@ const Services = () => {
           </Link>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

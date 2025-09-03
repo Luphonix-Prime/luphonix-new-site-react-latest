@@ -2,8 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import Hyperspeed from '../components/Hyperspeed';
 import Model3D from '../components/Model3D';
+import SEOHead from '../components/SEOHead';
 
 const Contact = () => {
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Contact Luphonix | Get Your Digital Innovation Quote",
+    "description": "Contact Luphonix for your digital innovation needs. Get a free consultation and quote for web development, mobile apps, AI solutions, and more.",
+    "url": "https://luphonix.com/contact"
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -64,7 +73,15 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-page">
+    <>
+      <SEOHead
+        title="Contact | Luphonix Digital Innovation Agency | Get Your Free Quote"
+        description="Contact Luphonix for your digital innovation needs. Get a free consultation and quote for web development, mobile apps, AI/ML solutions, 3D visualization, and more."
+        keywords="contact luphonix, digital innovation quote, web development consultation, mobile app quote, AI development contact, free consultation, digital transformation services"
+        canonical="https://luphonix.com/contact"
+        structuredData={contactStructuredData}
+      />
+      <div className="contact-page">
       {/* Header Section */}
       <section className="section" style={{ position: 'relative', height: '60vh', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
@@ -425,7 +442,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

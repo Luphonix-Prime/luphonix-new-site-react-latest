@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useBlog } from '../context/BlogContext';
 import Model3D from '../components/Model3D';
+import SEOHead from '../components/SEOHead';
 import '../components/BlogAnimations.css';
 
 const Blog = () => {
@@ -11,6 +12,18 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('all');
   const [filteredPosts, setFilteredPosts] = useState(blogPosts);
+
+  const blogStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Luphonix Tech Blog | Digital Innovation Insights",
+    "description": "Latest insights, tutorials, and updates on web development, AI/ML, 3D visualization, and digital innovation trends.",
+    "url": "https://luphonix.com/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Luphonix"
+    }
+  };
 
   // Get all unique tags
   const allTags = ['all', ...new Set(blogPosts.flatMap(post => post.tags))];
@@ -51,7 +64,15 @@ const Blog = () => {
   }, [filteredPosts]);
 
   return (
-    <div className="blog-page">
+    <>
+      <SEOHead
+        title="Blog | Luphonix Tech Insights | Web Development & AI Trends"
+        description="Latest insights, tutorials, and updates on web development, AI/ML, 3D visualization, digital innovation trends, and technology best practices from Luphonix experts."
+        keywords="tech blog, web development blog, AI blog, machine learning insights, digital innovation trends, programming tutorials, technology articles, software development blog"
+        canonical="https://luphonix.com/blog"
+        structuredData={blogStructuredData}
+      />
+      <div className="blog-page">
       {/* Header Section */}
       <section className="section">
         <div className="container">
@@ -281,7 +302,8 @@ const Blog = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
