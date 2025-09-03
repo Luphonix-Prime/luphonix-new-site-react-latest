@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useAnimation, useTransform } from "motion/react";
 import "./RollingGallery.css";
@@ -84,7 +83,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
 
   const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
   const faceCount = galleryItems.length;
-  const faceWidth = cylinderWidth / faceCount;
+  const faceWidth = (cylinderWidth / faceCount) * 1.5;
   const dragFactor = 0.05;
   const radius = cylinderWidth / (2 * Math.PI);
 
@@ -219,10 +218,9 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
           onMouseLeave={handleMouseLeave}
           style={{
             transform: transform,
+            rotateY: rotation,
             width: cylinderWidth,
-            height: "auto",
             transformStyle: "preserve-3d",
-            position: "relative",
           }}
           onDrag={handleDrag}
           onDragStart={handleDragStart}

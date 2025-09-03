@@ -196,7 +196,8 @@ const Home = () => {
         backgroundColor: 'var(--secondary-bg)', 
         padding: '120px 0',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        minHeight: '800px'
       }}>
         {/* Background Pattern */}
         <div style={{
@@ -209,8 +210,8 @@ const Home = () => {
           pointerEvents: 'none'
         }}></div>
         
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <div className="fade-in" style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -237,26 +238,27 @@ const Home = () => {
             </div>
             
             <h2 className="section-title fade-in" style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
               fontWeight: '700',
               background: 'linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 50%, var(--accent-purple) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              marginBottom: '25px',
-              lineHeight: '1.2'
+              marginBottom: '20px',
+              lineHeight: '1.3'
             }}>
               Programming Languages &<br />
               <span style={{ color: 'var(--accent-green)' }}>Technologies</span>
             </h2>
             
             <p className="section-subtitle fade-in" style={{ 
-              fontSize: '1.2rem',
+              fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
               maxWidth: '700px',
               margin: '0 auto',
               color: 'var(--text-secondary)',
               lineHeight: '1.6',
-              fontWeight: '300'
+              fontWeight: '300',
+              padding: '0 15px'
             }}>
               Discover the powerful technologies we use to build exceptional solutions and drive innovation
             </p>
@@ -265,7 +267,8 @@ const Home = () => {
           {/* Enhanced Carousel Container */}
           <div className="fade-in" style={{ 
             animationDelay: '0.2s',
-            position: 'relative'
+            position: 'relative',
+            margin: '40px 0'
           }}>
             {/* Decorative Elements */}
             <div style={{
@@ -284,11 +287,13 @@ const Home = () => {
               background: 'rgba(var(--card-bg-rgb), 0.5)',
               backdropFilter: 'blur(10px)',
               borderRadius: '25px',
-              padding: '40px',
+              padding: '30px 20px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              margin: '20px auto',
+              maxWidth: '100%'
             }}>
               {/* Inner glow effect */}
               <div style={{
@@ -326,26 +331,31 @@ const Home = () => {
           {/* Additional Tech Stats */}
           <div className="fade-in" style={{
             animationDelay: '0.4s',
-            marginTop: '80px',
+            marginTop: '60px',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '30px',
+            gap: '20px',
             maxWidth: '800px',
-            margin: '80px auto 0'
+            margin: '60px auto 0',
+            padding: '0 20px'
           }}>
             <div style={{
               textAlign: 'center',
-              padding: '30px 20px',
+              padding: '25px 15px',
               background: 'rgba(var(--card-bg-rgb), 0.3)',
-              borderRadius: '20px',
+              borderRadius: '15px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(5px)'
+              backdropFilter: 'blur(5px)',
+              minHeight: '120px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
             }}>
               <div style={{
-                fontSize: '2.5rem',
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
                 fontWeight: 'bold',
                 color: 'var(--accent-green)',
-                marginBottom: '10px'
+                marginBottom: '8px'
               }}>15+</div>
               <p style={{ 
                 margin: 0, 
@@ -358,17 +368,21 @@ const Home = () => {
             
             <div style={{
               textAlign: 'center',
-              padding: '30px 20px',
+              padding: '25px 15px',
               background: 'rgba(var(--card-bg-rgb), 0.3)',
-              borderRadius: '20px',
+              borderRadius: '15px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(5px)'
+              backdropFilter: 'blur(5px)',
+              minHeight: '120px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
             }}>
               <div style={{
-                fontSize: '2.5rem',
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
                 fontWeight: 'bold',
                 color: 'var(--accent-purple)',
-                marginBottom: '10px'
+                marginBottom: '8px'
               }}>5+</div>
               <p style={{ 
                 margin: 0, 
@@ -381,17 +395,21 @@ const Home = () => {
             
             <div style={{
               textAlign: 'center',
-              padding: '30px 20px',
+              padding: '25px 15px',
               background: 'rgba(var(--card-bg-rgb), 0.3)',
-              borderRadius: '20px',
+              borderRadius: '15px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(5px)'
+              backdropFilter: 'blur(5px)',
+              minHeight: '120px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
             }}>
               <div style={{
-                fontSize: '2.5rem',
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
                 fontWeight: 'bold',
                 color: '#FF6B6B',
-                marginBottom: '10px'
+                marginBottom: '8px'
               }}>100+</div>
               <p style={{ 
                 margin: 0, 
@@ -421,33 +439,187 @@ const Home = () => {
       {/* 3D Model Experience Section */}
       <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
         <div className="container">
-          <h2 className="section-title fade-in">Interactive 3D Experience</h2>
-          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
-            Explore our 3D modeling and visualization capabilities
-          </p>
-          <div className="fade-in" style={{ 
-            animationDelay: '0.2s',
-            maxWidth: '800px',
+          <h2 className="section-title fade-in" style={{ textAlign: 'center', marginBottom: '60px' }}>
+            Interactive 3D Experience
+          </h2>
+          
+          <div className="model-layout" style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '60px',
+            alignItems: 'center',
+            maxWidth: '1200px',
             margin: '0 auto'
           }}>
-            <Model3D 
-              modelPath="/krishna.glb"
-              containerStyle={{
-                height: '500px'
-              }}
-              showBorder={false}
-              enableRotation={false}
-            />
-            <p style={{ 
-              color: 'var(--text-secondary)', 
-              textAlign: 'center',
-              fontSize: '14px',
-              fontWeight: '300',
-              marginTop: '20px'
+            {/* 3D Model - Left Side */}
+            <div className="fade-in" style={{ 
+              animationDelay: '0.2s'
             }}>
-              Interactive 3D model showcasing our technical expertise in 3D graphics and web technologies
-            </p>
+              <Model3D 
+                modelPath="/krishna.glb"
+                containerStyle={{
+                  height: '500px',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
+                }}
+                showBorder={false}
+                enableRotation={true}
+              />
+            </div>
+            
+            {/* Text Content - Right Side */}
+            <div className="fade-in" style={{ 
+              animationDelay: '0.4s',
+              padding: '40px 0'
+            }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '12px',
+                background: 'rgba(var(--accent-green-rgb), 0.1)',
+                padding: '10px 20px',
+                borderRadius: '25px',
+                border: '1px solid rgba(var(--accent-green-rgb), 0.2)',
+                marginBottom: '30px'
+              }}>
+                <i className="fas fa-cube" style={{ 
+                  color: 'var(--accent-green)', 
+                  fontSize: '16px' 
+                }}></i>
+                <span style={{ 
+                  color: 'var(--accent-green)', 
+                  fontWeight: '600',
+                  fontSize: '12px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px'
+                }}>
+                  3D Visualization
+                </span>
+              </div>
+              
+              <h3 style={{
+                fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
+                fontWeight: '700',
+                color: 'var(--text-primary)',
+                marginBottom: '25px',
+                lineHeight: '1.3'
+              }}>
+                Immersive 3D Models &<br />
+                <span style={{ color: 'var(--accent-green)' }}>WebGL Experiences</span>
+              </h3>
+              
+              <p style={{ 
+                color: 'var(--text-secondary)', 
+                fontSize: '1.1rem',
+                lineHeight: '1.7',
+                marginBottom: '30px'
+              }}>
+                Experience cutting-edge 3D visualization technology powered by WebGL and Three.js. 
+                Our interactive models showcase detailed craftsmanship with smooth animations, 
+                realistic lighting, and responsive controls that work seamlessly across all devices.
+              </p>
+              
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '20px',
+                marginBottom: '35px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '40px',
+                    height: '40px',
+                    background: 'rgba(var(--accent-green-rgb), 0.1)',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <i className="fas fa-mouse-pointer" style={{ color: 'var(--accent-green)', fontSize: '16px' }}></i>
+                  </div>
+                  <div>
+                    <h4 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '14px', fontWeight: '600' }}>
+                      Interactive Controls
+                    </h4>
+                    <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '12px' }}>
+                      Drag to rotate
+                    </p>
+                  </div>
+                </div>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '40px',
+                    height: '40px',
+                    background: 'rgba(var(--accent-purple-rgb), 0.1)',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <i className="fas fa-mobile-alt" style={{ color: 'var(--accent-purple)', fontSize: '16px' }}></i>
+                  </div>
+                  <div>
+                    <h4 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '14px', fontWeight: '600' }}>
+                      Mobile Ready
+                    </h4>
+                    <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '12px' }}>
+                      Touch optimized
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+                <button style={{
+                  background: 'var(--accent-green)',
+                  color: 'white',
+                  border: 'none',
+                  padding: '14px 24px',
+                  borderRadius: '12px',
+                  fontWeight: '600',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <i className="fas fa-play"></i>
+                  View More Models
+                </button>
+                
+                <button style={{
+                  background: 'transparent',
+                  color: 'var(--accent-green)',
+                  border: '2px solid var(--accent-green)',
+                  padding: '12px 24px',
+                  borderRadius: '12px',
+                  fontWeight: '600',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <i className="fas fa-info-circle"></i>
+                  Learn More
+                </button>
+              </div>
+            </div>
           </div>
+          
+          {/* Add responsive CSS */}
+          <style dangerouslySetInnerHTML={{__html: `
+            @media (max-width: 768px) {
+              .model-layout {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+              }
+            }
+          `}} />
         </div>
       </section>
     </div>

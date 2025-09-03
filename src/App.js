@@ -4,6 +4,7 @@ import { BlogProvider } from './context/BlogContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
@@ -35,6 +36,7 @@ function App() {
   return (
     <BlogProvider>
       <Router>
+        <ScrollToTop />
         <div className="App">
           <Navbar />
           <main className="main-content">
