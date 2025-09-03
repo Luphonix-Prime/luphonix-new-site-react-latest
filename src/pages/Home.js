@@ -192,18 +192,215 @@ const Home = () => {
       </section>
 
       {/* Languages Education Section */}
-      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
-        <div className="container">
-          <h2 className="section-title fade-in">Programming Languages & Technologies</h2>
-          <p className="section-subtitle fade-in" style={{ marginBottom: '80px' }}>
-            Discover the powerful technologies we use to build exceptional solutions
-          </p>
-          <div className="fade-in" style={{ animationDelay: '0.2s' }}>
-            <Carousel
-            slides={slides} // Use the imported slides data
-            autoRotate={true}
-            rotationInterval={4000}
-          />
+      <section className="section" style={{ 
+        backgroundColor: 'var(--secondary-bg)', 
+        padding: '120px 0',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Background Pattern */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 20% 80%, rgba(var(--accent-green-rgb), 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(var(--accent-purple-rgb), 0.05) 0%, transparent 50%)',
+          pointerEvents: 'none'
+        }}></div>
+        
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <div className="fade-in" style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '15px',
+              background: 'rgba(var(--accent-green-rgb), 0.1)',
+              padding: '12px 24px',
+              borderRadius: '30px',
+              border: '1px solid rgba(var(--accent-green-rgb), 0.2)',
+              marginBottom: '30px'
+            }}>
+              <i className="fas fa-code" style={{ 
+                color: 'var(--accent-green)', 
+                fontSize: '18px' 
+              }}></i>
+              <span style={{ 
+                color: 'var(--accent-green)', 
+                fontWeight: '600',
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>
+                Tech Stack
+              </span>
+            </div>
+            
+            <h2 className="section-title fade-in" style={{
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontWeight: '700',
+              background: 'linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 50%, var(--accent-purple) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              marginBottom: '25px',
+              lineHeight: '1.2'
+            }}>
+              Programming Languages &<br />
+              <span style={{ color: 'var(--accent-green)' }}>Technologies</span>
+            </h2>
+            
+            <p className="section-subtitle fade-in" style={{ 
+              fontSize: '1.2rem',
+              maxWidth: '700px',
+              margin: '0 auto',
+              color: 'var(--text-secondary)',
+              lineHeight: '1.6',
+              fontWeight: '300'
+            }}>
+              Discover the powerful technologies we use to build exceptional solutions and drive innovation
+            </p>
+          </div>
+
+          {/* Enhanced Carousel Container */}
+          <div className="fade-in" style={{ 
+            animationDelay: '0.2s',
+            position: 'relative'
+          }}>
+            {/* Decorative Elements */}
+            <div style={{
+              position: 'absolute',
+              top: '-20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '100px',
+              height: '4px',
+              background: 'linear-gradient(90deg, var(--accent-green), var(--accent-purple))',
+              borderRadius: '2px',
+              zIndex: 1
+            }}></div>
+            
+            <div style={{
+              background: 'rgba(var(--card-bg-rgb), 0.5)',
+              backdropFilter: 'blur(10px)',
+              borderRadius: '25px',
+              padding: '40px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              {/* Inner glow effect */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'linear-gradient(135deg, rgba(var(--accent-green-rgb), 0.02) 0%, rgba(var(--accent-purple-rgb), 0.02) 100%)',
+                borderRadius: '25px',
+                pointerEvents: 'none'
+              }}></div>
+              
+              <Carousel
+                slides={slides}
+                autoRotate={true}
+                rotationInterval={4000}
+              />
+            </div>
+            
+            {/* Bottom decorative line */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '3px',
+              background: 'var(--accent-green)',
+              borderRadius: '2px',
+              opacity: '0.7'
+            }}></div>
+          </div>
+
+          {/* Additional Tech Stats */}
+          <div className="fade-in" style={{
+            animationDelay: '0.4s',
+            marginTop: '80px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '30px',
+            maxWidth: '800px',
+            margin: '80px auto 0'
+          }}>
+            <div style={{
+              textAlign: 'center',
+              padding: '30px 20px',
+              background: 'rgba(var(--card-bg-rgb), 0.3)',
+              borderRadius: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(5px)'
+            }}>
+              <div style={{
+                fontSize: '2.5rem',
+                fontWeight: 'bold',
+                color: 'var(--accent-green)',
+                marginBottom: '10px'
+              }}>15+</div>
+              <p style={{ 
+                margin: 0, 
+                color: 'var(--text-secondary)',
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>Technologies</p>
+            </div>
+            
+            <div style={{
+              textAlign: 'center',
+              padding: '30px 20px',
+              background: 'rgba(var(--card-bg-rgb), 0.3)',
+              borderRadius: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(5px)'
+            }}>
+              <div style={{
+                fontSize: '2.5rem',
+                fontWeight: 'bold',
+                color: 'var(--accent-purple)',
+                marginBottom: '10px'
+              }}>5+</div>
+              <p style={{ 
+                margin: 0, 
+                color: 'var(--text-secondary)',
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>Years Experience</p>
+            </div>
+            
+            <div style={{
+              textAlign: 'center',
+              padding: '30px 20px',
+              background: 'rgba(var(--card-bg-rgb), 0.3)',
+              borderRadius: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(5px)'
+            }}>
+              <div style={{
+                fontSize: '2.5rem',
+                fontWeight: 'bold',
+                color: '#FF6B6B',
+                marginBottom: '10px'
+              }}>100+</div>
+              <p style={{ 
+                margin: 0, 
+                color: 'var(--text-secondary)',
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>Projects Delivered</p>
+            </div>
           </div>
         </div>
       </section>
@@ -216,7 +413,7 @@ const Home = () => {
             Visual showcase of our work and achievements
           </p>
           <div className="fade-in" style={{ animationDelay: '0.2s' }}>
-            <RollingGallery />
+            <RollingGallery autoplay={true} pauseOnHover={true} />
           </div>
         </div>
       </section>

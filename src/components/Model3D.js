@@ -86,10 +86,11 @@ const Model3D = ({ modelPath, containerStyle = {}, showBorder = true, enableRota
       if (!mouseRef.current.isDown || !modelRef.current) return;
 
       const deltaX = event.clientX - mouseRef.current.x;
-      const deltaY = event.clientY - mouseRef.current.y;
+      // Remove deltaY calculation as we don't need vertical rotation
 
+      // Only allow horizontal rotation (Y-axis)
       modelRef.current.rotation.y += deltaX * 0.01;
-      modelRef.current.rotation.x += deltaY * 0.01;
+      // Remove X-axis rotation to prevent top-bottom rotation
 
       mouseRef.current.x = event.clientX;
       mouseRef.current.y = event.clientY;
