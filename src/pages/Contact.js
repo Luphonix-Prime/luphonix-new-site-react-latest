@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Hyperspeed from '../components/Hyperspeed';
 import Model3D from '../components/Model3D';
+import VantaBirds from '../components/VantaBirds';
 import SEOHead from '../components/SEOHead';
 
 const Contact = () => {
@@ -441,6 +442,75 @@ const Contact = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* VantaBirds Text Background Section */}
+      <section className="section" style={{ padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
+        <VantaBirds
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1
+          }}
+          options={{
+            backgroundColor: 0x0a0a0a,
+            color1: 0x00d4aa,
+            color2: 0x8a2be2,
+            birdSize: 1.8,
+            speedLimit: 7.0,
+            separation: 38.00,
+            alignment: 32.00,
+            cohesion: 30.00
+          }}
+        >
+          <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+            <h2 style={{ 
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontWeight: '700',
+              color: 'white',
+              textShadow: '3px 3px 6px rgba(0,0,0,0.8)',
+              marginBottom: '30px',
+              background: 'linear-gradient(135deg, #ffffff 0%, #00d4aa 50%, #8a2be2 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              Experience Innovation
+            </h2>
+            <p style={{ 
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+              color: 'rgba(255,255,255,0.9)',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+              maxWidth: '700px',
+              margin: '0 auto',
+              lineHeight: '1.6'
+            }}>
+              Watch our digital ecosystem come to life with interactive birds that respond to your movements. 
+              This demonstrates our expertise in creating immersive web experiences using cutting-edge WebGL technology.
+            </p>
+            <div style={{ marginTop: '40px' }}>
+              <button style={{
+                background: 'rgba(0, 212, 170, 0.9)',
+                color: 'white',
+                border: 'none',
+                padding: '16px 32px',
+                borderRadius: '12px',
+                fontSize: '16px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                boxShadow: '0 8px 20px rgba(0, 212, 170, 0.3)',
+                transition: 'all 0.3s ease',
+                backdropFilter: 'blur(10px)'
+              }}>
+                <i className="fas fa-play" style={{ marginRight: '10px' }}></i>
+                Explore More Effects
+              </button>
+            </div>
+          </div>
+        </VantaBirds>
       </section>
       </div>
     </>

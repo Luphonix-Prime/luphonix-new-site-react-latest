@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CardSwap, { Card } from '../components/CardSwap';
 import Model3D from '../components/Model3D';
+import VantaBirds from '../components/VantaBirds';
 import { projects } from '../data/mockData';
 import SEOHead from '../components/SEOHead';
 
@@ -55,12 +56,34 @@ const Projects = () => {
       />
       <div className="projects-page">
       {/* Header Section */}
-      <section className="section">
-        <div className="container">
-          <h1 className="section-title fade-in">Our Projects</h1>
-          <p className="section-subtitle fade-in">
-            Showcasing our portfolio of innovative solutions and successful client collaborations
-          </p>
+      <section className="section" style={{ position: 'relative', height: '60vh', overflow: 'hidden' }}>
+        <VantaBirds
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1
+          }}
+          options={{
+            backgroundColor: 0x0a0a0a,
+            color1: 0x00d4aa,
+            color2: 0x8a2be2,
+            birdSize: 2.0,
+            speedLimit: 8.0,
+            separation: 40.00,
+            alignment: 35.00,
+            cohesion: 32.00
+          }}
+        />
+        <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', height: '100%' }}>
+          <div style={{ textAlign: 'center', width: '100%' }}>
+            <h1 className="section-title fade-in" style={{ color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Our Projects</h1>
+            <p className="section-subtitle fade-in" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Showcasing our portfolio of innovative solutions and successful client collaborations
+            </p>
+          </div>
         </div>
       </section>
 

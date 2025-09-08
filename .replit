@@ -5,7 +5,9 @@ run = "npm run start"
 channel = "stable-25_05"
 
 [deployment]
-run = ["sh", "-c", "npm run start"]
+run = ["npx", "serve", "-s", "build", "-l", "5000"]
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
 
 [[ports]]
 localPort = 3000
@@ -14,6 +16,10 @@ externalPort = 3000
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 5001
+externalPort = 3001
 
 [agent]
 expertMode = true
@@ -36,7 +42,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "BROWSER=none PORT=5000 npm start"
+args = "HOST=0.0.0.0 PORT=5000 FAST_REFRESH=true WDS_SOCKET_HOST=0.0.0.0 DANGEROUSLY_DISABLE_HOST_CHECK=true npm start"
 waitForPort = 5000
 
 [workflows.workflow.metadata]
