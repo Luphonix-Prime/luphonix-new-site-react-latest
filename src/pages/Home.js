@@ -7,6 +7,8 @@ import Carousel from '../components/Carousel';
 import Model3D from '../components/Model3D';
 import SEOHead from '../components/SEOHead';
 import '../components/BlogAnimations.css';
+import { RotatingText } from '../components/ui/RotatingText'; // Import RotatingText
+import { NeonLogo3D } from '../components/ui/NeonLogo3D'; // Import 3D Logo
 
 // Utility function for class merging (assuming it's needed for Carousel or other components)
 import { clsx } from "clsx";
@@ -62,22 +64,70 @@ const Home = () => {
       />
       <div className="home">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="container">
-          <div className="hero-content fade-in">
-            <h1 className="hero-title">
-              Digital Innovation That <span className="gradient-text">Drives Results</span>
-            </h1>
-            <p className="hero-subtitle">
-              We create cutting-edge digital experiences that transform businesses and captivate audiences.
-              From web development to AI solutions, we're your partner in digital transformation.
-            </p>
-            <Link to="/contact" className="cta-button">
-              Start Your Project
-              <i className="fas fa-arrow-right" style={{ marginLeft: '8px' }}></i>
-            </Link>
+      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: '1fr 1fr', 
+            gap: '60px', 
+            alignItems: 'center',
+            minHeight: '100vh',
+            padding: '80px 0'
+          }}>
+            {/* Left Content */}
+            <div className="hero-content fade-in">
+              <h1 className="hero-title">
+                Digital Innovation That <span className="gradient-text">Drives Results</span>
+              </h1>
+              <p className="hero-subtitle">
+                We create cutting-edge digital experiences that transform businesses and captivate audiences.
+                From web development to AI solutions, we're your partner in digital transformation.
+              </p>
+              {/* Added RotatingText component here */}
+              <RotatingText
+                texts={[
+                  "Innovative Web Solutions",
+                  "AI-Powered Development",
+                  "Stunning 3D Visualizations",
+                  "Seamless Mobile Apps"
+                ]}
+                className="hero-rotating-text"
+              />
+              <Link to="/contact" className="cta-button">
+                Start Your Project
+                <i className="fas fa-arrow-right" style={{ marginLeft: '8px' }}></i>
+              </Link>
+            </div>
+            
+            {/* Right Side - 3D Logo Animation */}
+            <div className="fade-in" style={{ 
+              animationDelay: '0.3s',
+              height: '600px',
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              background: 'rgba(0, 0, 0, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(0, 212, 170, 0.2)'
+            }}>
+              <NeonLogo3D />
+            </div>
           </div>
         </div>
+        
+        {/* Responsive CSS */}
+        <style dangerouslySetInnerHTML={{__html: `
+          @media (max-width: 768px) {
+            .hero .container > div {
+              grid-template-columns: 1fr !important;
+              gap: 40px !important;
+              text-align: center !important;
+            }
+            .hero .fade-in:last-child {
+              height: 400px !important;
+            }
+          }
+        `}} />
       </section>
 
       {/* Services Section */}
@@ -230,7 +280,7 @@ const Home = () => {
           background: 'radial-gradient(circle at 20% 80%, rgba(var(--accent-green-rgb), 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(var(--accent-purple-rgb), 0.05) 0%, transparent 50%)',
           pointerEvents: 'none'
         }}></div>
-        
+
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <div className="fade-in" style={{
@@ -257,7 +307,7 @@ const Home = () => {
                 Tech Stack
               </span>
             </div>
-            
+
             <h2 className="section-title fade-in" style={{
               fontSize: 'clamp(2rem, 4vw, 3.5rem)',
               fontWeight: '700',
@@ -271,7 +321,7 @@ const Home = () => {
               Programming Languages &<br />
               <span style={{ color: 'var(--accent-green)' }}>Technologies</span>
             </h2>
-            
+
             <p className="section-subtitle fade-in" style={{ 
               fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
               maxWidth: '700px',
@@ -286,15 +336,15 @@ const Home = () => {
           </div>
 
           {/* Enhanced Carousel Container */}
-          <div className="fade-in" style={{ 
+          <div className="fade-in" style={{
             animationDelay: '0.2s',
             position: 'relative',
-            margin: '40px 0'
+            margin: '60px 0 80px 0'
           }}>
             {/* Decorative Elements */}
             <div style={{
               position: 'absolute',
-              top: '-20px',
+              top: '-30px',
               left: '50%',
               transform: 'translateX(-50%)',
               width: '100px',
@@ -303,17 +353,17 @@ const Home = () => {
               borderRadius: '2px',
               zIndex: 1
             }}></div>
-            
+
             <div style={{
               background: 'rgba(var(--card-bg-rgb), 0.5)',
               backdropFilter: 'blur(10px)',
               borderRadius: '25px',
-              padding: '30px 20px',
+              padding: '40px 20px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
               position: 'relative',
               overflow: 'hidden',
-              margin: '20px auto',
+              margin: '30px auto',
               maxWidth: '100%'
             }}>
               {/* Inner glow effect */}
@@ -327,14 +377,14 @@ const Home = () => {
                 borderRadius: '25px',
                 pointerEvents: 'none'
               }}></div>
-              
+
               <Carousel
                 slides={slides}
                 autoRotate={true}
                 rotationInterval={4000}
               />
             </div>
-            
+
             {/* Bottom decorative line */}
             <div style={{
               position: 'absolute',
@@ -371,7 +421,7 @@ const Home = () => {
           <h2 className="section-title fade-in" style={{ textAlign: 'center', marginBottom: '60px' }}>
             Interactive 3D Experience
           </h2>
-          
+
           <div className="model-layout" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
@@ -396,7 +446,7 @@ const Home = () => {
                 enableRotation={true}
               />
             </div>
-            
+
             {/* Text Content - Right Side */}
             <div className="fade-in" style={{ 
               animationDelay: '0.4s',
@@ -426,7 +476,7 @@ const Home = () => {
                   3D Visualization
                 </span>
               </div>
-              
+
               <h3 style={{
                 fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
                 fontWeight: '700',
@@ -437,7 +487,7 @@ const Home = () => {
                 Immersive 3D Models &<br />
                 <span style={{ color: 'var(--accent-green)' }}>WebGL Experiences</span>
               </h3>
-              
+
               <p style={{ 
                 color: 'var(--text-secondary)', 
                 fontSize: '1.1rem',
@@ -448,7 +498,7 @@ const Home = () => {
                 Our interactive models showcase detailed craftsmanship with smooth animations, 
                 realistic lighting, and responsive controls that work seamlessly across all devices.
               </p>
-              
+
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
@@ -476,7 +526,7 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div style={{
                     width: '40px',
@@ -499,7 +549,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
                 <button style={{
                   background: 'var(--accent-green)',
@@ -518,7 +568,7 @@ const Home = () => {
                   <i className="fas fa-play"></i>
                   View More Models
                 </button>
-                
+
                 <button style={{
                   background: 'transparent',
                   color: 'var(--accent-green)',
@@ -539,7 +589,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Add responsive CSS */}
           <style dangerouslySetInnerHTML={{__html: `
             @media (max-width: 768px) {

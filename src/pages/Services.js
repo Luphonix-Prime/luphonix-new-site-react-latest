@@ -6,6 +6,7 @@ import SEOHead from '../components/SEOHead';
 import ElectricBorder from '../components/ElectricBorder';
 import LogoLoop from '../components/LogoLoop';
 import { ChromaGrid } from '../components/ChromaGrid';
+import { RotatingText } from '../components/ui/RotatingText';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
 
 const Services = () => {
@@ -66,7 +67,7 @@ const Services = () => {
     },
     {
       id: 2,
-      title: "Mobile App Development", 
+      title: "Mobile App Development",
       description: "Native and cross-platform mobile applications for iOS and Android platforms.",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
       icon: "fas fa-mobile-alt",
@@ -95,14 +96,14 @@ const Services = () => {
       />
       <div className="services-page">
       {/* Hero Section with Vanta Background */}
-      <section className="section" style={{ 
-        position: 'relative', 
+      <section className="section" style={{
+        position: 'relative',
         overflow: 'hidden',
         height: '400px',
         zIndex: 1
       }}>
         {/* Vanta Background */}
-        <div 
+        <div
           ref={vantaRef}
           style={{
             position: 'absolute',
@@ -114,24 +115,51 @@ const Services = () => {
             opacity: 0.7
           }}
         />
-        <div style={{ 
-          position: 'relative', 
+        <div style={{
+          position: 'relative',
           zIndex: 10,
           height: '100%',
           display: 'flex',
           alignItems: 'center'
         }}>
           <div className="container">
-            <h1 className="section-title fade-in" style={{ textAlign: 'left' }}>Our Services</h1>
-            <p className="section-subtitle fade-in" style={{ textAlign: 'left' }}>
-              Transforming ideas into digital reality with cutting-edge solutions
+            <div style={{ textAlign: 'center', width: '100%', position: 'relative', zIndex: 2 }}>
+            <h1 className="fade-in" style={{
+              color: 'white',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              fontWeight: '300',
+              marginBottom: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              gap: '15px'
+            }}>
+              Luphonix Delivers
+              <RotatingText
+                texts={["Excellence", "Innovation", "Quality", "Results", "Solutions"]}
+                mainClassName="px-4 py-2 bg-gradient-to-r from-blue-400 to-green-400 text-black rounded-lg overflow-hidden font-semibold"
+                staggerFrom="last"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-120%", opacity: 0 }}
+                staggerDuration={0.05}
+                splitLevelClassName="overflow-hidden"
+                transition={{ type: "spring", damping: 40, stiffness: 600 }}
+                rotationInterval={2800}
+              />
+            </h1>
+            <p className="section-subtitle fade-in" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Comprehensive digital solutions tailored to your business needs
             </p>
+          </div>
           </div>
         </div>
       </section>
 
       {/* Featured Services with Photos */}
-      <section className="section" style={{ 
+      <section className="section" style={{
         paddingTop: '60px',
         position: 'relative',
         zIndex: 5,
@@ -154,7 +182,7 @@ const Services = () => {
                 style={{ borderRadius: '20px' }}
                 className="fade-in"
               >
-                <div 
+                <div
                   style={{
                     animationDelay: `${index * 0.2}s`,
                     background: 'rgba(255, 255, 255, 0.05)',
@@ -303,7 +331,7 @@ const Services = () => {
                 image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3"
               },
               {
-                step: "02", 
+                step: "02",
                 title: "Design & Prototyping",
                 description: "Our design team creates intuitive user experiences through wireframing, visual design, and interactive prototyping. We focus on user-centered design principles while maintaining your brand identity and ensuring optimal usability across all devices.",
                 timeline: "2-3 weeks",
@@ -462,8 +490,8 @@ const Services = () => {
               maxWidth: '800px',
               margin: '0 auto'
             }}>
-              Throughout every phase, we maintain transparent communication with regular updates, milestone reviews, and 
-              feedback sessions. Our agile methodology ensures you're involved in the decision-making process while we 
+              Throughout every phase, we maintain transparent communication with regular updates, milestone reviews, and
+              feedback sessions. Our agile methodology ensures you're involved in the decision-making process while we
               handle the technical complexities.
             </p>
           </div>
@@ -476,7 +504,7 @@ const Services = () => {
           <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>All Services</h2>
 
           <div style={{ height: '1000px', position: 'relative' }} className="fade-in">
-            <ChromaGrid 
+            <ChromaGrid
               items={services.map((service, index) => ({
                 image: service.image || [
                   'https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=300&auto=format&fit=crop', // Web Development
@@ -519,12 +547,12 @@ const Services = () => {
           <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
             Interactive 3D modeling and visualization showcase
           </p>
-          <div className="fade-in" style={{ 
+          <div className="fade-in" style={{
             animationDelay: '0.2s',
             maxWidth: '800px',
             margin: '0 auto'
           }}>
-            <Model3D 
+            <Model3D
               modelPath="/ganpati.glb"
               containerStyle={{
                 height: '500px'
@@ -532,8 +560,8 @@ const Services = () => {
               showBorder={false}
               enableRotation={false}
             />
-            <p style={{ 
-              color: 'var(--text-secondary)', 
+            <p style={{
+              color: 'var(--text-secondary)',
               textAlign: 'center',
               fontSize: '14px',
               fontWeight: '300',
@@ -555,10 +583,10 @@ const Services = () => {
             Leveraging cutting-edge technologies to deliver exceptional digital solutions
           </p>
 
-          <div className="fade-in" style={{ 
+          <div className="fade-in" style={{
             animationDelay: '0.2s',
-            height: '120px', 
-            position: 'relative', 
+            height: '120px',
+            position: 'relative',
             overflow: 'hidden',
             display: 'flex',
             alignItems: 'center'
@@ -593,7 +621,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section" style={{ 
+      <section className="section" style={{
         background: 'linear-gradient(135deg, var(--accent-green) 0%, var(--accent-purple) 100%)',
         textAlign: 'center'
       }}>
@@ -617,7 +645,7 @@ const Services = () => {
             Let's discuss how we can help transform your ideas into reality
           </p>
 
-          <Link 
+          <Link
             to="/contact"
             className="fade-in"
             style={{

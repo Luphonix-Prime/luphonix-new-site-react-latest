@@ -1,11 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useBlog } from '../context/BlogContext';
 import Model3D from '../components/Model3D';
 import SEOHead from '../components/SEOHead';
-import HeroGeometric from '../components/HeroGeometric';
 import BackgroundPaths from '../components/BackgroundPaths';
+import SplineSceneBasic from '../components/SplineSceneBasic';
 import '../components/BlogAnimations.css';
 
 const Blog = () => {
@@ -75,13 +74,13 @@ const Blog = () => {
         structuredData={blogStructuredData}
       />
       <div className="blog-page">
-      {/* Header Section with Animated Background */}
-      <HeroGeometric 
-        badge="Blog & Insights"
-        title1="Stay Updated with"
-        title2="Latest Tech Trends"
-      />
-      
+      {/* Header Section with 3D Spline Scene */}
+      <section className="section" style={{ padding: '80px 0', position: 'relative' }}>
+        <div className="container">
+          <SplineSceneBasic />
+        </div>
+      </section>
+
       {/* Admin Button Section */}
       {isAdmin && (
         <section className="section" style={{ paddingTop: '20px', paddingBottom: 0 }}>
