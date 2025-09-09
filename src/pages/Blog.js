@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useBlog } from '../context/BlogContext';
 import Model3D from '../components/Model3D';
 import SEOHead from '../components/SEOHead';
+import HeroGeometric from '../components/HeroGeometric';
+import BackgroundPaths from '../components/BackgroundPaths';
 import '../components/BlogAnimations.css';
 
 const Blog = () => {
@@ -73,17 +75,18 @@ const Blog = () => {
         structuredData={blogStructuredData}
       />
       <div className="blog-page">
-      {/* Header Section */}
-      <section className="section">
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-            <div>
-              <h1 className="section-title fade-in" style={{ textAlign: 'left', marginBottom: '10px' }}>Blog & Insights</h1>
-              <p className="section-subtitle fade-in" style={{ textAlign: 'left' }}>
-                Stay updated with the latest trends, tutorials, and insights from the world of technology
-              </p>
-            </div>
-            {isAdmin && (
+      {/* Header Section with Animated Background */}
+      <HeroGeometric 
+        badge="Blog & Insights"
+        title1="Stay Updated with"
+        title2="Latest Tech Trends"
+      />
+      
+      {/* Admin Button Section */}
+      {isAdmin && (
+        <section className="section" style={{ paddingTop: '20px', paddingBottom: 0 }}>
+          <div className="container">
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
               <Link 
                 to="/blog/admin" 
                 className="cta-button"
@@ -92,13 +95,13 @@ const Blog = () => {
                 <i className="fas fa-cog" style={{ marginRight: '8px' }}></i>
                 Admin Panel
               </Link>
-            )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Search and Filter Section */}
-      <section className="section" style={{ paddingTop: 0, paddingBottom: '60px' }}>
+      <section className="section" style={{ paddingTop: '80px', paddingBottom: '60px', position: 'relative', zIndex: 10 }}>
         <div className="container">
           <div style={{ 
             display: 'flex', 
@@ -158,15 +161,6 @@ const Blog = () => {
                 </button>
               ))}
             </div>
-          </div>
-
-          {/* Floating Particles Background */}
-          <div className="floating-particles">
-            <div className="particle"></div>
-            <div className="particle"></div>
-            <div className="particle"></div>
-            <div className="particle"></div>
-            <div className="particle"></div>
           </div>
 
           {/* Animated Blog Grid */}
@@ -268,6 +262,21 @@ const Blog = () => {
             </div>
           )}
         </div>
+      </section>
+
+      {/* Animated Background Paths Section */}
+      <section style={{ margin: '80px 0', padding: '0 20px' }}>
+        <BackgroundPaths 
+          title="Explore Our Insights"
+          subtitle="Dive deeper into the world of technology and innovation with our curated content"
+          showButton={false}
+          containerStyle={{ 
+            minHeight: '60vh',
+            borderRadius: '20px',
+            background: 'var(--secondary-bg)',
+            overflow: 'hidden'
+          }}
+        />
       </section>
 
       {/* 3D Model Experience Section */}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CardSwap, { Card } from '../components/CardSwap';
 import Model3D from '../components/Model3D';
-import VantaBirds from '../components/VantaBirds';
+import { WavyBackground } from '../components/WavyBackground';
 import { projects } from '../data/mockData';
 import SEOHead from '../components/SEOHead';
 
@@ -57,26 +57,17 @@ const Projects = () => {
       <div className="projects-page">
       {/* Header Section */}
       <section className="section" style={{ position: 'relative', height: '60vh', overflow: 'hidden' }}>
-        <VantaBirds
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 1
-          }}
-          options={{
-            backgroundColor: 0x0a0a0a,
-            color1: 0x00d4aa,
-            color2: 0x8a2be2,
-            birdSize: 2.0,
-            speedLimit: 8.0,
-            separation: 40.00,
-            alignment: 35.00,
-            cohesion: 32.00
-          }}
-        />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+          <WavyBackground
+            containerClassName=""
+            style={{ width: '100%', height: '100%' }}
+            waveWidth={30}
+            backgroundFill="#0a0a0a"
+            blur={10}
+            speed="fast"
+            waveOpacity={0.4}
+          />
+        </div>
         <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', height: '100%' }}>
           <div style={{ textAlign: 'center', width: '100%' }}>
             <h1 className="section-title fade-in" style={{ color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Our Projects</h1>
