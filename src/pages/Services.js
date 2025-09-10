@@ -7,7 +7,194 @@ import ElectricBorder from '../components/ElectricBorder';
 import LogoLoop from '../components/LogoLoop';
 import { ChromaGrid } from '../components/ChromaGrid';
 import { RotatingText } from '../components/ui/RotatingText';
+
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
+
+// Interactive Process Steps Component
+const ProcessStepsSection = () => {
+  const [activeStep, setActiveStep] = React.useState(0); // Start from first step
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  // Auto-cycle through steps every 2 seconds when not hovered
+  React.useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setActiveStep((prev) => (prev + 1) % 4); // Cycle through 0-3
+      }, 2000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isHovered]);
+
+  const processSteps = [
+    {
+      step: 1,
+      title: "Discovery & Strategy",
+      content: "We begin by conducting comprehensive research to understand your business objectives, target audience, and requirements. This discovery phase includes stakeholder interviews, requirement gathering, and strategic planning to ensure we deliver the right solution.",
+      image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=800&auto=format&fit=crop",
+      alt: "Discovery & Strategy Process"
+    },
+    {
+      step: 2,
+      title: "Design & Prototyping",
+      content: "Our design team creates wireframes and high-fidelity prototypes focused on user experience, design, and interactive prototyping. We focus on user-centered design principles while maintaining your brand identity and ensuring optimal usability across all platforms.",
+      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop",
+      alt: "Design & Prototyping Process"
+    },
+    {
+      step: 3,
+      title: "Development & Integration",
+      content: "Using modern technologies and best practices, we build scalable, secure, and performance-optimized solutions. Our development process includes regular code reviews, automated testing, and continuous integration to ensure quality at every step.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      alt: "Development & Integration Process"
+    },
+    {
+      step: 4,
+      title: "Launch & Optimization",
+      content: "We handle the complete deployment process with comprehensive testing and performance monitoring. Post-launch, we provide ongoing support, analytics implementation, and continuous optimization based on user feedback and performance metrics.",
+      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=800&auto=format&fit=crop",
+      alt: "Launch & Optimization Process"
+    }
+  ];
+
+  const currentStep = processSteps[activeStep];
+
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '60px',
+      alignItems: 'center',
+      marginBottom: '80px'
+    }}>
+      {/* Text Content - Left Side */}
+      <div>
+        <div style={{
+          display: 'grid',
+          gap: '40px'
+        }}>
+          {processSteps.map((step, index) => (
+            <div
+              key={step.step}
+              onMouseEnter={() => {
+                setIsHovered(true);
+                setActiveStep(index);
+              }}
+              onMouseLeave={() => setIsHovered(false)}
+              style={{
+                padding: '30px',
+                background: activeStep === index
+                  ? 'rgba(0, 212, 170, 0.1)'
+                  : 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '15px',
+                border: activeStep === index
+                  ? '2px solid var(--accent-green)'
+                  : '1px solid rgba(255, 255, 255, 0.1)',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                transform: activeStep === index ? 'translateX(10px)' : 'translateX(0)'
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '15px',
+                marginBottom: '15px'
+              }}>
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  background: 'var(--accent-green)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--primary-bg)',
+                  fontWeight: '600'
+                }}>
+                  {step.step}
+                </div>
+                <h3 style={{
+                  fontSize: '20px',
+                  fontWeight: '600',
+                  color: activeStep === index ? 'var(--accent-green)' : 'var(--text-primary)',
+                  margin: 0,
+                  transition: 'color 0.3s ease'
+                }}>
+                  {step.title}
+                </h3>
+              </div>
+              <p style={{
+                color: 'var(--text-secondary)',
+                lineHeight: '1.6',
+                margin: 0
+              }}>
+                {step.content}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Image Content - Right Side */}
+      <div style={{
+        position: 'relative',
+        height: '600px',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)'
+      }}>
+        <img
+          src={currentStep.image}
+          alt={currentStep.alt}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: '0.8',
+            transition: 'all 0.5s ease'
+          }}
+        />
+        <div style={{
+          position: 'absolute',
+          bottom: '0',
+          left: '0',
+          right: '0',
+          height: '60%',
+          background: 'linear-gradient(to top, var(--primary-bg), rgba(0,0,0,0.5), transparent)'
+        }} />
+
+        {/* Overlay Content */}
+        <div style={{
+          position: 'absolute',
+          bottom: '30px',
+          left: '30px',
+          right: '30px',
+          color: 'white',
+          transition: 'all 0.3s ease'
+        }}>
+          <h4 style={{
+            fontSize: '24px',
+            fontWeight: '600',
+            marginBottom: '15px',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+          }}>
+            {currentStep.title}
+          </h4>
+          <p style={{
+            fontSize: '16px',
+            lineHeight: '1.5',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+            margin: 0
+          }}>
+            {currentStep.content}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Services = () => {
   const vantaRef = useRef(null);
@@ -17,7 +204,7 @@ const Services = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Digital Innovation Services | Web Development, AI, 3D Visualization",
-    "description": "Comprehensive digital innovation services including web development, mobile apps, AI/ML solutions, 3D visualization, cloud infrastructure, and more.",
+    "description": "Comprehensive digital innovation services including web development, mobile app development, AI/ML solutions, 3D visualization, cloud infrastructure, API development, and cybersecurity services.",
     "url": "https://luphonix.com/services"
   };
 
@@ -38,20 +225,51 @@ const Services = () => {
       });
     }
 
-    // Add fade-in animation on scroll
+    // Enhanced scroll animation observer for all fade-in elements
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animated');
         }
       });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
     });
 
+    // Special observer for process step cards with enhanced animations
+    const processObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Add staggered animation delay
+          setTimeout(() => {
+            entry.target.classList.add('animate-in');
+
+            // Add alternating slide animation based on index
+            const cardIndex = parseInt(entry.target.dataset.index);
+            if (cardIndex % 2 === 0) {
+              entry.target.style.animation = `slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
+            } else {
+              entry.target.style.animation = `slideInFromRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
+            }
+          }, index * 200); // 200ms delay between each card
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe all fade-in elements
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Observe process step cards
+    document.querySelectorAll('.process-step-card').forEach(el => processObserver.observe(el));
 
     return () => {
       if (vantaEffect.current) vantaEffect.current.destroy();
       observer.disconnect();
+      processObserver.disconnect();
     };
   }, []);
 
@@ -59,31 +277,72 @@ const Services = () => {
     {
       id: 1,
       title: "Web Development",
-      description: "Custom websites and web applications built with modern technologies and best practices.",
+      description: "Enterprise-grade web applications with cutting-edge technologies, scalable architecture, and exceptional performance optimization.",
+      detailedDescription: "At Luphonix, we craft digital experiences that drive business growth. Our web development services encompass everything from simple landing pages to complex enterprise applications, e-commerce platforms, and progressive web apps.",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=3874&auto=format&fit=crop&ixlib=rb-4.0.3",
       icon: "fas fa-code",
-      technologies: ["React", "Node.js", "Python", "PostgreSQL"],
+      technologies: ["React", "Next.js", "Node.js", "Python", "PostgreSQL", "MongoDB", "AWS", "Docker"],
+      features: [
+        "Custom Web Applications",
+        "E-commerce Solutions",
+        "Progressive Web Apps (PWAs)",
+        "API Development & Integration",
+        "Database Design & Optimization",
+        "Cloud Deployment & DevOps",
+        "Performance Optimization",
+        "SEO & Analytics Integration"
+      ],
+      
+      deliveryTime: "4-12 weeks",
       color: "var(--accent-green)"
     },
     {
       id: 2,
       title: "Mobile App Development",
-      description: "Native and cross-platform mobile applications for iOS and Android platforms.",
+      description: "Native and cross-platform mobile solutions with seamless user experiences and robust backend integration.",
+      detailedDescription: "Transform your ideas into powerful mobile applications. We develop iOS and Android apps using cutting-edge frameworks, ensuring optimal performance, intuitive UI/UX, and seamless integration with your existing systems.",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
       icon: "fas fa-mobile-alt",
-      technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
+      technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "AWS Amplify", "Redux", "GraphQL"],
+      features: [
+        "iOS & Android Development",
+        "Cross-Platform Solutions",
+        "Real-time Synchronization",
+        "Push Notifications",
+        "In-App Purchases",
+        "Social Media Integration",
+        "Offline Functionality",
+        "App Store Optimization"
+      ],
+      
+      deliveryTime: "8-16 weeks",
       color: "var(--accent-purple)"
     },
     {
       id: 3,
       title: "UI/UX Design",
-      description: "User-centered design solutions that create engaging and intuitive digital experiences.",
+      description: "Data-driven design solutions that convert visitors into customers through exceptional user experiences.",
+      detailedDescription: "Our design philosophy centers on user-first thinking. We create intuitive, accessible, and visually stunning interfaces that not only look great but also drive conversions and enhance user satisfaction.",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=3764&auto=format&fit=crop&ixlib=rb-4.0.3",
       icon: "fas fa-paint-brush",
-      technologies: ["Figma", "Adobe XD", "Sketch", "Prototyping"],
+      technologies: ["Figma", "Adobe XD", "Sketch", "Framer", "Principle", "InVision", "Miro", "Hotjar"],
+      features: [
+        "User Research & Analysis",
+        "Wireframing & Prototyping",
+        "Visual Design Systems",
+        "Usability Testing",
+        "Accessibility Compliance",
+        "Brand Identity Design",
+        "Design System Creation",
+        "Conversion Optimization"
+      ],
+      
+      deliveryTime: "3-8 weeks",
       color: "#FF6B6B"
     }
   ];
+
+  
 
   return (
     <>
@@ -308,200 +567,349 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Process Section with Visual Steps */}
-      <section className="section" style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', padding: '120px 0' }}>
-        <div className="container">
-          <h2 className="section-title fade-in" style={{ marginBottom: '20px', textAlign: 'left' }}>Our Process</h2>
-          <p className="section-subtitle fade-in" style={{ marginBottom: '80px', textAlign: 'left', maxWidth: '600px' }}>
-            From concept to completion, we follow a proven methodology that ensures your project succeeds at every stage
-          </p>
+      {/* Our Process Section */}
+        <section style={{ marginTop: '120px' }} className="fade-in">
+          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+            <h2 style={{
+              fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
+              fontWeight: '700',
+              textAlign: 'center',
+              marginBottom: '80px',
+              color: 'var(--text-primary)'
+            }}>
+              Our Process
+            </h2>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '40px'
-          }}>
-            {[
-              {
-                step: "01",
-                title: "Discovery & Strategy",
-                description: "We begin by conducting comprehensive research to understand your business objectives, target audience, and competitive landscape. This phase includes stakeholder interviews, requirements gathering, and strategic planning to ensure we're building the right solution.",
-                timeline: "1-2 weeks",
-                deliverables: ["Project roadmap", "Technical requirements", "User personas", "Competitive analysis"],
-                image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3"
-              },
-              {
-                step: "02",
-                title: "Design & Prototyping",
-                description: "Our design team creates intuitive user experiences through wireframing, visual design, and interactive prototyping. We focus on user-centered design principles while maintaining your brand identity and ensuring optimal usability across all devices.",
-                timeline: "2-3 weeks",
-                deliverables: ["Wireframes", "Visual designs", "Interactive prototypes", "Design system"],
-                image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3"
-              },
-              {
-                step: "03",
-                title: "Development & Integration",
-                description: "Using modern technologies and best practices, we build scalable, secure, and performance-optimized solutions. Our development process includes regular code reviews, automated testing, and continuous integration to ensure quality at every step.",
-                timeline: "4-8 weeks",
-                deliverables: ["Clean, documented code", "API integrations", "Database architecture", "Quality assurance testing"],
-                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3"
-              },
-              {
-                step: "04",
-                title: "Launch & Optimization",
-                description: "We handle the complete deployment process, from server setup to performance monitoring. Post-launch, we provide ongoing support, analytics implementation, and continuous optimization based on user feedback and performance metrics.",
-                timeline: "1-2 weeks + ongoing",
-                deliverables: ["Live deployment", "Performance monitoring", "Analytics setup", "Maintenance documentation"],
-                image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=3874&auto=format&fit=crop&ixlib=rb-4.0.3"
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="fade-in"
-                style={{
-                  animationDelay: `${index * 0.15}s`,
-                  position: 'relative',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  padding: '40px 30px',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  textAlign: 'left'
-                }}
-              >
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: '25px'
-                }}>
+            <ProcessStepsSection />
+          </div>
+        </section>
+
+      {/* Detailed Service Information */}
+      <section className="section" style={{ padding: '120px 0', backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
+        <div className="container">
+          <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>Complete Service Portfolio</h2>
+          
+          {featuredServices.map((service, index) => (
+            <div key={service.id} className="fade-in" style={{
+              marginBottom: '100px',
+              animationDelay: `${index * 0.2}s`
+            }}>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: index % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
+                gap: '60px',
+                alignItems: 'center'
+              }}>
+                {/* Content */}
+                <div style={{ order: index % 2 === 0 ? 1 : 2 }}>
                   <div style={{
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '50%',
-                    backgroundImage: `url(${item.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    position: 'relative',
-                    border: '3px solid var(--accent-green)',
-                    marginRight: '20px'
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '15px',
+                    marginBottom: '20px'
                   }}>
                     <div style={{
-                      position: 'absolute',
-                      top: '-10px',
-                      right: '-10px',
-                      width: '35px',
-                      height: '35px',
-                      background: 'var(--accent-green)',
-                      borderRadius: '50%',
+                      width: '60px',
+                      height: '60px',
+                      background: service.color,
+                      borderRadius: '15px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--primary-bg)',
-                      fontSize: '14px',
-                      fontWeight: '600'
+                      color: 'white',
+                      fontSize: '24px'
                     }}>
-                      {item.step}
+                      <i className={service.icon}></i>
                     </div>
-                  </div>
-                  <div>
                     <h3 style={{
-                      color: 'var(--text-primary)',
-                      fontSize: '22px',
+                      fontSize: '28px',
                       fontWeight: '600',
-                      marginBottom: '5px'
+                      color: 'var(--text-primary)',
+                      margin: 0
                     }}>
-                      {item.title}
+                      {service.title}
                     </h3>
-                    <div style={{
-                      background: 'var(--accent-green)',
-                      color: 'var(--primary-bg)',
-                      padding: '4px 12px',
-                      borderRadius: '15px',
-                      fontSize: '12px',
-                      fontWeight: '500',
-                      display: 'inline-block'
-                    }}>
-                      {item.timeline}
-                    </div>
                   </div>
-                </div>
 
-                <p style={{
-                  color: 'var(--text-secondary)',
-                  fontSize: '15px',
-                  lineHeight: '1.6',
-                  marginBottom: '25px'
-                }}>
-                  {item.description}
-                </p>
-
-                <div>
-                  <h4 style={{
-                    color: 'var(--text-primary)',
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    marginBottom: '15px'
+                  <p style={{
+                    fontSize: '18px',
+                    color: 'var(--text-secondary)',
+                    lineHeight: '1.6',
+                    marginBottom: '25px'
                   }}>
-                    Key Deliverables:
-                  </h4>
+                    {service.detailedDescription}
+                  </p>
+
+                  {/* Features Grid */}
                   <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '8px'
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: '12px',
+                    marginBottom: '30px'
                   }}>
-                    {item.deliverables.map((deliverable, idx) => (
+                    {service.features.map((feature, idx) => (
                       <div key={idx} style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '10px',
-                        fontSize: '13px',
+                        fontSize: '14px',
                         color: 'var(--text-secondary)'
                       }}>
-                        <i className="fas fa-check" style={{ color: 'var(--accent-green)', fontSize: '10px' }}></i>
-                        {deliverable}
+                        <i className="fas fa-check-circle" style={{ color: service.color, fontSize: '12px' }}></i>
+                        {feature}
                       </div>
                     ))}
                   </div>
+
+                  {/* Contact Information */}
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '15px',
+                    padding: '25px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    marginBottom: '20px'
+                  }}>
+                    <h4 style={{
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: 'var(--text-primary)',
+                      marginBottom: '15px'
+                    }}>
+                      Get Custom Quote
+                    </h4>
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '15px'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        fontSize: '14px',
+                        color: 'var(--text-secondary)'
+                      }}>
+                        <i className="fas fa-envelope" style={{ color: service.color, width: '16px' }}></i>
+                        <a href="mailto:contact@luphonix.com" style={{ color: service.color, textDecoration: 'none' }}>
+                          contact@luphonix.com
+                        </a>
+                      </div>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        fontSize: '14px',
+                        color: 'var(--text-secondary)'
+                      }}>
+                        <i className="fas fa-clock" style={{ color: service.color, width: '16px' }}></i>
+                        <span>Delivery: {service.deliveryTime}</span>
+                      </div>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        fontSize: '14px',
+                        color: 'var(--text-secondary)'
+                      }}>
+                        <i className="fas fa-comments" style={{ color: service.color, width: '16px' }}></i>
+                        <span>Free consultation & project estimation</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Technologies */}
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '8px',
+                    marginBottom: '25px'
+                  }}>
+                    {service.technologies.map(tech => (
+                      <span
+                        key={tech}
+                        style={{
+                          background: `${service.color}15`,
+                          color: service.color,
+                          padding: '6px 12px',
+                          borderRadius: '15px',
+                          fontSize: '12px',
+                          border: `1px solid ${service.color}30`
+                        }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link 
+                    to="/contact"
+                    style={{
+                      display: 'inline-block',
+                      background: service.color,
+                      color: 'white',
+                      border: 'none',
+                      padding: '15px 30px',
+                      borderRadius: '25px',
+                      fontSize: '16px',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      textDecoration: 'none',
+                      textAlign: 'center'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'scale(1.05)';
+                      e.target.style.boxShadow = `0 10px 25px ${service.color}40`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'scale(1)';
+                      e.target.style.boxShadow = 'none';
+                    }}
+                  >
+                    Contact Us for {service.title}
+                  </Link>
+                </div>
+
+                {/* Image */}
+                <div style={{ order: index % 2 === 0 ? 2 : 1 }}>
+                  <div style={{
+                    position: 'relative',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    height: '400px'
+                  }}>
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: `linear-gradient(135deg, ${service.color}20, transparent 70%)`
+                    }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Choose Luphonix */}
+      <section className="section" style={{ padding: '120px 0' }}>
+        <div className="container">
+          <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>Why Choose Luphonix</h2>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '40px'
+          }}>
+            {[
+              {
+                icon: "fas fa-award",
+                title: "Proven Expertise",
+                description: "5+ years of experience delivering cutting-edge digital solutions across industries",
+                stats: "200+ Projects Delivered"
+              },
+              {
+                icon: "fas fa-rocket",
+                title: "Agile Development",
+                description: "Fast, iterative development process with regular client feedback and quick pivots",
+                stats: "40% Faster Delivery"
+              },
+              {
+                icon: "fas fa-shield-alt",
+                title: "Quality Assurance",
+                description: "Rigorous testing protocols ensuring bug-free, secure, and scalable solutions",
+                stats: "99.9% Uptime Guarantee"
+              },
+              {
+                icon: "fas fa-headset",
+                title: "24/7 Support",
+                description: "Dedicated support team available around the clock for maintenance and updates",
+                stats: "<2 Hour Response Time"
+              },
+              {
+                icon: "fas fa-chart-line",
+                title: "ROI Focused",
+                description: "Every solution is designed to drive measurable business growth and revenue",
+                stats: "Average 3x ROI"
+              },
+              {
+                icon: "fas fa-users",
+                title: "Expert Team",
+                description: "Certified developers, designers, and consultants with specialized expertise",
+                stats: "15+ Team Members"
+              }
+            ].map((benefit, index) => (
+              <div key={index} className="fade-in" style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '20px',
+                padding: '40px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                textAlign: 'center',
+                transition: 'all 0.3s ease',
+                animationDelay: `${index * 0.1}s`
+              }}>
+                <div style={{
+                  width: '80px',
+                  height: '80px',
+                  background: 'linear-gradient(135deg, var(--accent-green), var(--accent-purple))',
+                  borderRadius: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 25px',
+                  fontSize: '32px',
+                  color: 'white'
+                }}>
+                  <i className={benefit.icon}></i>
+                </div>
+                <h3 style={{
+                  fontSize: '20px',
+                  fontWeight: '600',
+                  color: 'var(--text-primary)',
+                  marginBottom: '15px'
+                }}>
+                  {benefit.title}
+                </h3>
+                <p style={{
+                  color: 'var(--text-secondary)',
+                  lineHeight: '1.6',
+                  marginBottom: '20px'
+                }}>
+                  {benefit.description}
+                </p>
+                <div style={{
+                  background: 'var(--accent-green)',
+                  color: 'white',
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  display: 'inline-block'
+                }}>
+                  {benefit.stats}
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="fade-in" style={{
-            animationDelay: '0.8s',
-            textAlign: 'center',
-            marginTop: '80px',
-            padding: '40px',
-            background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(128, 90, 213, 0.1) 100%)',
-            borderRadius: '20px',
-            border: '1px solid rgba(0, 212, 170, 0.2)'
-          }}>
-            <h3 style={{
-              color: 'var(--text-primary)',
-              fontSize: '24px',
-              fontWeight: '600',
-              marginBottom: '15px'
-            }}>
-              Collaborative Approach
-            </h3>
-            <p style={{
-              color: 'var(--text-secondary)',
-              fontSize: '16px',
-              lineHeight: '1.6',
-              maxWidth: '800px',
-              margin: '0 auto'
-            }}>
-              Throughout every phase, we maintain transparent communication with regular updates, milestone reviews, and
-              feedback sessions. Our agile methodology ensures you're involved in the decision-making process while we
-              handle the technical complexities.
-            </p>
           </div>
         </div>
       </section>
 
       {/* All Services Grid with ChromaGrid */}
-      <section className="section" style={{ padding: '120px 0' }}>
+      <section className="section" style={{ padding: '120px 0', backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
         <div className="container">
-          <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>All Services</h2>
+          <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>Complete Service Catalog</h2>
 
           <div style={{ height: '1000px', position: 'relative' }} className="fade-in">
             <ChromaGrid
@@ -513,7 +921,7 @@ const Services = () => {
                   'https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=300&auto=format&fit=crop', // E-commerce
                   'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=300&auto=format&fit=crop', // AI/ML
                   'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=300&auto=format&fit=crop', // Blockchain
-                  'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=300&auto=format&fit=crop', // Cloud Solutions
+                  'https://images.unsplash.com/photo-1544197150-b990a580bb7a8?q=80&w=300&auto=format&fit=crop', // Cloud Solutions
                   'https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=300&auto=format&fit=crop', // DevOps
                   'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=300&auto=format&fit=crop', // Cybersecurity
                   'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=300&auto=format&fit=crop', // Digital Marketing

@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@splinetool/react-spline": "^4.1.0",
     "@splinetool/runtime": "^1.10.57",
     "@tabler/icons-react": "^3.34.1",
@@ -31,7 +33,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HOST=0.0.0.0 PORT=5000 DANGEROUSLY_DISABLE_HOST_CHECK=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
