@@ -7,6 +7,7 @@ import ElectricBorder from '../components/ElectricBorder';
 import LogoLoop from '../components/LogoLoop';
 import { ChromaGrid } from '../components/ChromaGrid';
 import { RotatingText } from '../components/ui/RotatingText';
+import Orb from '../components/Orb';
 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
 
@@ -197,8 +198,7 @@ const ProcessStepsSection = () => {
 };
 
 const Services = () => {
-  const vantaRef = useRef(null);
-  const vantaEffect = useRef(null);
+  
 
   const servicesStructuredData = {
     "@context": "https://schema.org",
@@ -209,21 +209,6 @@ const Services = () => {
   };
 
   useEffect(() => {
-    // Initialize Vanta Rings effect
-    if (vantaRef.current && window.VANTA) {
-      vantaEffect.current = window.VANTA.RINGS({
-        el: vantaRef.current,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        backgroundColor: 0x0a0a0a,
-        color: 0x00d4aa
-      });
-    }
 
     // Enhanced scroll animation observer for all fade-in elements
     const observer = new IntersectionObserver((entries) => {
@@ -267,7 +252,6 @@ const Services = () => {
     document.querySelectorAll('.process-step-card').forEach(el => processObserver.observe(el));
 
     return () => {
-      if (vantaEffect.current) vantaEffect.current.destroy();
       observer.disconnect();
       processObserver.disconnect();
     };
@@ -354,26 +338,29 @@ const Services = () => {
         structuredData={servicesStructuredData}
       />
       <div className="services-page">
-      {/* Hero Section with Vanta Background */}
+      {/* Hero Section with Orb Background */}
       <section className="section" style={{
         position: 'relative',
         overflow: 'hidden',
-        height: '400px',
+        height: '600px',
         zIndex: 1
       }}>
-        {/* Vanta Background */}
-        <div
-          ref={vantaRef}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '400px',
-            zIndex: 0,
-            opacity: 0.7
-          }}
-        />
+        {/* Orb Background */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '600px',
+          zIndex: 0
+        }}>
+          <Orb
+            hoverIntensity={0.5}
+            rotateOnHover={true}
+            hue={0}
+            forceHoverState={false}
+          />
+        </div>
         <div style={{
           position: 'relative',
           zIndex: 10,
