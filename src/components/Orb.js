@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec3 } from 'ogl';
 import './Orb.css';
@@ -25,8 +26,6 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
     uniform float hover;
     uniform float rot;
     uniform float hoverIntensity;
-    uniform float shapeType;
-    uniform float morphProgress;
     varying vec2 vUv;
 
     vec3 rgb2yiq(vec3 c) {
@@ -35,14 +34,14 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
       float q = dot(c, vec3(0.211, -0.523, 0.312));
       return vec3(y, i, q);
     }
-
+    
     vec3 yiq2rgb(vec3 c) {
       float r = c.x + 0.956 * c.y + 0.621 * c.z;
       float g = c.x - 0.272 * c.y - 0.647 * c.z;
       float b = c.x - 1.106 * c.y + 1.703 * c.z;
       return vec3(r, g, b);
     }
-
+    
     vec3 adjustHue(vec3 color, float hueDeg) {
       float hueRad = hueDeg * 3.14159265 / 180.0;
       vec3 yiq = rgb2yiq(color);
@@ -113,105 +112,32 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
       vec3 color1 = adjustHue(baseColor1, hue);
       vec3 color2 = adjustHue(baseColor2, hue);
       vec3 color3 = adjustHue(baseColor3, hue);
-
+      
       float ang = atan(uv.y, uv.x);
       float len = length(uv);
       float invLen = len > 0.0 ? 1.0 / len : 0.0;
-
+      
       float n0 = snoise3(vec3(uv * noiseScale, iTime * 0.5)) * 0.5 + 0.5;
       float r0 = mix(mix(innerRadius, 1.0, 0.4), mix(innerRadius, 1.0, 0.6), n0);
       float d0 = distance(uv, (r0 * invLen) * uv);
       float v0 = light1(1.0, 10.0, d0);
       v0 *= smoothstep(r0 * 1.05, r0, len);
       float cl = cos(ang + iTime * 2.0) * 0.5 + 0.5;
-
+      
       float a = iTime * -1.0;
       vec2 pos = vec2(cos(a), sin(a)) * r0;
       float d = distance(uv, pos);
       float v1 = light2(1.5, 5.0, d);
       v1 *= light1(1.0, 50.0, d0);
-
+      
       float v2 = smoothstep(1.0, mix(innerRadius, 1.0, n0 * 0.5), len);
       float v3 = smoothstep(innerRadius, mix(innerRadius, 1.0, 0.5), len);
-
+      
       vec3 col = mix(color1, color2, cl);
       col = mix(color3, col, v0);
       col = (col + v1) * v2 * v3;
       col = clamp(col, 0.0, 1.0);
-
-      // Enhanced shape morphing logic with more shapes
-      vec2 morphedUv = uv;
-      float shapeBlend = fract(shapeType);
-      int currentShape = int(floor(shapeType));
-      int nextShape = (currentShape + 1) % 4;
       
-      vec2 currentShapeUv = uv;
-      vec2 nextShapeUv = uv;
-      
-      // Current shape transformation
-      if (currentShape == 0) { // Circle
-        currentShapeUv = uv;
-      } else if (currentShape == 1) { // Square
-        currentShapeUv = sign(uv) * pow(abs(uv), vec2(0.5));
-      } else if (currentShape == 2) { // Triangle
-        float angle = atan(uv.y, uv.x);
-        float radius = length(uv);
-        float sides = 3.0;
-        float segmentAngle = 6.28318 / sides;
-        float segment = floor((angle + 3.14159) / segmentAngle);
-        float segmentCenter = segment * segmentAngle - 3.14159;
-        float triangleRadius = cos(3.14159 / sides) / cos(angle - segmentCenter);
-        currentShapeUv = uv * (triangleRadius / max(radius, 0.001));
-      } else if (currentShape == 3) { // Star
-        float angle = atan(uv.y, uv.x);
-        float radius = length(uv);
-        float starPoints = 5.0;
-        float outerRadius = 1.0;
-        float innerRadius = 0.4;
-        float segmentAngle = 6.28318 / (starPoints * 2.0);
-        float segment = floor((angle + 3.14159) / segmentAngle);
-        float isOuter = mod(segment, 2.0);
-        float targetRadius = mix(innerRadius, outerRadius, isOuter);
-        currentShapeUv = uv * (targetRadius / max(radius, 0.001));
-      }
-      
-      // Next shape transformation
-      if (nextShape == 0) { // Circle
-        nextShapeUv = uv;
-      } else if (nextShape == 1) { // Square
-        nextShapeUv = sign(uv) * pow(abs(uv), vec2(0.5));
-      } else if (nextShape == 2) { // Triangle
-        float angle = atan(uv.y, uv.x);
-        float radius = length(uv);
-        float sides = 3.0;
-        float segmentAngle = 6.28318 / sides;
-        float segment = floor((angle + 3.14159) / segmentAngle);
-        float segmentCenter = segment * segmentAngle - 3.14159;
-        float triangleRadius = cos(3.14159 / sides) / cos(angle - segmentCenter);
-        nextShapeUv = uv * (triangleRadius / max(radius, 0.001));
-      } else if (nextShape == 3) { // Star
-        float angle = atan(uv.y, uv.x);
-        float radius = length(uv);
-        float starPoints = 5.0;
-        float outerRadius = 1.0;
-        float innerRadius = 0.4;
-        float segmentAngle = 6.28318 / (starPoints * 2.0);
-        float segment = floor((angle + 3.14159) / segmentAngle);
-        float isOuter = mod(segment, 2.0);
-        float targetRadius = mix(innerRadius, outerRadius, isOuter);
-        nextShapeUv = uv * (targetRadius / max(radius, 0.001));
-      }
-      
-      // Blend between current and next shape
-      vec2 blendedShapeUv = mix(currentShapeUv, nextShapeUv, smoothstep(0.0, 1.0, shapeBlend));
-      
-      // Apply morphing progress with enhanced easing
-      float easedMorphProgress = smoothstep(0.0, 1.0, morphProgress);
-      easedMorphProgress = easedMorphProgress * easedMorphProgress * (3.0 - 2.0 * easedMorphProgress);
-      
-      uv = mix(uv, blendedShapeUv, easedMorphProgress);
-
-
       return extractAlpha(col);
     }
 
@@ -219,15 +145,15 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
       vec2 center = iResolution.xy * 0.5;
       float size = min(iResolution.x, iResolution.y);
       vec2 uv = (fragCoord - center) / size * 2.0;
-
+      
       float angle = rot;
       float s = sin(angle);
       float c = cos(angle);
       uv = vec2(c * uv.x - s * uv.y, s * uv.x + c * uv.y);
-
+      
       uv.x += hover * hoverIntensity * 0.1 * sin(uv.y * 10.0 + iTime);
       uv.y += hover * hoverIntensity * 0.1 * sin(uv.x * 10.0 + iTime);
-
+      
       return draw(uv);
     }
 
@@ -242,33 +168,38 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
     const container = ctnDom.current;
     if (!container) return;
 
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
-    const gl = renderer.gl;
-    gl.clearColor(0, 0, 0, 0);
-    container.appendChild(gl.canvas);
+    let renderer, gl, geometry, program, mesh;
 
-    const geometry = new Triangle(gl);
-    const program = new Program(gl, {
-      vertex: vert,
-      fragment: frag,
-      uniforms: {
-        iTime: { value: 0 },
-        iResolution: {
-          value: new Vec3(gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height)
-        },
-        hue: { value: hue },
-        hover: { value: 0 },
-        rot: { value: 0 },
-        hoverIntensity: { value: hoverIntensity },
-        shapeType: { value: 0 },
-        morphProgress: { value: 0 }
-      }
-    });
+    try {
+      renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
+      gl = renderer.gl;
+      gl.clearColor(0, 0, 0, 0);
+      container.appendChild(gl.canvas);
 
-    const mesh = new Mesh(gl, { geometry, program });
+      geometry = new Triangle(gl);
+      program = new Program(gl, {
+        vertex: vert,
+        fragment: frag,
+        uniforms: {
+          iTime: { value: 0 },
+          iResolution: {
+            value: new Vec3(gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height)
+          },
+          hue: { value: hue },
+          hover: { value: 0 },
+          rot: { value: 0 },
+          hoverIntensity: { value: hoverIntensity }
+        }
+      });
+
+      mesh = new Mesh(gl, { geometry, program });
+    } catch (error) {
+      console.error('WebGL initialization failed:', error);
+      return;
+    }
 
     function resize() {
-      if (!container) return;
+      if (!container || !renderer || !gl || !program) return;
       const dpr = window.devicePixelRatio || 1;
       const width = container.clientWidth;
       const height = container.clientHeight;
@@ -277,6 +208,7 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
       gl.canvas.style.height = height + 'px';
       program.uniforms.iResolution.value.set(gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height);
     }
+
     window.addEventListener('resize', resize);
     resize();
 
@@ -313,6 +245,8 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
 
     let rafId;
     const update = t => {
+      if (!program || !renderer || !mesh) return;
+      
       rafId = requestAnimationFrame(update);
       const dt = (t - lastTime) * 0.001;
       lastTime = t;
@@ -328,46 +262,24 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
       }
       program.uniforms.rot.value = currentRot;
 
-      // Enhanced shape morphing with automatic cycling
-      const morphSpeed = 0.02;
-      const shapeChangeInterval = 3000; // 3 seconds per shape
-      
-      // Calculate current shape based on time
-      const shapeIndex = Math.floor((t * 0.001 * 1000) / shapeChangeInterval) % 4;
-      const shapeCycle = (t * 0.001 * 1000) % shapeChangeInterval;
-      const morphCycleProgress = (shapeCycle / shapeChangeInterval);
-      
-      // Smooth transition between shapes
-      const targetShape = shapeIndex;
-      const currentShape = program.uniforms.shapeType.value;
-      
-      if (Math.abs(targetShape - currentShape) > 0.1) {
-        program.uniforms.shapeType.value += (targetShape - currentShape) * 0.05;
-      } else {
-        program.uniforms.shapeType.value = targetShape;
-      }
-      
-      // Enhanced morph progress with wave pattern
-      const baseMorphProgress = Math.sin(morphCycleProgress * Math.PI * 2) * 0.5 + 0.5;
-      const targetMorphProgress = effectiveHover > 0.5 ? 
-        Math.min(baseMorphProgress + 0.3, 1.0) : 
-        baseMorphProgress * 0.8;
-        
-      program.uniforms.morphProgress.value += (targetMorphProgress - program.uniforms.morphProgress.value) * morphSpeed;
-
       renderer.render({ scene: mesh });
     };
     rafId = requestAnimationFrame(update);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      if (rafId) cancelAnimationFrame(rafId);
       window.removeEventListener('resize', resize);
-      container.removeEventListener('mousemove', handleMouseMove);
-      container.removeEventListener('mouseleave', handleMouseLeave);
-      container.removeChild(gl.canvas);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+        if (gl && gl.canvas && container.contains(gl.canvas)) {
+          container.removeChild(gl.canvas);
+        }
+      }
+      if (gl) {
+        gl.getExtension('WEBGL_lose_context')?.loseContext();
+      }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
 
   return <div ref={ctnDom} className="orb-container" />;

@@ -797,7 +797,7 @@ body {
 .service-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, var(--accent-green), var(--accent-purple));
+    background: var(--gradient-primary);
     border-radius: var(--icon-radius);
     display: flex;
     align-items: center;
@@ -806,6 +806,95 @@ body {
     color: white;
     margin: 0 auto 30px;
     transition: all 0.6s ease;
+    border: 2px solid var(--accent-green);
+    box-shadow: 0 5px 15px rgba(var(--accent-green-rgb), 0.3);
+}
+
+/* Theme-responsive icons */
+.theme-responsive-icon {
+    background: var(--gradient-primary) !important;
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 4px 15px rgba(var(--accent-green-rgb), 0.3) !important;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Theme-specific icon shapes and effects */
+[data-theme="cyber-blue"] .theme-responsive-icon {
+    border-radius: 0 !important;
+    clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+    box-shadow: 
+        0 0 20px rgba(0, 212, 255, 0.4),
+        inset 0 0 20px rgba(0, 212, 255, 0.1) !important;
+}
+
+[data-theme="royal-purple"] .theme-responsive-icon {
+    border-radius: 50% !important;
+    transform: rotate(5deg);
+    box-shadow: 
+        0 8px 25px rgba(168, 85, 247, 0.4),
+        0 0 30px rgba(168, 85, 247, 0.2) !important;
+}
+
+[data-theme="sunset-orange"] .theme-responsive-icon {
+    border-radius: 15px 50px 30px 5px !important;
+    position: relative;
+    box-shadow: 
+        0 6px 20px rgba(255, 107, 53, 0.4),
+        inset 2px 2px 8px rgba(255, 107, 53, 0.2) !important;
+}
+
+[data-theme="sunset-orange"] .theme-responsive-icon::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: var(--gradient-secondary);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+[data-theme="matrix-red"] .theme-responsive-icon {
+    border-radius: 20px 0px 20px 0px !important;
+    box-shadow: 
+        inset 3px 3px 8px rgba(255, 68, 68, 0.3),
+        inset -3px -3px 8px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(255, 68, 68, 0.4) !important;
+}
+
+/* Hover effects for theme-responsive icons */
+.service-card:hover .theme-responsive-icon,
+.theme-responsive-icon:hover {
+    transform: rotateY(360deg) scale(1.1);
+    box-shadow: 0 8px 25px rgba(var(--accent-green-rgb), 0.5) !important;
+}
+
+[data-theme="royal-purple"] .service-card:hover .theme-responsive-icon,
+[data-theme="royal-purple"] .theme-responsive-icon:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+
+[data-theme="cyber-blue"] .service-card:hover .theme-responsive-icon,
+[data-theme="cyber-blue"] .theme-responsive-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 
+        0 0 30px rgba(0, 212, 255, 0.6),
+        inset 0 0 30px rgba(0, 212, 255, 0.2) !important;
+}
+
+[data-theme="matrix-red"] .service-card:hover .theme-responsive-icon,
+[data-theme="matrix-red"] .theme-responsive-icon:hover {
+    transform: scale(1.1);
+    animation: matrixIconFlicker 0.5s ease-in-out;
+}
+
+@keyframes matrixIconFlicker {
+    0%, 100% { opacity: 1; }
+    25% { opacity: 0.8; }
+    50% { opacity: 1; }
+    75% { opacity: 0.9; }
 }
 
 .service-card:hover .service-icon {

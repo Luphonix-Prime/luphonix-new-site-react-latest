@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { services } from '../data/mockData';
 import Model3D from '../components/Model3D';
@@ -8,6 +8,7 @@ import LogoLoop from '../components/LogoLoop';
 import { ChromaGrid } from '../components/ChromaGrid';
 import { RotatingText } from '../components/ui/RotatingText';
 import Orb from '../components/Orb';
+import WebGLErrorBoundary from '../components/WebGLErrorBoundary';
 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
 
@@ -198,7 +199,7 @@ const ProcessStepsSection = () => {
 };
 
 const Services = () => {
-  
+
 
   const servicesStructuredData = {
     "@context": "https://schema.org",
@@ -276,7 +277,7 @@ const Services = () => {
         "Performance Optimization",
         "SEO & Analytics Integration"
       ],
-      
+
       deliveryTime: "4-12 weeks",
       color: "var(--accent-green)"
     },
@@ -298,7 +299,7 @@ const Services = () => {
         "Offline Functionality",
         "App Store Optimization"
       ],
-      
+
       deliveryTime: "8-16 weeks",
       color: "var(--accent-purple)"
     },
@@ -320,13 +321,79 @@ const Services = () => {
         "Design System Creation",
         "Conversion Optimization"
       ],
-      
+
       deliveryTime: "3-8 weeks",
       color: "#FF6B6B"
+    },
+    {
+      id: 4,
+      title: "DevOps & Infrastructure",
+      description: "Streamlined development workflows with automated CI/CD pipelines and scalable cloud infrastructure management.",
+      detailedDescription: "We provide comprehensive DevOps solutions that streamline your development process, improve deployment reliability, and ensure scalable infrastructure management with modern containerization and automation tools.",
+      image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      icon: "fas fa-cogs",
+      technologies: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "AWS", "Terraform", "GitLab CI", "Ansible"],
+      features: [
+        "CI/CD Pipeline Setup",
+        "Container Orchestration",
+        "Infrastructure as Code",
+        "Cloud Migration",
+        "Automated Deployment",
+        "Monitoring & Logging",
+        "Security Integration",
+        "Performance Optimization"
+      ],
+
+      deliveryTime: "4-12 weeks",
+      color: "#4ECDC4"
+    },
+    {
+      id: 5,
+      title: "Content Management Systems",
+      description: "Powerful and intuitive content management solutions that empower your team to manage digital content effortlessly.",
+      detailedDescription: "We design and develop custom content management systems tailored to your specific needs, from traditional CMS platforms to modern headless architectures that provide flexibility and scalability for your digital content strategy.",
+      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=3874&auto=format&fit=crop&ixlib=rb-4.0.3",
+      icon: "fas fa-edit",
+      technologies: ["WordPress", "Strapi", "Contentful", "Sanity", "Ghost", "Drupal", "Craft CMS", "Prismic"],
+      features: [
+        "Custom CMS Development",
+        "WordPress Solutions",
+        "Headless CMS Integration",
+        "Content Migration",
+        "Multi-language Support",
+        "SEO Optimization",
+        "User Role Management",
+        "API-First Architecture"
+      ],
+
+      deliveryTime: "3-10 weeks",
+      color: "#FF9500"
+    },
+    {
+      id: 6,
+      title: "Consulting & Engagements",
+      description: "Strategic technology consulting and tailored engagement models to accelerate your digital transformation journey.",
+      detailedDescription: "Our expert consultants provide strategic guidance, technical assessments, and customized engagement models to help you navigate complex technology decisions and achieve sustainable digital growth.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      icon: "fas fa-handshake",
+      technologies: ["Strategy", "Architecture", "Assessment", "Planning", "Optimization", "Training", "Support", "Integration"],
+      features: [
+        "Technology Strategy Planning",
+        "Digital Transformation",
+        "Architecture Assessment",
+        "Team Training & Workshops",
+        "Code Reviews & Audits",
+        "Performance Optimization",
+        "Security Assessments",
+        "Ongoing Technical Support"
+      ],
+
+      deliveryTime: "2-24 weeks",
+      color: "#FFB84D"
     }
   ];
 
-  
+
 
   return (
     <>
@@ -354,12 +421,33 @@ const Services = () => {
           height: '600px',
           zIndex: 0
         }}>
-          <Orb
-            hoverIntensity={0.5}
-            rotateOnHover={true}
-            hue={0}
-            forceHoverState={false}
-          />
+          <WebGLErrorBoundary fallback={
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'var(--text-secondary)',
+              fontSize: '14px'
+            }}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '48px', marginBottom: '20px' }}>✨</div>
+                <div>Background effects temporarily unavailable</div>
+              </div>
+            </div>
+          }>
+            <Orb
+              hoverIntensity={0.5}
+              rotateOnHover={true}
+              hue={0}
+              forceHoverState={false}
+            />
+          </WebGLErrorBoundary>
         </div>
         <div style={{
           position: 'relative',
@@ -454,19 +542,23 @@ const Services = () => {
                   backgroundPosition: 'center',
                   position: 'relative'
                 }}>
+                  {/* Service Icon */}
                   <div style={{
-                    position: 'absolute',
-                    top: '20px',
-                    left: '20px',
-                    width: '60px',
-                    height: '60px',
-                    background: service.color,
-                    borderRadius: '15px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    fontSize: '24px'
+                      width: '60px',
+                      height: '60px',
+                      background: 'var(--gradient-primary)',
+                      borderRadius: 'var(--icon-radius)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'white',
+                      fontSize: '24px',
+                      border: '2px solid var(--accent-green)',
+                      boxShadow: '0 4px 15px rgba(var(--accent-green-rgb), 0.3)',
+                      transition: 'all 0.3s ease',
+                      position: 'absolute',
+                      top: '20px',
+                      left: '20px',
                   }}>
                     <i className={service.icon}></i>
                   </div>
@@ -535,13 +627,17 @@ const Services = () => {
                       fontWeight: '500',
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
-                      width: '100%'
+                      width: '100%',
+                      position: 'relative',
+                      overflow: 'hidden'
                     }}
                     onMouseEnter={(e) => {
                       e.target.style.transform = 'scale(1.05)';
+                      e.target.style.boxShadow = `0 8px 25px ${service.color}40`;
                     }}
                     onMouseLeave={(e) => {
                       e.target.style.transform = 'scale(1)';
+                      e.target.style.boxShadow = 'none';
                     }}
                   >
                     Learn More
@@ -575,7 +671,7 @@ const Services = () => {
       <section className="section" style={{ padding: '120px 0', backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
         <div className="container">
           <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>Complete Service Portfolio</h2>
-          
+
           {featuredServices.map((service, index) => (
             <div key={service.id} className="fade-in" style={{
               marginBottom: '100px',
@@ -595,17 +691,22 @@ const Services = () => {
                     gap: '15px',
                     marginBottom: '20px'
                   }}>
+                    {/* Service Icon */}
                     <div style={{
                       width: '60px',
                       height: '60px',
-                      background: service.color,
-                      borderRadius: '15px',
+                      background: 'var(--gradient-primary)',
+                      borderRadius: 'var(--icon-radius)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: 'white',
-                      fontSize: '24px'
-                    }}>
+                      fontSize: '24px',
+                      border: '2px solid var(--accent-green)',
+                      boxShadow: '0 4px 15px rgba(var(--accent-green-rgb), 0.3)',
+                      transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                    className="theme-responsive-icon">
                       <i className={service.icon}></i>
                     </div>
                     <h3 style={{
@@ -642,7 +743,7 @@ const Services = () => {
                         fontSize: '14px',
                         color: 'var(--text-secondary)'
                       }}>
-                        <i className="fas fa-check-circle" style={{ color: service.color, fontSize: '12px' }}></i>
+                        <i className="fas fa-check-circle" style={{ color: 'var(--accent-green)', fontSize: '12px' }}></i>
                         {feature}
                       </div>
                     ))}
@@ -728,7 +829,7 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <Link 
+                  <Link
                     to="/contact"
                     style={{
                       display: 'inline-block',
@@ -794,7 +895,7 @@ const Services = () => {
       <section className="section" style={{ padding: '120px 0' }}>
         <div className="container">
           <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>Why Choose Luphonix</h2>
-          
+
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
