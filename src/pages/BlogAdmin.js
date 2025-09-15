@@ -125,7 +125,7 @@ const BlogAdmin = () => {
                   </div>
                 </div>
                 <span style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>
-                  {post.author || 'Luphonix Team'}
+                  {(typeof post.author === 'object' ? post.author?.name : post.author) ?? 'Luphonix Team'}
                 </span>
                 <span style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>
                   {new Date(post.created_at).toLocaleDateString()}

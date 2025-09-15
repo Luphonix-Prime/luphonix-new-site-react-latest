@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Hyperspeed from '../components/Hyperspeed';
 import Model3D from '../components/Model3D';
@@ -56,7 +55,7 @@ const Contact = () => {
     try {
       // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -157,9 +156,48 @@ const Contact = () => {
                 Together
               </h1>
             </div>
-            <p className="section-subtitle fade-in" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Ready to start your project? Let's discuss how Luphonix can help bring your vision to life
-            </p>
+            <p style={{ 
+                fontSize: '1.2rem', 
+                color: 'var(--text-secondary)', 
+                marginBottom: '30px',
+                lineHeight: '1.6'
+              }}>
+                Let's discuss your project and turn your vision into reality. 
+                We're here to provide expert consultation and innovative solutions.
+              </p>
+
+              <div style={{ 
+                display: 'flex', 
+                gap: '20px', 
+                marginBottom: '40px',
+                flexWrap: 'wrap',
+                justifyContent: 'center'
+              }}>
+                <button className="cta-button" style={{
+                  fontSize: '16px',
+                  padding: '16px 32px',
+                  background: 'linear-gradient(135deg, var(--accent-green), #00a86b)',
+                  fontWeight: '600',
+                  boxShadow: '0 8px 25px rgba(0, 212, 170, 0.3)',
+                  border: 'none',
+                  cursor: 'pointer'
+                }} onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <i className="fas fa-paper-plane" style={{ marginRight: '10px' }}></i>
+                  Send Message Now
+                </button>
+                <button className="cta-button" style={{
+                  fontSize: '16px',
+                  padding: '16px 32px',
+                  background: 'transparent',
+                  border: '2px solid var(--accent-green)',
+                  color: 'var(--accent-green)',
+                  fontWeight: '600',
+                  cursor: 'pointer'
+                }} onClick={() => window.open('tel:+15551234567')}>
+                  <i className="fas fa-phone" style={{ marginRight: '10px' }}></i>
+                  Call Direct
+                </button>
+              </div>
           </div>
         </div>
       </section>
@@ -175,7 +213,7 @@ const Contact = () => {
             maxWidth: '1600px',
             margin: '0 auto'
           }}>
-            
+
             {/* Contact Info */}
             <div className="fade-in" style={{ padding: '40px 0' }}>
               <h2 style={{ 
@@ -186,7 +224,7 @@ const Contact = () => {
               }}>
                 Let's Work Together
               </h2>
-              
+
               <p style={{ 
                 color: 'var(--text-secondary)', 
                 lineHeight: '1.7',
@@ -315,7 +353,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="fade-in" style={{ padding: '40px 0' }}>
-              <form onSubmit={handleSubmit} className="contact-form" style={{ padding: '50px 40px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '30px', border: '1px solid rgba(0, 212, 170, 0.1)' }}>
+              <form onSubmit={handleSubmit} className="contact-form" id="contact-form" style={{ padding: '50px 40px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '30px', border: '1px solid rgba(0, 212, 170, 0.1)' }}>
                 <h3 style={{ 
                   color: 'var(--text-primary)', 
                   marginBottom: '30px',
@@ -472,7 +510,7 @@ const Contact = () => {
         </div>
       </section>
 
-      
+
       </div>
     </>
   );

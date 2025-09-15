@@ -134,9 +134,23 @@ export const blogPosts = [
     content: "The web development landscape continues to evolve at an unprecedented pace...",
     featured_image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     tags: ["Web Development", "Technology", "AI", "PWA"],
-    author: "Sarah Johnson",
+    author: {
+      name: "Dhyey K.",
+      title: "Full-Stack Developer at LUPHONIX",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
     created_at: "2024-01-15T10:00:00Z",
-    read_time: 8
+    read_time: 8,
+    is_featured: true,
+    is_trending: true,
+    category: "Web Dev",
+    summary_points: [
+      "AI integration transforming development workflows",
+      "Progressive Web Apps becoming mainstream",
+      "New frameworks revolutionizing frontend development"
+    ],
+    likes: 142,
+    meta_description: "Discover the latest web development trends for 2024 including AI integration, PWAs, and revolutionary frameworks shaping the future."
   },
   {
     id: 2,
@@ -145,10 +159,24 @@ export const blogPosts = [
     excerpt: "Learn how to architect and deploy microservices that can handle millions of requests while maintaining performance and reliability.",
     content: "Microservices architecture has become the gold standard for building scalable applications...",
     featured_image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Node.js", "Docker", "Microservices", "DevOps"],
-    author: "Michael Chen",
+    tags: ["Node.js", "Docker", "Microservices", "DevOps", "Cloud"],
+    author: {
+      name: "Arjun P.",
+      title: "DevOps Engineer at LUPHONIX",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
     created_at: "2024-01-10T14:30:00Z",
-    read_time: 12
+    read_time: 12,
+    is_featured: true,
+    is_trending: false,
+    category: "Web Dev",
+    summary_points: [
+      "Microservices architecture patterns and best practices",
+      "Docker containerization for scalable deployments",
+      "Performance optimization strategies for high-load systems"
+    ],
+    likes: 89,
+    meta_description: "Master microservices architecture with Node.js and Docker. Learn scalable deployment strategies for high-performance applications."
   },
   {
     id: 3,
@@ -157,10 +185,24 @@ export const blogPosts = [
     excerpt: "Discover how artificial intelligence is revolutionizing user experience design through personalization and predictive interfaces.",
     content: "The intersection of AI and UX design is creating unprecedented opportunities...",
     featured_image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["AI", "UX Design", "Machine Learning", "Personalization"],
-    author: "Emily Rodriguez",
+    tags: ["AI", "UX Design", "Machine Learning", "Personalization", "Design"],
+    author: {
+      name: "Priya S.",
+      title: "UI/UX Designer at LUPHONIX",
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b1c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
     created_at: "2024-01-05T09:15:00Z",
-    read_time: 6
+    read_time: 6,
+    is_featured: true,
+    is_trending: true,
+    category: "AI/ML",
+    summary_points: [
+      "Machine learning algorithms enhancing user personalization",
+      "Predictive interfaces improving user experience",
+      "AI-driven design tools revolutionizing workflows"
+    ],
+    likes: 156,
+    meta_description: "Explore how AI and machine learning are transforming UX design through personalization and predictive interfaces."
   },
   {
     id: 4,
@@ -169,10 +211,24 @@ export const blogPosts = [
     excerpt: "Explore practical blockchain implementations beyond digital currencies, including supply chain, healthcare, and identity management.",
     content: "While cryptocurrency brought blockchain into the mainstream, its applications extend far beyond...",
     featured_image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Blockchain", "Supply Chain", "Healthcare", "Identity"],
-    author: "David Park",
+    tags: ["Blockchain", "Supply Chain", "Healthcare", "Identity", "Security"],
+    author: {
+      name: "Rahul M.",
+      title: "Blockchain Developer at LUPHONIX",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
     created_at: "2024-01-01T16:45:00Z",
-    read_time: 10
+    read_time: 10,
+    is_featured: false,
+    is_trending: false,
+    category: "Blockchain",
+    summary_points: [
+      "Supply chain transparency using blockchain technology",
+      "Healthcare data security and patient privacy solutions",
+      "Decentralized identity management systems"
+    ],
+    likes: 67,
+    meta_description: "Discover real-world blockchain applications beyond cryptocurrency in supply chain, healthcare, and identity management."
   },
   {
     id: 5,
@@ -181,10 +237,24 @@ export const blogPosts = [
     excerpt: "Master the art of mobile-first design and development with these proven strategies for creating exceptional mobile experiences.",
     content: "With mobile traffic now accounting for over 60% of web usage, mobile-first development isn't just a trend...",
     featured_image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Mobile Development", "Responsive Design", "Performance", "UX"],
-    author: "Lisa Thompson",
+    tags: ["Mobile Development", "Responsive Design", "Performance", "UX", "Design"],
+    author: {
+      name: "Kavya R.",
+      title: "Mobile App Developer at LUPHONIX",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
     created_at: "2023-12-28T11:20:00Z",
-    read_time: 7
+    read_time: 7,
+    is_featured: false,
+    is_trending: true,
+    category: "Design",
+    summary_points: [
+      "Mobile-first responsive design principles",
+      "Performance optimization for mobile devices",
+      "Touch-friendly user interface patterns"
+    ],
+    likes: 203,
+    meta_description: "Learn mobile-first development best practices for 2024. Create exceptional mobile experiences with proven strategies."
   },
   {
     id: 6,
@@ -193,10 +263,24 @@ export const blogPosts = [
     excerpt: "Essential security practices and strategies for protecting cloud-based applications and data in an increasingly connected world.",
     content: "As businesses migrate to the cloud, cybersecurity challenges evolve and multiply...",
     featured_image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Cybersecurity", "Cloud Computing", "Data Protection", "Security"],
-    author: "Alex Kumar",
+    tags: ["Cybersecurity", "Cloud Computing", "Data Protection", "Security", "Cloud"],
+    author: {
+      name: "Nitin J.",
+      title: "Cybersecurity Specialist at LUPHONIX",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
     created_at: "2023-12-25T13:10:00Z",
-    read_time: 9
+    read_time: 9,
+    is_featured: false,
+    is_trending: false,
+    category: "Cybersecurity",
+    summary_points: [
+      "Cloud security frameworks and compliance standards",
+      "Zero-trust architecture implementation strategies",
+      "Advanced threat detection and response protocols"
+    ],
+    likes: 124,
+    meta_description: "Master cybersecurity in cloud computing environments. Learn essential security practices for cloud-based applications."
   }
 ];
 
@@ -849,9 +933,76 @@ export const slides = [
   }
 ];
 
+export const caseStudies = [
+  {
+    id: 1,
+    title: "NixKart E-commerce Platform: Scaling from 0 to 10K+ Users",
+    slug: "nixkart-ecommerce-scaling-case-study",
+    excerpt: "How we built and scaled a full-featured e-commerce platform that now serves over 10,000 active users with 99.9% uptime.",
+    featured_image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["eCommerce", "React", "Node.js", "MongoDB", "Case Study"],
+    client: "NixKart",
+    duration: "6 months",
+    team_size: "5 developers",
+    technologies: ["React.js", "Node.js", "MongoDB", "Stripe", "AWS"],
+    challenges: ["Scalability", "Payment Integration", "Real-time Inventory"],
+    results: {
+      users: "10,000+",
+      uptime: "99.9%",
+      performance: "40% faster load times",
+      conversion: "25% increase in conversion rate"
+    },
+    created_at: "2024-01-20T10:00:00Z",
+    read_time: 15
+  },
+  {
+    id: 2,
+    title: "Prithvi Sahay IoT Farming Solution: 40% Water Conservation",
+    slug: "prithvi-sahay-iot-farming-case-study",
+    excerpt: "Revolutionary IoT-based farming car project that achieved 40% water savings through smart irrigation and crop monitoring.",
+    featured_image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["IoT", "Agriculture", "Sensors", "Automation", "Case Study"],
+    client: "Prithvi Sahay Project",
+    duration: "8 months",
+    team_size: "4 engineers",
+    technologies: ["Arduino", "Raspberry Pi", "Python", "MongoDB", "React"],
+    challenges: ["Harsh Environment", "Real-time Data", "Power Management"],
+    results: {
+      water_savings: "40%",
+      crop_yield: "30% increase",
+      automation: "90% automated processes",
+      roi: "300% ROI in first year"
+    },
+    created_at: "2024-01-18T14:00:00Z",
+    read_time: 12
+  },
+  {
+    id: 3,
+    title: "Suchi Tracker Security System: 65% Efficiency Boost",
+    slug: "suchi-tracker-security-system-case-study",
+    excerpt: "Advanced security tracking system that improved operational efficiency by 65% through real-time monitoring and automated alerts.",
+    featured_image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["Security", "Tracking", "Real-time", "Dashboard", "Case Study"],
+    client: "Suchi Security Solutions",
+    duration: "4 months",
+    team_size: "3 developers",
+    technologies: ["React", "Node.js", "WebSocket", "PostgreSQL", "Docker"],
+    challenges: ["Real-time Updates", "Data Security", "Scalability"],
+    results: {
+      efficiency: "65% improvement",
+      response_time: "50% faster alerts",
+      accuracy: "98% tracking accuracy",
+      cost_savings: "35% operational cost reduction"
+    },
+    created_at: "2024-01-16T09:30:00Z",
+    read_time: 10
+  }
+];
+
 export default {
   services,
   projects,
   blogPosts,
-  slides
+  slides,
+  caseStudies
 };

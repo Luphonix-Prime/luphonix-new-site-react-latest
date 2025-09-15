@@ -93,10 +93,31 @@ const Home = () => {
                 ]}
                 className="hero-rotating-text"
               />
-              <Link to="/contact" className="cta-button">
-                Start Your Project
-                <i className="fas fa-arrow-right" style={{ marginLeft: '8px' }}></i>
-              </Link>
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'center' }}>
+                <Link to="/contact" className="cta-button" style={{
+                  fontSize: '16px',
+                  padding: '18px 36px',
+                  background: 'linear-gradient(135deg, var(--accent-green), #00a86b)',
+                  boxShadow: '0 8px 25px rgba(0, 212, 170, 0.3)',
+                  fontWeight: '600',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px'
+                }}>
+                  Request Free Quote
+                  <i className="fas fa-arrow-right" style={{ marginLeft: '10px' }}></i>
+                </Link>
+                <Link to="/services" className="cta-button" style={{
+                  fontSize: '16px',
+                  padding: '18px 36px',
+                  background: 'transparent',
+                  border: '2px solid var(--accent-green)',
+                  color: 'var(--accent-green)',
+                  fontWeight: '600'
+                }}>
+                  <i className="fas fa-calendar-alt" style={{ marginRight: '10px' }}></i>
+                  Schedule Demo
+                </Link>
+              </div>
             </div>
             
             {/* Right Side - 3D Logo Animation */}
@@ -152,7 +173,28 @@ const Home = () => {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <Link to="/services" className="cta-button">View All Services</Link>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/services" className="cta-button" style={{
+                fontSize: '16px',
+                padding: '16px 32px',
+                background: 'transparent',
+                border: '2px solid var(--accent-green)',
+                color: 'var(--accent-green)',
+                fontWeight: '600'
+              }}>
+                View All Services
+              </Link>
+              <Link to="/contact" className="cta-button" style={{
+                fontSize: '16px',
+                padding: '16px 32px',
+                background: 'var(--accent-green)',
+                fontWeight: '600',
+                boxShadow: '0 6px 20px rgba(0, 212, 170, 0.25)'
+              }}>
+                <i className="fas fa-phone" style={{ marginRight: '8px' }}></i>
+                Get Started Now
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -194,8 +236,42 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <Link to="/projects" className="cta-button">View All Projects</Link>
+          <div style={{ 
+            textAlign: 'center', 
+            marginTop: '80px',
+            padding: '40px',
+            background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(26, 26, 26, 0.5))',
+            borderRadius: '20px',
+            border: '1px solid rgba(0, 212, 170, 0.2)'
+          }}>
+            <h3 style={{ fontSize: '1.8rem', marginBottom: '20px', color: 'var(--accent-green)' }}>
+              Ready to Transform Your Business?
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '30px', fontSize: '1.1rem' }}>
+              Join 500+ satisfied clients who've revolutionized their digital presence
+            </p>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/projects" className="cta-button" style={{
+                fontSize: '16px',
+                padding: '16px 32px',
+                background: 'transparent',
+                border: '2px solid var(--accent-green)',
+                color: 'var(--accent-green)',
+                fontWeight: '600'
+              }}>
+                View Portfolio
+              </Link>
+              <Link to="/contact" className="cta-button" style={{
+                fontSize: '16px',
+                padding: '16px 32px',
+                background: 'linear-gradient(135deg, var(--accent-green), #00a86b)',
+                fontWeight: '600',
+                boxShadow: '0 6px 20px rgba(0, 212, 170, 0.3)'
+              }}>
+                <i className="fas fa-rocket" style={{ marginRight: '8px' }}></i>
+                Start Your Project
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -257,7 +333,28 @@ const Home = () => {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <Link to="/blog" className="cta-button">View All Posts</Link>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/blog" className="cta-button" style={{
+                fontSize: '16px',
+                padding: '16px 32px',
+                background: 'transparent',
+                border: '2px solid var(--accent-green)',
+                color: 'var(--accent-green)',
+                fontWeight: '600'
+              }}>
+                Read More Insights
+              </Link>
+              <Link to="/contact" className="cta-button" style={{
+                fontSize: '16px',
+                padding: '16px 32px',
+                background: 'var(--accent-green)',
+                fontWeight: '600',
+                boxShadow: '0 6px 20px rgba(0, 212, 170, 0.25)'
+              }}>
+                <i className="fas fa-comments" style={{ marginRight: '8px' }}></i>
+                Let's Discuss Your Needs
+              </Link>
+            </div>
           </div>
         </div>
       </section>

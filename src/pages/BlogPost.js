@@ -207,8 +207,140 @@ const BlogPost = () => {
             />
           </div>
 
+          {/* Author Bio Section */}
           <div style={{
-            marginTop: '80px',
+            marginTop: '60px',
+            padding: '30px',
+            background: 'rgba(255, 255, 255, 0.02)',
+            borderRadius: '15px',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+              <img 
+                src={post.author.avatar} 
+                alt={post.author.name}
+                style={{ 
+                  width: '80px', 
+                  height: '80px', 
+                  borderRadius: '50%', 
+                  border: '3px solid var(--accent-green)' 
+                }}
+              />
+              <div style={{ flex: 1 }}>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '8px' }}>About {post.author.name}</h4>
+                <p style={{ color: 'var(--accent-green)', marginBottom: '10px', fontSize: '1rem', fontWeight: '500' }}>
+                  {post.author.title}
+                </p>
+                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                  Passionate about creating innovative digital solutions and sharing knowledge with the tech community. 
+                  Specialized in cutting-edge technologies and best practices.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Related Posts Section */}
+          {relatedPosts.length > 0 && (
+            <div style={{ marginTop: '80px' }}>
+              <h3 style={{
+                fontSize: '2rem',
+                marginBottom: '40px',
+                color: 'var(--accent-green)',
+                textAlign: 'center'
+              }}>
+                Related Articles
+              </h3>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '30px',
+                marginBottom: '60px'
+              }}>
+                {relatedPosts.map(relatedPost => (
+                  <div key={relatedPost.id} style={{
+                    background: 'rgba(255, 255, 255, 0.02)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '15px',
+                    padding: '25px',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-5px)';
+                    e.currentTarget.style.borderColor = 'rgba(0, 212, 170, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '15px' }}>
+                      <img 
+                        src={relatedPost.author.avatar} 
+                        alt={relatedPost.author.name}
+                        style={{ 
+                          width: '30px', 
+                          height: '30px', 
+                          borderRadius: '50%', 
+                          border: '1px solid var(--accent-green)' 
+                        }}
+                      />
+                      <div>
+                        <div style={{ fontSize: '11px', fontWeight: '500' }}>{relatedPost.author.name}</div>
+                        <div style={{ fontSize: '9px', color: 'var(--text-secondary)' }}>{relatedPost.read_time} min read</div>
+                      </div>
+                    </div>
+                    <h4 style={{ 
+                      fontSize: '1.1rem', 
+                      marginBottom: '12px', 
+                      lineHeight: '1.4',
+                      color: 'var(--text-primary)'
+                    }}>
+                      {relatedPost.title}
+                    </h4>
+                    <p style={{ 
+                      color: 'var(--text-secondary)', 
+                      fontSize: '0.9rem', 
+                      lineHeight: '1.5',
+                      marginBottom: '15px' 
+                    }}>
+                      {relatedPost.excerpt.substring(0, 100)}...
+                    </p>
+                    <div style={{ display: 'flex', gap: '8px', marginBottom: '15px' }}>
+                      {relatedPost.tags.slice(0, 2).map(tag => (
+                        <span key={tag} style={{
+                          background: 'rgba(0, 212, 170, 0.1)',
+                          color: 'var(--accent-green)',
+                          padding: '4px 8px',
+                          borderRadius: '10px',
+                          fontSize: '9px',
+                          border: '1px solid rgba(0, 212, 170, 0.2)'
+                        }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <Link
+                      to={`/blog/${relatedPost.slug}`}
+                      style={{
+                        color: 'var(--accent-green)',
+                        textDecoration: 'none',
+                        fontSize: '14px',
+                        fontWeight: '500',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                      }}
+                    >
+                      Read More <i className="fas fa-arrow-right" style={{ fontSize: '12px' }}></i>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div style={{
+            marginTop: '60px',
             padding: '40px',
             background: 'rgba(0, 212, 170, 0.05)',
             borderRadius: '20px',

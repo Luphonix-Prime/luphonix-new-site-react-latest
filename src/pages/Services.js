@@ -616,7 +616,8 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <button
+                  <Link
+                    to="/contact"
                     style={{
                       background: service.color,
                       color: 'white',
@@ -641,7 +642,7 @@ const Services = () => {
                     }}
                   >
                     Learn More
-                  </button>
+                  </Link>
                 </div>
                 </div>
               </ElectricBorder>

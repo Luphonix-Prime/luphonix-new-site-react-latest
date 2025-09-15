@@ -7,6 +7,54 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
+        {/* CTA Section */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(26, 26, 26, 0.8))',
+          border: '1px solid rgba(0, 212, 170, 0.3)',
+          borderRadius: '20px',
+          padding: '50px 40px',
+          textAlign: 'center',
+          marginBottom: '60px'
+        }}>
+          <h3 style={{ fontSize: '2.2rem', marginBottom: '20px', color: 'var(--accent-green)' }}>
+            Ready to Start Your Digital Transformation?
+          </h3>
+          <p style={{ 
+            color: 'var(--text-secondary)', 
+            marginBottom: '35px', 
+            fontSize: '1.2rem',
+            maxWidth: '600px',
+            margin: '0 auto 35px'
+          }}>
+            Get a free consultation and discover how we can accelerate your business growth with innovative technology solutions.
+          </p>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/contact" className="cta-button" style={{
+              fontSize: '16px',
+              padding: '18px 36px',
+              background: 'linear-gradient(135deg, var(--accent-green), #00a86b)',
+              fontWeight: '600',
+              boxShadow: '0 8px 25px rgba(0, 212, 170, 0.3)',
+              textTransform: 'uppercase',
+              letterSpacing: '1px'
+            }}>
+              <i className="fas fa-rocket" style={{ marginRight: '10px' }}></i>
+              Get Free Consultation
+            </Link>
+            <Link to="/services" className="cta-button" style={{
+              fontSize: '16px',
+              padding: '18px 36px',
+              background: 'transparent',
+              border: '2px solid var(--accent-green)',
+              color: 'var(--accent-green)',
+              fontWeight: '600'
+            }}>
+              <i className="fas fa-eye" style={{ marginRight: '10px' }}></i>
+              View Our Work
+            </Link>
+          </div>
+        </div>
+
         <div className="footer-content">
           <div className="footer-section">
             <h3>Luphonix</h3>

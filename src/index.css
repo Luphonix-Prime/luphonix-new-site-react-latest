@@ -643,12 +643,30 @@ body {
     color: var(--primary-bg);
     text-decoration: none;
     border-radius: var(--button-radius);
-    font-weight: 400;
-    transition: var(--transition);
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 14px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     border: 1px solid var(--accent-green);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 /* Theme-specific button shapes */
@@ -700,8 +718,30 @@ body {
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(var(--accent-green-rgb), 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(var(--accent-green-rgb), 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: all 0.1s ease;
+}
+
+/* Pulse animation for primary CTAs */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 212, 170, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 212, 170, 0);
+    }
+}
+
+.cta-button:not([style*="transparent"]):not([style*="border"]) {
+    animation: pulse-glow 3s infinite;
 }
 
 /* Services Grid */
