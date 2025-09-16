@@ -8,7 +8,6 @@ import Model3D from '../components/Model3D';
 import SEOHead from '../components/SEOHead';
 import '../components/BlogAnimations.css';
 import { RotatingText } from '../components/ui/RotatingText'; // Import RotatingText
-import { NeonLogo3D } from '../components/ui/NeonLogo3D'; // Import 3D Logo
 
 // Utility function for class merging (assuming it's needed for Carousel or other components)
 import { clsx } from "clsx";
@@ -120,7 +119,7 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Right Side - 3D Logo Animation */}
+            {/* Right Side - 3D Model */}
             <div className="fade-in" style={{ 
               animationDelay: '0.3s',
               height: '600px',
@@ -131,7 +130,16 @@ const Home = () => {
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(0, 212, 170, 0.2)'
             }}>
-              <NeonLogo3D />
+              <Model3D 
+                modelPath="/LUPHONIX_1758015554178.glb"
+                containerStyle={{
+                  height: '100%',
+                  width: '100%',
+                  borderRadius: '20px'
+                }}
+                showBorder={false}
+                enableRotation={true}
+              />
             </div>
           </div>
         </div>
