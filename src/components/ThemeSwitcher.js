@@ -9,7 +9,8 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
     { id: 'cyber-blue', name: 'Cyber Blue', colorClass: 'cyber-blue' },
     { id: 'royal-purple', name: 'Royal Purple', colorClass: 'royal-purple' },
     { id: 'sunset-orange', name: 'Sunset Orange', colorClass: 'sunset-orange' },
-    { id: 'matrix-red', name: 'Matrix Red', colorClass: 'matrix-red' }
+    { id: 'matrix-red', name: 'Matrix Red', colorClass: 'matrix-red' },
+    { id: 'clean-white', name: 'Clean White', colorClass: 'clean-white' }
   ];
 
   const handleThemeSelect = (themeId) => {
