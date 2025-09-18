@@ -15,6 +15,7 @@ import BlogCreate from './pages/BlogCreate';
 import BlogEdit from './pages/BlogEdit';
 import Contact from './pages/Contact';
 import LanguageDetails from './pages/LanguageDetails';
+import ParticleImageEffect from './components/ParticleImageEffect';
 import ThemeSwitcher from './components/ThemeSwitcher';
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
               } />
               <Route path="/contact" element={<Contact />} />
               <Route path="/language/:language" element={<LanguageDetails />} />
+              <Route path="/particles" element={<ParticleImageEffect />} />
             </Routes>
           </main>
           <Footer />
