@@ -384,8 +384,8 @@ export function ParticleImageEffect({
     const canvas = canvasRef.current
     if (!canvas) return
 
-    canvas.width = 800
-    canvas.height = 600
+    canvas.width = 1000
+    canvas.height = 500
 
     // Load images and initialize
     loadImages().then(() => {
@@ -438,17 +438,21 @@ export function ParticleImageEffect({
   }, [imageUrls])
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
       <canvas
         ref={canvasRef}
-        className="rounded-lg"
-        style={{ 
-          width: "100%", 
-          height: "100%",
-          maxWidth: "100%",
-          maxHeight: "100%"
-        }}
+        className="border border-gray-800 rounded-lg shadow-2xl"
+        style={{ maxWidth: "100%", height: "auto" }}
       />
+      <div className="mt-4 text-white text-sm text-center max-w-md">
+        <p className="mb-2">Luphonix Technology Showcase</p>
+        <p className="text-gray-400 text-xs">
+          Right-click and hold while moving mouse to destroy particles • Tech logos change every 5 seconds
+        </p>
+        <p className="text-gray-500 text-xs mt-2">
+          Featuring: Luphonix • Figma • React • HTML/CSS • Django • Docker
+        </p>
+      </div>
     </div>
   )
 }
