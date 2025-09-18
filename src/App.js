@@ -15,6 +15,7 @@ import BlogCreate from './pages/BlogCreate';
 import BlogEdit from './pages/BlogEdit';
 import Contact from './pages/Contact';
 import LanguageDetails from './pages/LanguageDetails';
+import ParticleImageEffect from './components/ParticleImageEffect';
 import ThemeSwitcher from './components/ThemeSwitcher';
 
 function App() {

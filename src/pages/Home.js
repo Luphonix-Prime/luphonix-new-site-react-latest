@@ -5,6 +5,7 @@ import { useBlog } from '../context/BlogContext';
 import RollingGallery from '../components/RollingGallery';
 import Carousel from '../components/Carousel';
 import Model3D from '../components/Model3D';
+import ParticleImageEffect from '../components/ParticleImageEffect';
 import SEOHead from '../components/SEOHead';
 import '../components/BlogAnimations.css';
 import { RotatingText } from '../components/ui/RotatingText'; // Import RotatingText
@@ -119,26 +120,18 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Right Side - 3D Model */}
+            {/* Right Side - Particle Animation */}
             <div className="fade-in" style={{ 
               animationDelay: '0.3s',
               height: '600px',
               position: 'relative',
               borderRadius: '20px',
               overflow: 'hidden',
-              background: 'rgba(0, 0, 0, 0.2)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 212, 170, 0.2)'
+              background: 'transparent',
+              marginTop: '-80px'
             }}>
-              <Model3D 
-                modelPath="/LUPHONIX_1758015554178.glb"
-                containerStyle={{
-                  height: '100%',
-                  width: '100%',
-                  borderRadius: '20px'
-                }}
-                showBorder={false}
-                enableRotation={true}
+              <ParticleImageEffect 
+                imageSize={300}
               />
             </div>
           </div>
