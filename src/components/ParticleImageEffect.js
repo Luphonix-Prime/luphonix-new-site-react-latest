@@ -108,8 +108,8 @@ class Particle {
   }
 
   generateRandomPos(x, y, mag) {
-    const randomX = Math.random() * 1000
-    const randomY = Math.random() * 500
+    const randomX = Math.random() * 800
+    const randomY = Math.random() * 600
 
     const direction = {
       x: randomX - x,
@@ -155,12 +155,12 @@ export function ParticleImageEffect({
   const mouseRef = useRef({ x: 0, y: 0, isPressed: false, isRightClick: false })
   const loadedImagesRef = useRef([])
 
-  const pixelSteps = 6
+  const pixelSteps = 3
   const drawAsPoints = true
 
   const generateRandomPos = (x, y, mag) => {
-    const randomX = Math.random() * 1000
-    const randomY = Math.random() * 500
+    const randomX = Math.random() * 800
+    const randomY = Math.random() * 600
 
     const direction = {
       x: randomX - x,
@@ -268,11 +268,12 @@ export function ParticleImageEffect({
       const g = pixels[pixelIndex + 1] 
       const b = pixels[pixelIndex + 2]
       
-      // Filter out black/dark background pixels - only use bright colored pixels for the logo
-      const isNotBackground = (r > 30 || g > 30 || b > 30) && alpha > 200
-      const isBrightEnough = (r + g + b) > 100 // Sum of RGB values should be bright enough
+      // Improved background filtering for tech logos
+      const isNotBackground = (r > 20 || g > 20 || b > 20) && alpha > 150
+      const isBrightEnough = (r + g + b) > 60 // Lower threshold for better logo detection
+      const isNotPureBlack = !(r < 10 && g < 10 && b < 10) // Exclude pure black pixels
       
-      if (alpha > 128 && isNotBackground && isBrightEnough) {
+      if (alpha > 100 && isNotBackground && isBrightEnough && isNotPureBlack) {
         const x = (pixelIndex / 4) % canvas.width
         const y = Math.floor(pixelIndex / 4 / canvas.width)
 
@@ -384,8 +385,8 @@ export function ParticleImageEffect({
     const canvas = canvasRef.current
     if (!canvas) return
 
-    canvas.width = 1000
-    canvas.height = 500
+    canvas.width = 800
+    canvas.height = 600
 
     // Load images and initialize
     loadImages().then(() => {
@@ -438,21 +439,17 @@ export function ParticleImageEffect({
   }, [imageUrls])
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
+    <div className="flex items-center justify-center w-full h-full">
       <canvas
         ref={canvasRef}
-        className="border border-gray-800 rounded-lg shadow-2xl"
-        style={{ maxWidth: "100%", height: "auto" }}
+        className="rounded-lg"
+        style={{ 
+          width: "100%", 
+          height: "100%",
+          maxWidth: "100%",
+          maxHeight: "100%"
+        }}
       />
-      <div className="mt-4 text-white text-sm text-center max-w-md">
-        <p className="mb-2">Luphonix Technology Showcase</p>
-        <p className="text-gray-400 text-xs">
-          Right-click and hold while moving mouse to destroy particles • Tech logos change every 5 seconds
-        </p>
-        <p className="text-gray-500 text-xs mt-2">
-          Featuring: Luphonix • Figma • React • HTML/CSS • Django • Docker
-        </p>
-      </div>
     </div>
   )
 }
