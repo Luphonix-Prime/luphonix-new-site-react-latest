@@ -258,20 +258,28 @@ export function ParticleImageEffect({
       const pixelIndex = coordIndex
       const alpha = pixels[pixelIndex + 3]
 
-      // Only create particles where there's visible content (alpha > threshold)
-      if (alpha > 128) { // Increased threshold for better definition
+      // Only create particles where there's visible content and it's not black background
+      const r = pixels[pixelIndex]
+      const g = pixels[pixelIndex + 1] 
+      const b = pixels[pixelIndex + 2]
+      
+      // Filter out black/dark background pixels - only use bright colored pixels for the logo
+      const isNotBackground = (r > 30 || g > 30 || b > 30) && alpha > 200
+      const isBrightEnough = (r + g + b) > 100 // Sum of RGB values should be bright enough
+      
+      if (alpha > 128 && isNotBackground && isBrightEnough) {
         const x = (pixelIndex / 4) % canvas.width
         const y = Math.floor(pixelIndex / 4 / canvas.width)
 
-        // Get original pixel color
+        // Get original pixel color (the actual logo colors)
         const originalColor = {
           r: pixels[pixelIndex],
           g: pixels[pixelIndex + 1],
           b: pixels[pixelIndex + 2]
         }
 
-        // Use original color or blend with new color
-        const useOriginalColor = Math.random() > 0.3 // 70% chance to use original color
+        // Prefer using the original logo colors (blue tones)
+        const useOriginalColor = Math.random() > 0.2 // 80% chance to use original colors
         const targetColor = useOriginalColor ? originalColor : newColor
 
         let particle
