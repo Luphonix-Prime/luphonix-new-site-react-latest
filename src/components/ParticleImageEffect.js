@@ -214,7 +214,6 @@ export function ParticleImageEffect({
     // Calculate image dimensions to fit in canvas while maintaining aspect ratio
     const imgAspectRatio = image.width / image.height
     const canvasAspectRatio = canvas.width / canvas.height
-
     let drawWidth, drawHeight, drawX, drawY
 
     if (imgAspectRatio > canvasAspectRatio) {
@@ -267,18 +266,15 @@ export function ParticleImageEffect({
       const r = pixels[pixelIndex]
       const g = pixels[pixelIndex + 1] 
       const b = pixels[pixelIndex + 2]
-
       // Enhanced background filtering for tech logos
       const isWhiteBackground = (r > 240 && g > 240 && b > 240) // Filter out white/near-white
       const isLightGrayBackground = (r > 200 && g > 200 && b > 200 && Math.abs(r - g) < 20 && Math.abs(g - b) < 20) // Filter light gray
       const isBlackBackground = (r < 15 && g < 15 && b < 15) // Filter pure black
       const hasLowSaturation = Math.max(r, g, b) - Math.min(r, g, b) < 30 && (r + g + b) / 3 > 180 // Filter low saturation light colors
-
       // Check if pixel has meaningful color content
       const hasSignificantColor = !isWhiteBackground && !isLightGrayBackground && !isBlackBackground && !hasLowSaturation
       const hasGoodAlpha = alpha > 150
       const isColorful = (r + g + b) > 60 && (Math.max(r, g, b) - Math.min(r, g, b)) > 20 // Ensure some color variation
-
       if (hasGoodAlpha && hasSignificantColor && isColorful) {
         const x = (pixelIndex / 4) % canvas.width
         const y = Math.floor(pixelIndex / 4 / canvas.width)
