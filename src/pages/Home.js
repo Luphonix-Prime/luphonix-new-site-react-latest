@@ -127,9 +127,8 @@ const Home = () => {
               position: 'relative',
               borderRadius: '20px',
               overflow: 'hidden',
-              background: 'rgba(0, 0, 0, 0.2)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 212, 170, 0.2)'
+              background: 'transparent',
+              marginTop: '-80px'
             }}>
               <ParticleImageEffect 
                 imageSize={300}
