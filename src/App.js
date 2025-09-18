@@ -64,7 +64,6 @@ function App() {
               } />
               <Route path="/contact" element={<Contact />} />
               <Route path="/language/:language" element={<LanguageDetails />} />
-              <Route path="/particles" element={<ParticleImageEffect />} />
             </Routes>
           </main>
           <Footer />

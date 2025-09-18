@@ -248,13 +248,6 @@ const Navbar = () => {
           >
             Contact
           </Link>
-          <Link
-            to="/particles"
-            className={`nav-link ${location.pathname === '/particles' ? 'active' : ''}`}
-            onClick={closeMobileMenu}
-          >
-            Particles
-          </Link>
         </div>
 
         <div
