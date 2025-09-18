@@ -130,10 +130,12 @@ class Particle {
 }
 
 const DEFAULT_IMAGE_URLS = [
-  // Using simple SVG data URLs as examples
+  // Your custom bird logo images
+  "/bird-logo1.png",
+  "/bird-logo2.png",
+  // Simple geometric shapes as additional options
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjgwIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==",
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB4PSI0MCIgeT0iNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==",
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cG9seWdvbiBwb2ludHM9IjEwMCwyMCAxNjAsMTcwIDQwLDE3MCIgZmlsbD0id2hpdGUiLz48L3N2Zz4=",
 ]
 
 export function ParticleImageEffect({ 
