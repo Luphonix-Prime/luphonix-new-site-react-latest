@@ -155,7 +155,7 @@ export function ParticleImageEffect({
   const mouseRef = useRef({ x: 0, y: 0, isPressed: false, isRightClick: false })
   const loadedImagesRef = useRef([])
 
-  const pixelSteps = 3
+  const pixelSteps = 2
   const drawAsPoints = true
 
   const generateRandomPos = (x, y, mag) => {
@@ -263,17 +263,23 @@ export function ParticleImageEffect({
       const pixelIndex = coordIndex
       const alpha = pixels[pixelIndex + 3]
 
-      // Only create particles where there's visible content and it's not black background
+      // Only create particles where there's visible content and it's not background
       const r = pixels[pixelIndex]
       const g = pixels[pixelIndex + 1] 
       const b = pixels[pixelIndex + 2]
       
-      // Improved background filtering for tech logos
-      const isNotBackground = (r > 20 || g > 20 || b > 20) && alpha > 150
-      const isBrightEnough = (r + g + b) > 60 // Lower threshold for better logo detection
-      const isNotPureBlack = !(r < 10 && g < 10 && b < 10) // Exclude pure black pixels
+      // Enhanced background filtering for tech logos
+      const isWhiteBackground = (r > 240 && g > 240 && b > 240) // Filter out white/near-white
+      const isLightGrayBackground = (r > 200 && g > 200 && b > 200 && Math.abs(r - g) < 20 && Math.abs(g - b) < 20) // Filter light gray
+      const isBlackBackground = (r < 15 && g < 15 && b < 15) // Filter pure black
+      const hasLowSaturation = Math.max(r, g, b) - Math.min(r, g, b) < 30 && (r + g + b) / 3 > 180 // Filter low saturation light colors
       
-      if (alpha > 100 && isNotBackground && isBrightEnough && isNotPureBlack) {
+      // Check if pixel has meaningful color content
+      const hasSignificantColor = !isWhiteBackground && !isLightGrayBackground && !isBlackBackground && !hasLowSaturation
+      const hasGoodAlpha = alpha > 150
+      const isColorful = (r + g + b) > 60 && (Math.max(r, g, b) - Math.min(r, g, b)) > 20 // Ensure some color variation
+      
+      if (hasGoodAlpha && hasSignificantColor && isColorful) {
         const x = (pixelIndex / 4) % canvas.width
         const y = Math.floor(pixelIndex / 4 / canvas.width)
 
