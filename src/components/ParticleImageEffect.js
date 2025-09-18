@@ -129,13 +129,18 @@ class Particle {
   }
 }
 
+// Technology showcase sequence: Luphonix logo alternating with tech stack
 const DEFAULT_IMAGE_URLS = [
-  // Your custom bird logo images
-  "/bird-logo1.png",
-  "/bird-logo2.png",
-  // Simple geometric shapes as additional options
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjgwIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==",
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB4PSI0MCIgeT0iNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==",
+  "/bird-logo1.png",        // 1. Luphonix logo
+  "/figma-logo.png",        // 2. Figma
+  "/bird-logo2.png",        // 3. Luphonix logo variant
+  "/react-logo.png",        // 4. React
+  "/bird-logo1.png",        // 5. Luphonix logo
+  "/html-css-logo.jpg",     // 6. HTML/CSS
+  "/bird-logo2.png",        // 7. Luphonix logo variant
+  "/django-logo.png",       // 8. Django
+  "/bird-logo1.png",        // 9. Luphonix logo
+  "/docker-logo.png",       // 10. Docker
 ]
 
 export function ParticleImageEffect({ 
@@ -440,12 +445,12 @@ export function ParticleImageEffect({
         style={{ maxWidth: "100%", height: "auto" }}
       />
       <div className="mt-4 text-white text-sm text-center max-w-md">
-        <p className="mb-2">Particle Image Effect</p>
+        <p className="mb-2">Luphonix Technology Showcase</p>
         <p className="text-gray-400 text-xs">
-          Right-click and hold while moving mouse to destroy particles • Images change automatically every 5 seconds
+          Right-click and hold while moving mouse to destroy particles • Tech logos change every 5 seconds
         </p>
         <p className="text-gray-500 text-xs mt-2">
-          Replace the imageUrls prop with your own logo/image URLs
+          Featuring: Luphonix • Figma • React • HTML/CSS • Django • Docker
         </p>
       </div>
     </div>
