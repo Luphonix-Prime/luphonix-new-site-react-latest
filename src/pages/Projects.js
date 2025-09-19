@@ -170,38 +170,7 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* 3D Model Experience Section */}
-      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
-        <div className="container">
-          <h2 className="section-title fade-in">3D Project Showcase</h2>
-          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
-            Explore our project portfolio through interactive 3D visualization
-          </p>
-          <div className="fade-in" style={{ 
-            animationDelay: '0.2s',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            <Model3D 
-              modelPath="/krishna.glb"
-              containerStyle={{
-                height: '500px'
-              }}
-              showBorder={false}
-              enableRotation={false}
-            />
-            <p style={{ 
-              color: 'var(--text-secondary)', 
-              textAlign: 'center',
-              fontSize: '14px',
-              fontWeight: '300',
-              marginTop: '20px'
-            }}>
-              Interactive 3D showcase demonstrating our project development and visualization skills
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       <div style={{ 
         height: '600px', 

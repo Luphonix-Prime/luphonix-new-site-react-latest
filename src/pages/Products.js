@@ -673,35 +673,8 @@ const Products = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="section" style={{ padding: '100px 0' }}>
-          <div className="container" style={{ textAlign: 'center' }}>
-            <h2 className="section-title fade-in" style={{ marginBottom: '25px' }}>
-              Ready to Transform Your Business?
-            </h2>
-            <p className="section-subtitle fade-in" style={{ marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-              Let's discuss how our innovative products can drive your business forward
-            </p>
-            <div className="fade-in" style={{ animationDelay: '0.3s' }}>
-              <a href="/contact" className="cta-button" style={{
-                fontSize: '16px',
-                padding: '15px 30px',
-                marginRight: '20px'
-              }}>
-                Get Started Today
-              </a>
-              <button className="cta-button" style={{
-                fontSize: '16px',
-                padding: '15px 30px',
-                background: 'transparent',
-                border: '1px solid var(--accent-green)',
-                color: 'var(--accent-green)'
-              }}>
-                View Portfolio
-              </button>
-            </div>
-          </div>
-        </section>
+ 
+       
       </div>
     </>
   );

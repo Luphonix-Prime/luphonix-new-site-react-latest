@@ -1037,38 +1037,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* 3D Model Experience Section */}
-      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
-        <div className="container">
-          <h2 className="section-title fade-in">Experience Our 3D Capabilities</h2>
-          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
-            Interactive 3D modeling and visualization showcase
-          </p>
-          <div className="fade-in" style={{
-            animationDelay: '0.2s',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            <Model3D
-              modelPath="/ganpati.glb"
-              containerStyle={{
-                height: '500px'
-              }}
-              showBorder={false}
-              enableRotation={false}
-            />
-            <p style={{
-              color: 'var(--text-secondary)',
-              textAlign: 'center',
-              fontSize: '14px',
-              fontWeight: '300',
-              marginTop: '20px'
-            }}>
-              Explore our advanced 3D modeling and web integration capabilities
-            </p>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Technology Partners Section */}
       <section className="section" style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', padding: '80px 0' }}>
@@ -1117,51 +1086,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section" style={{
-        background: 'linear-gradient(135deg, var(--accent-green) 0%, var(--accent-purple) 100%)',
-        textAlign: 'center'
-      }}>
-        <div className="container">
-          <h2 className="fade-in" style={{
-            color: 'white',
-            fontSize: '32px',
-            fontWeight: '600',
-            marginBottom: '20px'
-          }}>
-            Ready to Start Your Project?
-          </h2>
-
-          <p className="fade-in" style={{
-            color: 'rgba(255, 255, 255, 0.9)',
-            fontSize: '18px',
-            marginBottom: '40px',
-            maxWidth: '600px',
-            margin: '0 auto 40px'
-          }}>
-            Let's discuss how we can help transform your ideas into reality
-          </p>
-
-          <Link
-            to="/contact"
-            className="fade-in"
-            style={{
-              display: 'inline-block',
-              padding: '15px 40px',
-              background: 'white',
-              color: 'var(--primary-bg)',
-              borderRadius: '30px',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '600',
-              transition: 'all 0.3s ease',
-              animationDelay: '0.3s'
-            }}
-          >
-            Start Your Project
-          </Link>
-        </div>
-      </section>
+     
       </div>
     </>
   );
