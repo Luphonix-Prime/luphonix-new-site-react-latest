@@ -205,11 +205,22 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
-          <svg className="nav-logo-svg" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="15" stroke="var(--accent-green)" strokeWidth="1" fill="none"/>
-            <text x="16" y="20" textAnchor="middle" fill="var(--accent-green)" fontSize="14" fontWeight="300">L</text>
-          </svg>
-          Luphonix
+          <img 
+            src="/logodk.png" 
+            alt="Luphonix Logo" 
+            style={{
+              height: '75px',
+              width: 'auto',
+              marginRight: '30px',
+              marginTop: '10px',
+              paddingTop: '5px',
+              paddingBottom: '5px',
+              filter: 'brightness(1) saturate(1.2)',
+              transition: 'var(--transition-fast)',
+              transform: 'scale(1.1)',
+              verticalAlign: 'middle'
+            }}
+          />
         </Link>
 
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>

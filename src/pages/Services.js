@@ -484,7 +484,18 @@ const Services = () => {
                 rotationInterval={2800}
               />
             </h1>
-            <p className="section-subtitle fade-in" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="section-subtitle fade-in" style={{ 
+              color: 'rgba(255,255,255,0.9)', 
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+              fontSize: '1.2rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em',
+              marginTop: '20px',
+              textAlign: 'center',
+              maxWidth: '800px',
+              margin: '20px auto',
+              lineHeight: '1.6'
+            }}>
               Comprehensive digital solutions tailored to your business needs
             </p>
           </div>

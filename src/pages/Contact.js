@@ -156,7 +156,7 @@ const Contact = () => {
                 Together
               </h1>
             </div>
-            <p style={{ 
+            {/* <p style={{ 
                 fontSize: '1.2rem', 
                 color: 'var(--text-secondary)', 
                 marginBottom: '30px',
@@ -164,7 +164,7 @@ const Contact = () => {
               }}>
                 Let's discuss your project and turn your vision into reality. 
                 We're here to provide expert consultation and innovative solutions.
-              </p>
+              </p> */}
 
               <div style={{ 
                 display: 'flex', 
@@ -173,7 +173,7 @@ const Contact = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'center'
               }}>
-                <button className="cta-button" style={{
+                {/* <button className="cta-button" style={{
                   fontSize: '16px',
                   padding: '16px 32px',
                   background: 'linear-gradient(135deg, var(--accent-green), #00a86b)',
@@ -184,8 +184,8 @@ const Contact = () => {
                 }} onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
                   <i className="fas fa-paper-plane" style={{ marginRight: '10px' }}></i>
                   Send Message Now
-                </button>
-                <button className="cta-button" style={{
+                </button> */}
+                {/* <button className="cta-button" style={{
                   fontSize: '16px',
                   padding: '16px 32px',
                   background: 'transparent',
@@ -196,7 +196,7 @@ const Contact = () => {
                 }} onClick={() => window.open('tel:+15551234567')}>
                   <i className="fas fa-phone" style={{ marginRight: '10px' }}></i>
                   Call Direct
-                </button>
+                </button> */}
               </div>
           </div>
         </div>
