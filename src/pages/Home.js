@@ -64,7 +64,7 @@ const Home = () => {
       />
       <div className="home">
       {/* Hero Section */}
-      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+      <section className="hero" style={{ position: 'relative', overflow: 'hidden', paddingTop: '60px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ 
             display: 'grid', 
@@ -72,10 +72,12 @@ const Home = () => {
             gap: '60px', 
             alignItems: 'center',
             minHeight: '100vh',
-            padding: '80px 0'
+            padding: '40px 0 80px 0',
+            alignItems: 'flex-start',
+            paddingTop: '120px'
           }}>
             {/* Left Content */}
-            <div className="hero-content fade-in">
+            <div className="hero-content fade-in" style={{ textAlign: 'center' }}>
               <h1 className="hero-title">
                 Digital Innovation That <span className="gradient-text">Drives Results</span>
               </h1>
@@ -93,7 +95,7 @@ const Home = () => {
                 ]}
                 className="hero-rotating-text"
               />
-              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
                 <Link to="/contact" className="cta-button" style={{
                   fontSize: '16px',
                   padding: '18px 36px',
