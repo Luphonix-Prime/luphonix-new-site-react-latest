@@ -9,6 +9,7 @@ import { ChromaGrid } from '../components/ChromaGrid';
 import { RotatingText } from '../components/ui/RotatingText';
 import Orb from '../components/Orb';
 import WebGLErrorBoundary from '../components/WebGLErrorBoundary';
+import Images1 from '../public/images/webdevelopment.jpg';
 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
 
@@ -264,7 +265,7 @@ const Services = () => {
       title: "Web Development",
       description: "Enterprise-grade web applications with cutting-edge technologies, scalable architecture, and exceptional performance optimization.",
       detailedDescription: "At Luphonix, we craft digital experiences that drive business growth. Our web development services encompass everything from simple landing pages to complex enterprise applications, e-commerce platforms, and progressive web apps.",
-      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=3874&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: Images1,
       icon: "fas fa-code",
       technologies: ["React", "Next.js", "Node.js", "Python", "PostgreSQL", "MongoDB", "AWS", "Docker"],
       features: [
