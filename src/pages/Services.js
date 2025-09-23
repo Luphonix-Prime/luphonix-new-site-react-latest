@@ -9,7 +9,8 @@ import { ChromaGrid } from '../components/ChromaGrid';
 import { RotatingText } from '../components/ui/RotatingText';
 import Orb from '../components/Orb';
 import WebGLErrorBoundary from '../components/WebGLErrorBoundary';
-import Images1 from '../public/images/webdevelopment.jpg';
+import { getImagePath } from '../utils/imageUtils';
+
 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
 
@@ -148,17 +149,17 @@ const ProcessStepsSection = () => {
         border: '1px solid rgba(255, 255, 255, 0.1)',
         background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)'
       }}>
-        <img
-          src={currentStep.image}
-          alt={currentStep.alt}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: '0.8',
-            transition: 'all 0.5s ease'
-          }}
-        />
+       <img
+  src={getImagePath(currentStep.image, 'process')}
+  alt={currentStep.alt}
+  style={{
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    opacity: '0.8',
+    transition: 'all 0.5s ease'
+  }}
+/>
         <div style={{
           position: 'absolute',
           bottom: '0',
@@ -265,7 +266,7 @@ const Services = () => {
       title: "Web Development",
       description: "Enterprise-grade web applications with cutting-edge technologies, scalable architecture, and exceptional performance optimization.",
       detailedDescription: "At Luphonix, we craft digital experiences that drive business growth. Our web development services encompass everything from simple landing pages to complex enterprise applications, e-commerce platforms, and progressive web apps.",
-      image: Images1,
+      image: "web-development.jpg",
       icon: "fas fa-code",
       technologies: ["React", "Next.js", "Node.js", "Python", "PostgreSQL", "MongoDB", "AWS", "Docker"],
       features: [
@@ -287,7 +288,7 @@ const Services = () => {
       title: "Mobile App Development",
       description: "Native and cross-platform mobile solutions with seamless user experiences and robust backend integration.",
       detailedDescription: "Transform your ideas into powerful mobile applications. We develop iOS and Android apps using cutting-edge frameworks, ensuring optimal performance, intuitive UI/UX, and seamless integration with your existing systems.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "mobile-development.jpg",
       icon: "fas fa-mobile-alt",
       technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "AWS Amplify", "Redux", "GraphQL"],
       features: [
@@ -309,7 +310,7 @@ const Services = () => {
       title: "UI/UX Design",
       description: "Data-driven design solutions that convert visitors into customers through exceptional user experiences.",
       detailedDescription: "Our design philosophy centers on user-first thinking. We create intuitive, accessible, and visually stunning interfaces that not only look great but also drive conversions and enhance user satisfaction.",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=3764&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "ui-ux.jpg",
       icon: "fas fa-paint-brush",
       technologies: ["Figma", "Adobe XD", "Sketch", "Framer", "Principle", "InVision", "Miro", "Hotjar"],
       features: [
@@ -331,7 +332,7 @@ const Services = () => {
       title: "DevOps & Infrastructure",
       description: "Streamlined development workflows with automated CI/CD pipelines and scalable cloud infrastructure management.",
       detailedDescription: "We provide comprehensive DevOps solutions that streamline your development process, improve deployment reliability, and ensure scalable infrastructure management with modern containerization and automation tools.",
-      image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "devops.jpg",
       icon: "fas fa-cogs",
       technologies: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "AWS", "Terraform", "GitLab CI", "Ansible"],
       features: [
@@ -353,7 +354,7 @@ const Services = () => {
       title: "Content Management Systems",
       description: "Powerful and intuitive content management solutions that empower your team to manage digital content effortlessly.",
       detailedDescription: "We design and develop custom content management systems tailored to your specific needs, from traditional CMS platforms to modern headless architectures that provide flexibility and scalability for your digital content strategy.",
-      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=3874&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "cms.jpg",
       icon: "fas fa-edit",
       technologies: ["WordPress", "Strapi", "Contentful", "Sanity", "Ghost", "Drupal", "Craft CMS", "Prismic"],
       features: [
@@ -375,7 +376,7 @@ const Services = () => {
       title: "Consulting & Engagements",
       description: "Strategic technology consulting and tailored engagement models to accelerate your digital transformation journey.",
       detailedDescription: "Our expert consultants provide strategic guidance, technical assessments, and customized engagement models to help you navigate complex technology decisions and achieve sustainable digital growth.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "Consulting.jpg",
       icon: "fas fa-handshake",
       technologies: ["Strategy", "Architecture", "Assessment", "Planning", "Optimization", "Training", "Support", "Integration"],
       features: [
@@ -549,7 +550,7 @@ const Services = () => {
                 {/* Service Image */}
                 <div style={{
                   height: '200px',
-                  backgroundImage: `url(${service.image})`,
+                  backgroundImage: `url(${getImagePath(service.image)})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   position: 'relative'
@@ -879,15 +880,15 @@ const Services = () => {
                     overflow: 'hidden',
                     height: '400px'
                   }}>
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                      }}
-                    />
+                     <img
+    src={getImagePath(service.image)} // <-- FIXED
+    alt={service.title}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover'
+    }}
+  />
                     <div style={{
                       position: 'absolute',
                       top: 0,
