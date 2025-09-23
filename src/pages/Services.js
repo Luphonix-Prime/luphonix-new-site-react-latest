@@ -35,28 +35,28 @@ const ProcessStepsSection = () => {
       step: 1,
       title: "Discovery & Strategy",
       content: "We begin by conducting comprehensive research to understand your business objectives, target audience, and requirements. This discovery phase includes stakeholder interviews, requirement gathering, and strategic planning to ensure we deliver the right solution.",
-      image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=800&auto=format&fit=crop",
+      image: "discovering.jpg",
       alt: "Discovery & Strategy Process"
     },
     {
       step: 2,
       title: "Design & Prototyping",
       content: "Our design team creates wireframes and high-fidelity prototypes focused on user experience, design, and interactive prototyping. We focus on user-centered design principles while maintaining your brand identity and ensuring optimal usability across all platforms.",
-      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop",
+      image: "designing.jpg",
       alt: "Design & Prototyping Process"
     },
     {
       step: 3,
       title: "Development & Integration",
       content: "Using modern technologies and best practices, we build scalable, secure, and performance-optimized solutions. Our development process includes regular code reviews, automated testing, and continuous integration to ensure quality at every step.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      image: "Development & Integration.jpg",
       alt: "Development & Integration Process"
     },
     {
       step: 4,
       title: "Launch & Optimization",
       content: "We handle the complete deployment process with comprehensive testing and performance monitoring. Post-launch, we provide ongoing support, analytics implementation, and continuous optimization based on user feedback and performance metrics.",
-      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=800&auto=format&fit=crop",
+      image: "Launch & Optimization.jpg",
       alt: "Launch & Optimization Process"
     }
   ];
