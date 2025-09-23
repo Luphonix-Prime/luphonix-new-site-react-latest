@@ -9,6 +9,7 @@ import ParticleImageEffect from '../components/ParticleImageEffect';
 import SEOHead from '../components/SEOHead';
 import '../components/BlogAnimations.css';
 import { RotatingText } from '../components/ui/RotatingText'; // Import RotatingText
+import { getImagePath } from '../utils/imageUtils';
 
 // Utility function for class merging (assuming it's needed for Carousel or other components)
 import { clsx } from "clsx";
@@ -520,3 +521,34 @@ const Home = () => {
 };
 
 export default Home;
+
+// Update image references in JSX
+return (
+  <>
+    {/* Hero Section */}
+    <div className="hero-image">
+      <img 
+        src={getImagePath('hero-background.jpg', 'hero')} 
+        alt="Hero Background"
+      />
+    </div>
+
+    {/* Featured Projects */}
+    <div className="project-card">
+      <img 
+        src={getImagePath(project.image, 'projects')} 
+        alt={project.title}
+      />
+    </div>
+
+    {/* Testimonials */}
+    <div className="testimonial-avatar">
+      <img 
+        src={getImagePath(testimonial.image, 'testimonials')} 
+        alt={testimonial.name}
+      />
+    </div>
+
+    {/* Other sections */}
+  </>
+);
