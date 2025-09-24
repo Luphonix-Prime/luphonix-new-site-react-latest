@@ -1,5 +1,5 @@
-// Mock data for the application
 export const services = [
+  
   {
     id: 1,
     title: "Web Development",
@@ -61,24 +61,24 @@ export const services = [
 export const projects = [
   {
     id: 1,
-    title: "EcoTech Marketplace",
-    short_description: "A sustainable technology marketplace connecting eco-friendly product vendors with conscious consumers.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-    category: "E-commerce",
+    title: "REshape Fitness studio",
+    short_description: "A modern fitness website offering workout plans, membership management, and online class booking for a seamless gym experience.",
+    image: "/images/home/Reshape.png",
+    technologies: ["React", "Typescript", "Neontech", "razorpay", "CMS"],
+    category: "Fitness & Wellness",
     featured: true,
     project_url: "https://ecotech-marketplace.demo",
-    github_url: "https://github.com/luphonix/ecotech-marketplace"
+    github_url: "https://github.com/luphonix/"
   },
   {
     id: 2,
-    title: "FinanceAI Dashboard",
-    short_description: "An AI-powered financial analytics dashboard providing real-time insights and predictions.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["Python", "TensorFlow", "React", "D3.js", "PostgreSQL"],
-    category: "AI/ML",
+    title: "Tracelytag",
+    short_description: "A smart QR-based digital identity and asset tagging solution that enables easy tracking, authentication, and secure information sharing.",
+    image: "/images/home/tracelytag.png",
+    technologies: ["Html", "css", "javascript", "php", "wix"],
+    category: "SaaS / Identity Management",
     featured: true,
-    project_url: "https://financeai-dashboard.demo",
+    project_url: "https://www.tracelytag.com/",
     github_url: "https://github.com/luphonix/financeai-dashboard"
   },
   {
