@@ -83,10 +83,10 @@ export const projects = [
   },
   {
     id: 3,
-    title: "HealthTrack Mobile App",
-    short_description: "A comprehensive health tracking application with wearable device integration.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["React Native", "Firebase", "HealthKit", "Google Fit"],
+    title: "Aphelioncyber Pvt. Ltd.",
+    short_description: "A cybersecurity and digital transformation company offering innovative solutions in cloud security, web development, AI integration, and IT consulting.",
+    image: "/images/home/aphelion.png",
+    technologies: ["html", "css", "javascript", "Django"],
     category: "Mobile App",
     featured: true,
     project_url: "https://healthtrack-app.demo"
