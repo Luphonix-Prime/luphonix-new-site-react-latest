@@ -22,7 +22,10 @@ const Home = () => {
   const { state } = useBlog();
   const { posts: blogPosts } = state;
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
-  const recentPosts = blogPosts.slice(0, 3);
+  // Sort posts by creation date (newest first) and get the 3 most recent
+  const recentPosts = [...blogPosts]
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+    .slice(0, 3);
 
   // SEO structured data
   const homePageStructuredData = {

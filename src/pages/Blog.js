@@ -29,10 +29,12 @@ const Blog = () => {
   // Get all unique tags
   const allTags = ['all', ...new Set(blogPosts.flatMap(post => post.tags))];
   const categories = ['all', 'Web Dev', 'AI/ML', 'Cybersecurity', 'Blockchain', 'Design'];
-  const featuredPosts = blogPosts.filter(post => post.is_featured);
+  const featuredPosts = blogPosts
+    .filter(post => post.is_featured)
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   useEffect(() => {
-    let filtered = blogPosts;
+    let filtered = [...blogPosts];
 
     // Filter by search term
     if (searchTerm) {
@@ -51,6 +53,9 @@ const Blog = () => {
         filtered = filtered.filter(post => post.tags.includes(selectedTag));
       }
     }
+
+    // Sort by creation date (newest first)
+    filtered.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     setFilteredPosts(filtered);
   }, [searchTerm, selectedTag, blogPosts, categories]);
