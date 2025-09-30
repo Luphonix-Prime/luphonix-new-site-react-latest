@@ -7,6 +7,7 @@ import Carousel from '../components/Carousel';
 import Model3D from '../components/Model3D';
 import ParticleImageEffect from '../components/ParticleImageEffect';
 import SEOHead from '../components/SEOHead';
+import { getImagePath } from '../utils/imageUtils'; // Import getImagePath utility
 import '../components/BlogAnimations.css';
 import { RotatingText } from '../components/ui/RotatingText'; // Import RotatingText
 

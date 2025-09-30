@@ -1,6 +1,7 @@
 import React, { useState, useRef, useId, useEffect } from "react";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useNavigate } from 'react-router-dom';
+import { getImagePath } from '../utils/imageUtils';
 
 const Slide = ({
   slide,
@@ -142,7 +143,7 @@ const Slide = ({
               transition: 'opacity 0.6s ease-in-out'
             }}
             alt={title}
-            src={src}
+            src={getImagePath(src)}
             onLoad={imageLoaded}
             loading="eager"
           />
