@@ -1,3 +1,4 @@
+import { getImagePath } from '../utils/imageUtils';
 export const services = [
 
   {
@@ -286,7 +287,7 @@ export const blogPosts = [
 
 export const slides = [
   {
-    src: "/images/react-logo.png",
+    src: getImagePath("react.png", "languages"),
     title: "React",
     description: "Popular JavaScript library for building user interfaces with component-based architecture and virtual DOM for optimal performance.",
     button: "Master React",
