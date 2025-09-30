@@ -56,7 +56,7 @@ const ProcessStepsSection = () => {
       step: 4,
       title: "Launch & Optimization",
       content: "We handle the complete deployment process with comprehensive testing and performance monitoring. Post-launch, we provide ongoing support, analytics implementation, and continuous optimization based on user feedback and performance metrics.",
-      image: "Launch & Optimization.jpg",
+      image: "Launch.jpg",
       alt: "Launch & Optimization Process"
     }
   ];

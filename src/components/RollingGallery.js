@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useAnimation, useTransform } from "motion/react";
 import "./RollingGallery.css";
+import { getImagePath } from '../utils/imageUtils';
 
 const GALLERY_ITEMS = [
   {
-    url: "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: getImagePath("webdevelopment.jpg", "scroll"),
     title: "Modern Web Development",
     description: "Cutting-edge web applications built with React, Next.js, and modern JavaScript frameworks. Our projects feature responsive design, optimized performance, and seamless user experiences.",
     category: "Web Development",
@@ -238,7 +239,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
               onClick={(e) => handleItemClick(item, e)}
             >
               <img 
-                src={typeof item === 'string' ? item : item.url} 
+                src={typeof item === 'string' ? item : (item.url.startsWith('http') ? item.url : getImagePath(item.url, 'home'))}
                 alt={typeof item === 'string' ? "gallery" : item.title} 
                 className="gallery-img" 
               />
