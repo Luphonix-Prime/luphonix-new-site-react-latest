@@ -1,6 +1,7 @@
 import React, { useState, useRef, useId, useEffect } from "react";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useNavigate } from 'react-router-dom';
+import { getImagePath } from '../utils/imageUtils';
 
 const Slide = ({
   slide,
@@ -142,7 +143,7 @@ const Slide = ({
               transition: 'opacity 0.6s ease-in-out'
             }}
             alt={title}
-            src={src}
+            src={src.startsWith('/') ? src : getImagePath(src)}
             onLoad={imageLoaded}
             loading="eager"
           />
@@ -282,8 +283,16 @@ const Slide = ({
                 overflow: 'hidden'
               }}
               onClick={(e) => {
-                e.stopPropagation();
-                const languageKey = slide.title.toLowerCase().replace('.js', '').replace('.', '');
+                let languageKey = slide.title.toLowerCase();
+                // Handle special cases for proper URL routing
+                if (languageKey === 'node.js') {
+                  languageKey = 'nodejs';
+                } else if (languageKey === 'next.js') {
+                  languageKey = 'nextjs';
+                } else {
+                  // Remove dots and special characters for other technologies
+                  languageKey = languageKey.replace(/[^a-z0-9]/g, '');
+                }
                 navigate(`/language/${languageKey}`);
               }}
               onMouseEnter={(e) => {
@@ -318,33 +327,37 @@ const CarouselControl = ({
   return (
     <button
       style={{
-        width: '40px',
-        height: '40px',
+        width: '50px',
+        height: '50px',
         display: 'flex',
         alignItems: 'center',
-        margin: '0 8px',
         justifyContent: 'center',
-        background: 'rgba(255, 255, 255, 0.1)',
-        border: '1px solid rgba(0, 212, 170, 0.3)',
+        background: 'rgba(0, 0, 0, 0.8)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(0, 212, 170, 0.4)',
         borderRadius: '50%',
         cursor: 'pointer',
-        transition: 'all 0.2s',
-        transform: type === "previous" ? "rotate(180deg)" : "none"
+        transition: 'all 0.3s ease',
+        transform: type === "previous" ? "rotate(180deg)" : "none",
+        boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
+        zIndex: 1001
       }}
       title={title}
       onClick={handleClick}
       onMouseEnter={(e) => {
-        e.target.style.transform = `${type === "previous" ? "rotate(180deg)" : ""} translateY(-2px)`;
-        e.target.style.background = 'rgba(var(--accent-green-rgb), 0.2)';
+        e.target.style.transform = `${type === "previous" ? "rotate(180deg)" : ""} scale(1.1)`;
+        e.target.style.background = 'rgba(0, 212, 170, 0.2)';
         e.target.style.borderColor = 'var(--accent-green)';
+        e.target.style.boxShadow = '0 12px 35px rgba(0, 212, 170, 0.4)';
       }}
       onMouseLeave={(e) => {
-        e.target.style.transform = `${type === "previous" ? "rotate(180deg)" : ""} translateY(0)`;
-        e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-        e.target.style.borderColor = 'rgba(0, 212, 170, 0.3)';
+        e.target.style.transform = `${type === "previous" ? "rotate(180deg)" : ""} scale(1)`;
+        e.target.style.background = 'rgba(0, 0, 0, 0.8)';
+        e.target.style.borderColor = 'rgba(0, 212, 170, 0.4)';
+        e.target.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
       }}
     >
-      <IconArrowNarrowRight style={{ color: 'var(--accent-green)' }} />
+      <IconArrowNarrowRight style={{ color: 'var(--accent-green)', width: '20px', height: '20px' }} />
     </button>
   );
 };
@@ -403,7 +416,7 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
         width: '75vmin',
         height: '75vmin',
         margin: '0 auto',
-        padding: '2rem 0'
+        padding: '2rem 0 8rem 0' // Extra bottom padding for progress indicators
       }}
       aria-labelledby={`carousel-heading-${id}`}
       onMouseEnter={handleMouseEnter}
@@ -447,51 +460,71 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
           />
         ))}
       </ul>
+      {/* Left Arrow - Absolutely positioned */}
       <div style={{
         position: 'absolute',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        top: 'calc(100% + 2rem)',
-        gap: '1rem'
+        left: '-80px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: 1000
       }}>
         <CarouselControl
           type="previous"
           title="Go to previous technology"
           handleClick={(e) => { e.preventDefault(); e.stopPropagation(); handlePreviousClick(); }}
         />
+      </div>
 
-        {/* Progress indicators */}
-        <div style={{ display: 'flex', gap: '8px' }}>
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCurrent(index); }}
-              type="button"
-              style={{
-                width: current === index ? '24px' : '8px',
-                height: '8px',
-                borderRadius: '4px',
-                background: current === index
-                  ? 'var(--accent-green)'
-                  : 'rgba(255, 255, 255, 0.3)',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-                boxShadow: current === index
-                  ? '0 2px 8px rgba(0, 212, 170, 0.4)'
-                  : 'none',
-                border: 'none'
-              }}
-            />
-          ))}
-        </div>
-
+      {/* Right Arrow - Absolutely positioned */}
+      <div style={{
+        position: 'absolute',
+        right: '-80px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: 1000
+      }}>
         <CarouselControl
           type="next"
           title="Go to next technology"
           handleClick={(e) => { e.preventDefault(); e.stopPropagation(); handleNextClick(); }}
         />
+      </div>
+
+      {/* Bottom controls container */}
+      <div style={{
+        position: 'absolute',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        bottom: '-80px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        gap: '8px',
+        zIndex: 100
+      }}>
+        {/* Progress indicators */}
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCurrent(index); }}
+            type="button"
+            style={{
+              width: current === index ? '24px' : '8px',
+              height: '8px',
+              borderRadius: '4px',
+              background: current === index
+                ? 'var(--accent-green)'
+                : 'rgba(255, 255, 255, 0.3)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer',
+              boxShadow: current === index
+                ? '0 2px 8px rgba(0, 212, 170, 0.4)'
+                : 'none',
+              border: 'none'
+            }}
+          />
+        ))}
       </div>
     </div>
   );

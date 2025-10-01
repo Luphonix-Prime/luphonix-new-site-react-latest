@@ -1,5 +1,6 @@
-// Mock data for the application
+import { getImagePath } from '../utils/imageUtils';
 export const services = [
+
   {
     id: 1,
     title: "Web Development",
@@ -61,32 +62,32 @@ export const services = [
 export const projects = [
   {
     id: 1,
-    title: "EcoTech Marketplace",
-    short_description: "A sustainable technology marketplace connecting eco-friendly product vendors with conscious consumers.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-    category: "E-commerce",
+    title: "REshape Fitness studio",
+    short_description: "A modern fitness website offering workout plans, membership management, and online class booking for a seamless gym experience.",
+    image: "/images/home/Reshape.png",
+    technologies: ["React", "Typescript", "Neontech", "razorpay", "CMS"],
+    category: "Fitness & Wellness",
     featured: true,
     project_url: "https://ecotech-marketplace.demo",
-    github_url: "https://github.com/luphonix/ecotech-marketplace"
+    github_url: "https://github.com/luphonix/"
   },
   {
     id: 2,
-    title: "FinanceAI Dashboard",
-    short_description: "An AI-powered financial analytics dashboard providing real-time insights and predictions.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["Python", "TensorFlow", "React", "D3.js", "PostgreSQL"],
-    category: "AI/ML",
+    title: "Tracelytag",
+    short_description: "A smart QR-based digital identity and asset tagging solution that enables easy tracking, authentication, and secure information sharing.",
+    image: "/images/home/tracelytag.png",
+    technologies: ["Html", "css", "javascript", "php", "wix"],
+    category: "SaaS / Identity Management",
     featured: true,
-    project_url: "https://financeai-dashboard.demo",
+    project_url: "https://www.tracelytag.com/",
     github_url: "https://github.com/luphonix/financeai-dashboard"
   },
   {
     id: 3,
-    title: "HealthTrack Mobile App",
-    short_description: "A comprehensive health tracking application with wearable device integration.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    technologies: ["React Native", "Firebase", "HealthKit", "Google Fit"],
+    title: "Aphelioncyber Pvt. Ltd.",
+    short_description: "A cybersecurity and digital transformation company offering innovative solutions in cloud security, web development, AI integration, and IT consulting.",
+    image: "/images/home/aphelion.png",
+    technologies: ["html", "css", "javascript", "Django"],
     category: "Mobile App",
     featured: true,
     project_url: "https://healthtrack-app.demo"
@@ -189,7 +190,7 @@ export const blogPosts = [
     author: {
       name: "Priya S.",
       title: "UI/UX Designer at LUPHONIX",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b1c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      avatar: "https://images.unsplash.com/photo-1494790108755-24a72986d28f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
     created_at: "2024-01-05T09:15:00Z",
     read_time: 6,
@@ -286,9 +287,9 @@ export const blogPosts = [
 
 export const slides = [
   {
-    src: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    title: "React.js",
-    description: "A JavaScript library for building dynamic, interactive user interfaces with component-based architecture and virtual DOM optimization.",
+    src:  "/images/languages/react.png",
+    title: "React",
+    description: "Popular JavaScript library for building user interfaces with component-based architecture and virtual DOM for optimal performance.",
     button: "Master React",
     features: [
       "Virtual DOM for lightning-fast performance",
@@ -324,7 +325,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/nodejs.png",
     title: "Node.js",
     description: "JavaScript runtime built on Chrome's V8 engine, enabling server-side development with unparalleled performance and scalability.",
     button: "Explore Node",
@@ -362,7 +363,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/python.png",
     title: "Python",
     description: "Versatile programming language perfect for web development, data science, AI/ML, and automation with clean, readable syntax.",
     button: "Learn Python",
@@ -400,7 +401,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/mongodb.png",
     title: "MongoDB",
     description: "NoSQL document database that provides high performance, high availability, and easy scalability for modern applications.",
     button: "Dive into MongoDB",
@@ -438,9 +439,9 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/docker.png",
     title: "Docker",
-    description: "Containerization platform that packages applications with dependencies, ensuring consistent deployment across environments.",
+    description: "Containerization platform that enables developers to package applications with dependencies for consistent deployment across environments.",
     button: "Containerize Now",
     features: [
       "Application containerization",
@@ -476,7 +477,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/aws.png",
     title: "AWS",
     description: "Comprehensive cloud computing platform offering scalable infrastructure, storage, databases, and AI services worldwide.",
     button: "Scale with AWS",
@@ -514,7 +515,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/next.png",
     title: "Next.js",
     description: "React framework with server-side rendering, static generation, and built-in optimizations for production-ready applications.",
     button: "Build with Next.js",
@@ -552,7 +553,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/typescript.png",
     title: "TypeScript",
     description: "Strongly typed superset of JavaScript that compiles to plain JavaScript, providing better developer experience and code quality.",
     button: "Type with TypeScript",
@@ -590,7 +591,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/kubernetes.png",
     title: "Kubernetes",
     description: "Container orchestration platform for automating deployment, scaling, and management of containerized applications.",
     button: "Orchestrate with K8s",
@@ -628,7 +629,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/graphql.png",
     title: "GraphQL",
     description: "Query language and runtime for APIs that allows clients to request exactly the data they need in a single request.",
     button: "Query with GraphQL",
@@ -666,7 +667,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/tensorflow.png",
     title: "TensorFlow",
     description: "Open-source machine learning framework for developing and training ML models with support for deep learning and neural networks.",
     button: "Learn with TensorFlow",
@@ -704,7 +705,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/rust.png",
     title: "Rust",
     description: "Systems programming language focused on safety, speed, and concurrency without garbage collection.",
     button: "Build with Rust",
@@ -742,7 +743,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/tailwind.png",
     title: "Tailwind CSS",
     description: "Utility-first CSS framework for rapidly building custom user interfaces with pre-built classes and responsive design.",
     button: "Style with Tailwind",
@@ -780,7 +781,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/solidity.png",
     title: "Solidity",
     description: "Programming language for writing smart contracts on Ethereum blockchain and other EVM-compatible networks.",
     button: "Contract with Solidity",
@@ -818,7 +819,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/go.png",
     title: "Go",
     description: "Fast, statically typed language designed for simplicity and efficiency in building scalable backend services and cloud applications.",
     button: "Go with Golang",
@@ -856,7 +857,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/vue.png",
     title: "Vue.js",
     description: "Progressive JavaScript framework for building user interfaces with an approachable learning curve and powerful ecosystem.",
     button: "Create with Vue",
@@ -894,7 +895,7 @@ export const slides = [
     ]
   },
   {
-    src: "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/images/languages/flutter.png",
     title: "Flutter",
     description: "Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.",
     button: "Develop with Flutter",
@@ -933,13 +934,80 @@ export const slides = [
   }
 ];
 
+export const galleryImages = [
+  {
+    id: 1,
+    src: '/images/scroll/web-development.jpg',
+    title: 'Modern Web Development',
+    description: 'Cutting-edge web applications built with React, Node.js, and modern frameworks',
+    category: 'Web Development',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express']
+  },
+  {
+    id: 2,
+    src: '/images/scroll/mobile app.jpg',
+    title: 'Mobile App Development',
+    description: 'Native and cross-platform mobile applications for iOS and Android',
+    category: 'Mobile Development',
+    technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin']
+  },
+  {
+    id: 3,
+    src: '/images/scroll/ui-ux-design.jpg',
+    title: 'UI/UX Design',
+    description: 'Creating user-centered, intuitive, and engaging digital experiences',
+    category: 'Design',
+    technologies: ['Figma', 'Sketch', 'Adobe XD', 'InVision']
+  },
+  {
+    id: 4,
+    src: '/images/scroll/ecommerce.jpg',
+    title: 'E-commerce Solutions',
+    description: 'Scalable and secure e-commerce platforms with seamless payment integration',
+    category: 'E-commerce',
+    technologies: ['Shopify', 'WooCommerce', 'Magento', 'React']
+  },
+  {
+    id: 5,
+    src: '/images/scroll/ai-ml.jpg',
+    title: 'AI/ML Development',
+    description: 'Leveraging artificial intelligence and machine learning for innovative solutions',
+    category: 'AI/ML',
+    technologies: ['Python', 'TensorFlow', 'PyTorch', 'Scikit-learn']
+  },
+  {
+    id: 6,
+    src: '/images/scroll/blockchain.jpg',
+    title: 'Blockchain Development',
+    description: 'Building decentralized applications and smart contracts for secure and transparent systems',
+    category: 'Blockchain',
+    technologies: ['Solidity', 'Ethereum', 'Hyperledger Fabric', 'Web3.js']
+  },
+  {
+    id: 7,
+    src: '/images/scroll/cloud-solutions.jpg',
+    title: 'Cloud Solutions',
+    description: 'Scalable and reliable cloud infrastructure for modern applications',
+    category: 'Cloud',
+    technologies: ['AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes']
+  },
+  {
+    id: 8,
+    src: '/images/scroll/devops.jpg',
+    title: 'DevOps & CI/CD',
+    description: 'Streamlining development workflows with automation and continuous integration',
+    category: 'DevOps',
+    technologies: ['Jenkins', 'GitLab CI', 'Docker', 'Kubernetes', 'Ansible']
+  }
+];
+
 export const caseStudies = [
   {
     id: 1,
     title: "NixKart E-commerce Platform: Scaling from 0 to 10K+ Users",
     slug: "nixkart-ecommerce-scaling-case-study",
     excerpt: "How we built and scaled a full-featured e-commerce platform that now serves over 10,000 active users with 99.9% uptime.",
-    featured_image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    featured_image: "https://images.unsplash.com/photo-1556742049-0cfed4c6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     tags: ["eCommerce", "React", "Node.js", "MongoDB", "Case Study"],
     client: "NixKart",
     duration: "6 months",
@@ -1004,5 +1072,6 @@ export default {
   projects,
   blogPosts,
   slides,
+  galleryImages,
   caseStudies
 };

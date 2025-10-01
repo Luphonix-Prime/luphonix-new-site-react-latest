@@ -5,10 +5,11 @@ import { useBlog } from '../context/BlogContext';
 import RollingGallery from '../components/RollingGallery';
 import Carousel from '../components/Carousel';
 import Model3D from '../components/Model3D';
+import ParticleImageEffect from '../components/ParticleImageEffect';
 import SEOHead from '../components/SEOHead';
+import { getImagePath } from '../utils/imageUtils'; // Import getImagePath utility
 import '../components/BlogAnimations.css';
 import { RotatingText } from '../components/ui/RotatingText'; // Import RotatingText
-import { NeonLogo3D } from '../components/ui/NeonLogo3D'; // Import 3D Logo
 
 // Utility function for class merging (assuming it's needed for Carousel or other components)
 import { clsx } from "clsx";
@@ -22,7 +23,10 @@ const Home = () => {
   const { state } = useBlog();
   const { posts: blogPosts } = state;
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
-  const recentPosts = blogPosts.slice(0, 3);
+  // Sort posts by creation date (newest first) and get the 3 most recent
+  const recentPosts = [...blogPosts]
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+    .slice(0, 3);
 
   // SEO structured data
   const homePageStructuredData = {
@@ -64,7 +68,7 @@ const Home = () => {
       />
       <div className="home">
       {/* Hero Section */}
-      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+      <section className="hero" style={{ position: 'relative', overflow: 'hidden', paddingTop: '60px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ 
             display: 'grid', 
@@ -72,10 +76,12 @@ const Home = () => {
             gap: '60px', 
             alignItems: 'center',
             minHeight: '100vh',
-            padding: '80px 0'
+            padding: '40px 0 80px 0',
+            alignItems: 'flex-start',
+            paddingTop: '120px'
           }}>
             {/* Left Content */}
-            <div className="hero-content fade-in">
+            <div className="hero-content fade-in" style={{ textAlign: 'center' }}>
               <h1 className="hero-title">
                 Digital Innovation That <span className="gradient-text">Drives Results</span>
               </h1>
@@ -93,7 +99,7 @@ const Home = () => {
                 ]}
                 className="hero-rotating-text"
               />
-              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
                 <Link to="/contact" className="cta-button" style={{
                   fontSize: '16px',
                   padding: '18px 36px',
@@ -120,18 +126,19 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Right Side - 3D Logo Animation */}
+            {/* Right Side - Particle Animation */}
             <div className="fade-in" style={{ 
               animationDelay: '0.3s',
               height: '600px',
               position: 'relative',
               borderRadius: '20px',
               overflow: 'hidden',
-              background: 'rgba(0, 0, 0, 0.2)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 212, 170, 0.2)'
+              background: 'transparent',
+              marginTop: '-80px'
             }}>
-              <NeonLogo3D />
+              <ParticleImageEffect 
+                imageSize={300}
+              />
             </div>
           </div>
         </div>
@@ -509,193 +516,6 @@ const Home = () => {
           <div className="fade-in" style={{ animationDelay: '0.2s' }}>
             <RollingGallery autoplay={true} pauseOnHover={true} />
           </div>
-        </div>
-      </section>
-
-      {/* 3D Model Experience Section */}
-      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
-        <div className="container">
-          <h2 className="section-title fade-in" style={{ textAlign: 'center', marginBottom: '60px' }}>
-            Interactive 3D Experience
-          </h2>
-
-          <div className="model-layout" style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '60px',
-            alignItems: 'center',
-            maxWidth: '1200px',
-            margin: '0 auto'
-          }}>
-            {/* 3D Model - Left Side */}
-            <div className="fade-in" style={{ 
-              animationDelay: '0.2s'
-            }}>
-              <Model3D 
-                modelPath="/krishna.glb"
-                containerStyle={{
-                  height: '500px',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
-                }}
-                showBorder={false}
-                enableRotation={true}
-              />
-            </div>
-
-            {/* Text Content - Right Side */}
-            <div className="fade-in" style={{ 
-              animationDelay: '0.4s',
-              padding: '40px 0'
-            }}>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '12px',
-                background: 'rgba(var(--accent-green-rgb), 0.1)',
-                padding: '10px 20px',
-                borderRadius: '25px',
-                border: '1px solid rgba(var(--accent-green-rgb), 0.2)',
-                marginBottom: '30px'
-              }}>
-                <i className="fas fa-cube" style={{ 
-                  color: 'var(--accent-green)', 
-                  fontSize: '16px' 
-                }}></i>
-                <span style={{ 
-                  color: 'var(--accent-green)', 
-                  fontWeight: '600',
-                  fontSize: '12px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px'
-                }}>
-                  3D Visualization
-                </span>
-              </div>
-
-              <h3 style={{
-                fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
-                fontWeight: '700',
-                color: 'var(--text-primary)',
-                marginBottom: '25px',
-                lineHeight: '1.3'
-              }}>
-                Immersive 3D Models &<br />
-                <span style={{ color: 'var(--accent-green)' }}>WebGL Experiences</span>
-              </h3>
-
-              <p style={{ 
-                color: 'var(--text-secondary)', 
-                fontSize: '1.1rem',
-                lineHeight: '1.7',
-                marginBottom: '30px'
-              }}>
-                Experience cutting-edge 3D visualization technology powered by WebGL and Three.js. 
-                Our interactive models showcase detailed craftsmanship with smooth animations, 
-                realistic lighting, and responsive controls that work seamlessly across all devices.
-              </p>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '20px',
-                marginBottom: '35px'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{
-                    width: '40px',
-                    height: '40px',
-                    background: 'rgba(var(--accent-green-rgb), 0.1)',
-                    borderRadius: '10px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <i className="fas fa-mouse-pointer" style={{ color: 'var(--accent-green)', fontSize: '16px' }}></i>
-                  </div>
-                  <div>
-                    <h4 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '14px', fontWeight: '600' }}>
-                      Interactive Controls
-                    </h4>
-                    <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '12px' }}>
-                      Drag to rotate
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{
-                    width: '40px',
-                    height: '40px',
-                    background: 'rgba(var(--accent-purple-rgb), 0.1)',
-                    borderRadius: '10px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <i className="fas fa-mobile-alt" style={{ color: 'var(--accent-purple)', fontSize: '16px' }}></i>
-                  </div>
-                  <div>
-                    <h4 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '14px', fontWeight: '600' }}>
-                      Mobile Ready
-                    </h4>
-                    <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '12px' }}>
-                      Touch optimized
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
-                <button style={{
-                  background: 'var(--accent-green)',
-                  color: 'white',
-                  border: 'none',
-                  padding: '14px 24px',
-                  borderRadius: '12px',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  transition: 'all 0.3s ease'
-                }}>
-                  <i className="fas fa-play"></i>
-                  View More Models
-                </button>
-
-                <button style={{
-                  background: 'transparent',
-                  color: 'var(--accent-green)',
-                  border: '2px solid var(--accent-green)',
-                  padding: '12px 24px',
-                  borderRadius: '12px',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  transition: 'all 0.3s ease'
-                }}>
-                  <i className="fas fa-info-circle"></i>
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Add responsive CSS */}
-          <style dangerouslySetInnerHTML={{__html: `
-            @media (max-width: 768px) {
-              .model-layout {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
-              }
-            }
-          `}} />
         </div>
       </section>
       </div>

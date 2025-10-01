@@ -29,10 +29,12 @@ const Blog = () => {
   // Get all unique tags
   const allTags = ['all', ...new Set(blogPosts.flatMap(post => post.tags))];
   const categories = ['all', 'Web Dev', 'AI/ML', 'Cybersecurity', 'Blockchain', 'Design'];
-  const featuredPosts = blogPosts.filter(post => post.is_featured);
+  const featuredPosts = blogPosts
+    .filter(post => post.is_featured)
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   useEffect(() => {
-    let filtered = blogPosts;
+    let filtered = [...blogPosts];
 
     // Filter by search term
     if (searchTerm) {
@@ -51,6 +53,9 @@ const Blog = () => {
         filtered = filtered.filter(post => post.tags.includes(selectedTag));
       }
     }
+
+    // Sort by creation date (newest first)
+    filtered.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     setFilteredPosts(filtered);
   }, [searchTerm, selectedTag, blogPosts, categories]);
@@ -539,38 +544,8 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* 3D Model Experience Section */}
-      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
-        <div className="container">
-          <h2 className="section-title fade-in">3D Blog Visualization</h2>
-          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
-            Experience our content through interactive 3D technology
-          </p>
-          <div className="fade-in" style={{ 
-            animationDelay: '0.2s',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            <Model3D 
-              modelPath="/ganesha_fbx.fbx"
-              containerStyle={{
-                height: '500px'
-              }}
-              showBorder={false}
-              enableRotation={false}
-            />
-            <p style={{ 
-              color: 'var(--text-secondary)', 
-              textAlign: 'center',
-              fontSize: '14px',
-              fontWeight: '300',
-              marginTop: '20px'
-            }}>
-              Interactive 3D experience showcasing our blog content presentation capabilities
-            </p>
-          </div>
-        </div>
-      </section>
+     
+      
       </div>
     </>
   );

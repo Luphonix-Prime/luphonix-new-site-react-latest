@@ -105,6 +105,7 @@ const Products = () => {
     { name: "Django", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
     { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
     { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
     { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
     { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
     { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
@@ -672,35 +673,8 @@ const Products = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="section" style={{ padding: '100px 0' }}>
-          <div className="container" style={{ textAlign: 'center' }}>
-            <h2 className="section-title fade-in" style={{ marginBottom: '25px' }}>
-              Ready to Transform Your Business?
-            </h2>
-            <p className="section-subtitle fade-in" style={{ marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-              Let's discuss how our innovative products can drive your business forward
-            </p>
-            <div className="fade-in" style={{ animationDelay: '0.3s' }}>
-              <a href="/contact" className="cta-button" style={{
-                fontSize: '16px',
-                padding: '15px 30px',
-                marginRight: '20px'
-              }}>
-                Get Started Today
-              </a>
-              <button className="cta-button" style={{
-                fontSize: '16px',
-                padding: '15px 30px',
-                background: 'transparent',
-                border: '1px solid var(--accent-green)',
-                color: 'var(--accent-green)'
-              }}>
-                View Portfolio
-              </button>
-            </div>
-          </div>
-        </section>
+ 
+       
       </div>
     </>
   );

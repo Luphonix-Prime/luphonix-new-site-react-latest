@@ -9,6 +9,8 @@ import { ChromaGrid } from '../components/ChromaGrid';
 import { RotatingText } from '../components/ui/RotatingText';
 import Orb from '../components/Orb';
 import WebGLErrorBoundary from '../components/WebGLErrorBoundary';
+import { getImagePath } from '../utils/imageUtils';
+
 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
 
@@ -33,28 +35,28 @@ const ProcessStepsSection = () => {
       step: 1,
       title: "Discovery & Strategy",
       content: "We begin by conducting comprehensive research to understand your business objectives, target audience, and requirements. This discovery phase includes stakeholder interviews, requirement gathering, and strategic planning to ensure we deliver the right solution.",
-      image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=800&auto=format&fit=crop",
+      image: "discovering.jpg",
       alt: "Discovery & Strategy Process"
     },
     {
       step: 2,
       title: "Design & Prototyping",
       content: "Our design team creates wireframes and high-fidelity prototypes focused on user experience, design, and interactive prototyping. We focus on user-centered design principles while maintaining your brand identity and ensuring optimal usability across all platforms.",
-      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop",
+      image: "designing.jpg",
       alt: "Design & Prototyping Process"
     },
     {
       step: 3,
       title: "Development & Integration",
       content: "Using modern technologies and best practices, we build scalable, secure, and performance-optimized solutions. Our development process includes regular code reviews, automated testing, and continuous integration to ensure quality at every step.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      image: "Development & Integration.jpg",
       alt: "Development & Integration Process"
     },
     {
       step: 4,
       title: "Launch & Optimization",
       content: "We handle the complete deployment process with comprehensive testing and performance monitoring. Post-launch, we provide ongoing support, analytics implementation, and continuous optimization based on user feedback and performance metrics.",
-      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=800&auto=format&fit=crop",
+      image: "Launch & Optimization.jpg",
       alt: "Launch & Optimization Process"
     }
   ];
@@ -147,17 +149,17 @@ const ProcessStepsSection = () => {
         border: '1px solid rgba(255, 255, 255, 0.1)',
         background: 'linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)'
       }}>
-        <img
-          src={currentStep.image}
-          alt={currentStep.alt}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: '0.8',
-            transition: 'all 0.5s ease'
-          }}
-        />
+       <img
+  src={getImagePath(currentStep.image, 'process')}
+  alt={currentStep.alt}
+  style={{
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    opacity: '0.8',
+    transition: 'all 0.5s ease'
+  }}
+/>
         <div style={{
           position: 'absolute',
           bottom: '0',
@@ -264,7 +266,7 @@ const Services = () => {
       title: "Web Development",
       description: "Enterprise-grade web applications with cutting-edge technologies, scalable architecture, and exceptional performance optimization.",
       detailedDescription: "At Luphonix, we craft digital experiences that drive business growth. Our web development services encompass everything from simple landing pages to complex enterprise applications, e-commerce platforms, and progressive web apps.",
-      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=3874&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "web-development.jpg",
       icon: "fas fa-code",
       technologies: ["React", "Next.js", "Node.js", "Python", "PostgreSQL", "MongoDB", "AWS", "Docker"],
       features: [
@@ -286,7 +288,7 @@ const Services = () => {
       title: "Mobile App Development",
       description: "Native and cross-platform mobile solutions with seamless user experiences and robust backend integration.",
       detailedDescription: "Transform your ideas into powerful mobile applications. We develop iOS and Android apps using cutting-edge frameworks, ensuring optimal performance, intuitive UI/UX, and seamless integration with your existing systems.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "mobile-development.jpg",
       icon: "fas fa-mobile-alt",
       technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "AWS Amplify", "Redux", "GraphQL"],
       features: [
@@ -308,7 +310,7 @@ const Services = () => {
       title: "UI/UX Design",
       description: "Data-driven design solutions that convert visitors into customers through exceptional user experiences.",
       detailedDescription: "Our design philosophy centers on user-first thinking. We create intuitive, accessible, and visually stunning interfaces that not only look great but also drive conversions and enhance user satisfaction.",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=3764&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "ui-ux.jpg",
       icon: "fas fa-paint-brush",
       technologies: ["Figma", "Adobe XD", "Sketch", "Framer", "Principle", "InVision", "Miro", "Hotjar"],
       features: [
@@ -330,7 +332,7 @@ const Services = () => {
       title: "DevOps & Infrastructure",
       description: "Streamlined development workflows with automated CI/CD pipelines and scalable cloud infrastructure management.",
       detailedDescription: "We provide comprehensive DevOps solutions that streamline your development process, improve deployment reliability, and ensure scalable infrastructure management with modern containerization and automation tools.",
-      image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "devops.jpg",
       icon: "fas fa-cogs",
       technologies: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "AWS", "Terraform", "GitLab CI", "Ansible"],
       features: [
@@ -352,7 +354,7 @@ const Services = () => {
       title: "Content Management Systems",
       description: "Powerful and intuitive content management solutions that empower your team to manage digital content effortlessly.",
       detailedDescription: "We design and develop custom content management systems tailored to your specific needs, from traditional CMS platforms to modern headless architectures that provide flexibility and scalability for your digital content strategy.",
-      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=3874&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "cms.jpg",
       icon: "fas fa-edit",
       technologies: ["WordPress", "Strapi", "Contentful", "Sanity", "Ghost", "Drupal", "Craft CMS", "Prismic"],
       features: [
@@ -374,7 +376,7 @@ const Services = () => {
       title: "Consulting & Engagements",
       description: "Strategic technology consulting and tailored engagement models to accelerate your digital transformation journey.",
       detailedDescription: "Our expert consultants provide strategic guidance, technical assessments, and customized engagement models to help you navigate complex technology decisions and achieve sustainable digital growth.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "Consulting.jpg",
       icon: "fas fa-handshake",
       technologies: ["Strategy", "Architecture", "Assessment", "Planning", "Optimization", "Training", "Support", "Integration"],
       features: [
@@ -484,7 +486,18 @@ const Services = () => {
                 rotationInterval={2800}
               />
             </h1>
-            <p className="section-subtitle fade-in" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="section-subtitle fade-in" style={{ 
+              color: 'rgba(255,255,255,0.9)', 
+              textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+              fontSize: '1.2rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em',
+              marginTop: '20px',
+              textAlign: 'center',
+              maxWidth: '800px',
+              margin: '20px auto',
+              lineHeight: '1.6'
+            }}>
               Comprehensive digital solutions tailored to your business needs
             </p>
           </div>
@@ -537,7 +550,7 @@ const Services = () => {
                 {/* Service Image */}
                 <div style={{
                   height: '200px',
-                  backgroundImage: `url(${service.image})`,
+                  backgroundImage: `url(${getImagePath(service.image)})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   position: 'relative'
@@ -867,15 +880,15 @@ const Services = () => {
                     overflow: 'hidden',
                     height: '400px'
                   }}>
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                      }}
-                    />
+                     <img
+    src={getImagePath(service.image)} // <-- FIXED
+    alt={service.title}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover'
+    }}
+  />
                     <div style={{
                       position: 'absolute',
                       top: 0,
@@ -1037,38 +1050,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* 3D Model Experience Section */}
-      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', padding: '120px 0' }}>
-        <div className="container">
-          <h2 className="section-title fade-in">Experience Our 3D Capabilities</h2>
-          <p className="section-subtitle fade-in" style={{ marginBottom: '60px' }}>
-            Interactive 3D modeling and visualization showcase
-          </p>
-          <div className="fade-in" style={{
-            animationDelay: '0.2s',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            <Model3D
-              modelPath="/ganpati.glb"
-              containerStyle={{
-                height: '500px'
-              }}
-              showBorder={false}
-              enableRotation={false}
-            />
-            <p style={{
-              color: 'var(--text-secondary)',
-              textAlign: 'center',
-              fontSize: '14px',
-              fontWeight: '300',
-              marginTop: '20px'
-            }}>
-              Explore our advanced 3D modeling and web integration capabilities
-            </p>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Technology Partners Section */}
       <section className="section" style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', padding: '80px 0' }}>
@@ -1117,51 +1099,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section" style={{
-        background: 'linear-gradient(135deg, var(--accent-green) 0%, var(--accent-purple) 100%)',
-        textAlign: 'center'
-      }}>
-        <div className="container">
-          <h2 className="fade-in" style={{
-            color: 'white',
-            fontSize: '32px',
-            fontWeight: '600',
-            marginBottom: '20px'
-          }}>
-            Ready to Start Your Project?
-          </h2>
-
-          <p className="fade-in" style={{
-            color: 'rgba(255, 255, 255, 0.9)',
-            fontSize: '18px',
-            marginBottom: '40px',
-            maxWidth: '600px',
-            margin: '0 auto 40px'
-          }}>
-            Let's discuss how we can help transform your ideas into reality
-          </p>
-
-          <Link
-            to="/contact"
-            className="fade-in"
-            style={{
-              display: 'inline-block',
-              padding: '15px 40px',
-              background: 'white',
-              color: 'var(--primary-bg)',
-              borderRadius: '30px',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '600',
-              transition: 'all 0.3s ease',
-              animationDelay: '0.3s'
-            }}
-          >
-            Start Your Project
-          </Link>
-        </div>
-      </section>
+     
       </div>
     </>
   );
