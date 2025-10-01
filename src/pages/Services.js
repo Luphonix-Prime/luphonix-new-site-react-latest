@@ -56,7 +56,7 @@ const ProcessStepsSection = () => {
       step: 4,
       title: "Launch & Optimization",
       content: "We handle the complete deployment process with comprehensive testing and performance monitoring. Post-launch, we provide ongoing support, analytics implementation, and continuous optimization based on user feedback and performance metrics.",
-      image: "Launch & Optimization.jpg",
+      image: "Launch.jpg",
       alt: "Launch & Optimization Process"
     }
   ];
@@ -310,7 +310,7 @@ const Services = () => {
       title: "UI/UX Design",
       description: "Data-driven design solutions that convert visitors into customers through exceptional user experiences.",
       detailedDescription: "Our design philosophy centers on user-first thinking. We create intuitive, accessible, and visually stunning interfaces that not only look great but also drive conversions and enhance user satisfaction.",
-      image: "ui-ux.jpg",
+      image: "ui ux service.jpg",
       icon: "fas fa-paint-brush",
       technologies: ["Figma", "Adobe XD", "Sketch", "Framer", "Principle", "InVision", "Miro", "Hotjar"],
       features: [
