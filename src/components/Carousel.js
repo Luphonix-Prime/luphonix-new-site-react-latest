@@ -143,7 +143,7 @@ const Slide = ({
               transition: 'opacity 0.6s ease-in-out'
             }}
             alt={title}
-            src={getImagePath(src)}
+            src={src.startsWith('/') ? src : getImagePath(src)}
             onLoad={imageLoaded}
             loading="eager"
           />
@@ -283,8 +283,16 @@ const Slide = ({
                 overflow: 'hidden'
               }}
               onClick={(e) => {
-                e.stopPropagation();
-                const languageKey = slide.title.toLowerCase().replace('.js', '').replace('.', '');
+                let languageKey = slide.title.toLowerCase();
+                // Handle special cases for proper URL routing
+                if (languageKey === 'node.js') {
+                  languageKey = 'nodejs';
+                } else if (languageKey === 'next.js') {
+                  languageKey = 'nextjs';
+                } else {
+                  // Remove dots and special characters for other technologies
+                  languageKey = languageKey.replace(/[^a-z0-9]/g, '');
+                }
                 navigate(`/language/${languageKey}`);
               }}
               onMouseEnter={(e) => {

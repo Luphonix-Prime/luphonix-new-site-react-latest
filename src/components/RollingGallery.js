@@ -238,8 +238,8 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
               }}
               onClick={(e) => handleItemClick(item, e)}
             >
-              <img 
-                src={typeof item === 'string' ? item : getImagePath(item.url.split('/').pop(), 'home')}
+             <img 
+                src={typeof item === 'string' ? item : item.url}
                 alt={typeof item === 'string' ? "gallery" : item.title} 
                 className="gallery-img" 
               />

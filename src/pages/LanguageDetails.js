@@ -6,9 +6,17 @@ const LanguageDetails = () => {
   const { language } = useParams();
 
   // Find the matching slide based on the language parameter
-  const currentLanguage = slides.find(slide =>
-    slide.title.toLowerCase().replace(/[^a-z0-9]/g, '') === language?.toLowerCase().replace(/[^a-z0-9]/g, '')
-  ) || slides[0]; // Default to first slide if not found
+  const currentLanguage = slides.find(slide => {
+    const slideTitle = slide.title.toLowerCase();
+    const urlParam = language?.toLowerCase();
+    
+    // Handle special cases for URL mapping
+    if (urlParam === 'nodejs' && slideTitle === 'node.js') return true;
+    if (urlParam === 'nextjs' && slideTitle === 'next.js') return true;
+    
+    // Default comparison by removing special characters
+    return slideTitle.replace(/[^a-z0-9]/g, '') === urlParam?.replace(/[^a-z0-9]/g, '');
+  }) || slides[0]; // Default to first slide if not found
 
   return (
     <div className="language-details">

@@ -287,7 +287,7 @@ export const blogPosts = [
 
 export const slides = [
   {
-    src: getImagePath("react.png", "languages"),
+    src:  "/images/languages/react.png",
     title: "React",
     description: "Popular JavaScript library for building user interfaces with component-based architecture and virtual DOM for optimal performance.",
     button: "Master React",
@@ -325,7 +325,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/nodejs-logo.png",
+    src: "/images/languages/nodejs.png",
     title: "Node.js",
     description: "JavaScript runtime built on Chrome's V8 engine, enabling server-side development with unparalleled performance and scalability.",
     button: "Explore Node",
@@ -363,7 +363,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/python-logo.png",
+    src: "/images/languages/python.png",
     title: "Python",
     description: "Versatile programming language perfect for web development, data science, AI/ML, and automation with clean, readable syntax.",
     button: "Learn Python",
@@ -401,7 +401,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/mongodb-logo.png",
+    src: "/images/languages/mongodb.png",
     title: "MongoDB",
     description: "NoSQL document database that provides high performance, high availability, and easy scalability for modern applications.",
     button: "Dive into MongoDB",
@@ -439,7 +439,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/docker-logo.png",
+    src: "/images/languages/docker.png",
     title: "Docker",
     description: "Containerization platform that enables developers to package applications with dependencies for consistent deployment across environments.",
     button: "Containerize Now",
@@ -477,7 +477,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/aws-logo.png",
+    src: "/images/languages/aws.png",
     title: "AWS",
     description: "Comprehensive cloud computing platform offering scalable infrastructure, storage, databases, and AI services worldwide.",
     button: "Scale with AWS",
@@ -515,7 +515,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/nextjs-logo.png",
+    src: "/images/languages/next.png",
     title: "Next.js",
     description: "React framework with server-side rendering, static generation, and built-in optimizations for production-ready applications.",
     button: "Build with Next.js",
@@ -553,7 +553,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/typescript-logo.png",
+    src: "/images/languages/typescript.png",
     title: "TypeScript",
     description: "Strongly typed superset of JavaScript that compiles to plain JavaScript, providing better developer experience and code quality.",
     button: "Type with TypeScript",
@@ -591,7 +591,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/kubernetes-logo.png",
+    src: "/images/languages/kubernetes.png",
     title: "Kubernetes",
     description: "Container orchestration platform for automating deployment, scaling, and management of containerized applications.",
     button: "Orchestrate with K8s",
@@ -629,7 +629,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/graphql-logo.png",
+    src: "/images/languages/graphql.png",
     title: "GraphQL",
     description: "Query language and runtime for APIs that allows clients to request exactly the data they need in a single request.",
     button: "Query with GraphQL",
@@ -667,7 +667,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/tensorflow-logo.png",
+    src: "/images/languages/tensorflow.png",
     title: "TensorFlow",
     description: "Open-source machine learning framework for developing and training ML models with support for deep learning and neural networks.",
     button: "Learn with TensorFlow",
@@ -705,7 +705,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/rust-logo.png",
+    src: "/images/languages/rust.png",
     title: "Rust",
     description: "Systems programming language focused on safety, speed, and concurrency without garbage collection.",
     button: "Build with Rust",
@@ -743,7 +743,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/tailwind-logo.png",
+    src: "/images/languages/tailwind.png",
     title: "Tailwind CSS",
     description: "Utility-first CSS framework for rapidly building custom user interfaces with pre-built classes and responsive design.",
     button: "Style with Tailwind",
@@ -781,7 +781,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/solidity-logo.png",
+    src: "/images/languages/solidity.png",
     title: "Solidity",
     description: "Programming language for writing smart contracts on Ethereum blockchain and other EVM-compatible networks.",
     button: "Contract with Solidity",
@@ -819,7 +819,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/go-logo.png",
+    src: "/images/languages/go.png",
     title: "Go",
     description: "Fast, statically typed language designed for simplicity and efficiency in building scalable backend services and cloud applications.",
     button: "Go with Golang",
@@ -857,7 +857,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/vuejs-logo.png",
+    src: "/images/languages/vue.png",
     title: "Vue.js",
     description: "Progressive JavaScript framework for building user interfaces with an approachable learning curve and powerful ecosystem.",
     button: "Create with Vue",
@@ -895,7 +895,7 @@ export const slides = [
     ]
   },
   {
-    src: "/images/flutter-logo.png",
+    src: "/images/languages/flutter.png",
     title: "Flutter",
     description: "Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.",
     button: "Develop with Flutter",
