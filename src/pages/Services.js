@@ -310,7 +310,7 @@ const Services = () => {
       title: "UI/UX Design",
       description: "Data-driven design solutions that convert visitors into customers through exceptional user experiences.",
       detailedDescription: "Our design philosophy centers on user-first thinking. We create intuitive, accessible, and visually stunning interfaces that not only look great but also drive conversions and enhance user satisfaction.",
-      image: "ui ux service.jpg",
+      image: "uiux.jpg",
       icon: "fas fa-paint-brush",
       technologies: ["Figma", "Adobe XD", "Sketch", "Framer", "Principle", "InVision", "Miro", "Hotjar"],
       features: [
