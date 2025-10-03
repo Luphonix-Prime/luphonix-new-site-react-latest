@@ -430,6 +430,11 @@ body {
         0 0 0 3px rgba(var(--accent-green-rgb), 0.1);
 }
 
+[data-theme="clean-white"] .form-group select option {
+    background: white;
+    color: var(--text-primary);
+}
+
 /* Tech Tags */
 [data-theme="clean-white"] .tech-tag {
     background: rgba(var(--accent-green-rgb), 0.1);
@@ -1447,6 +1452,12 @@ body {
     transition: all 0.3s ease;
     font-family: inherit;
     resize: vertical;
+}
+
+.form-group select option {
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    padding: 10px;
 }
 
 .form-group input:focus,

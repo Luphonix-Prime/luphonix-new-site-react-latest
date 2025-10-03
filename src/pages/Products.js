@@ -143,36 +143,34 @@ const Products = () => {
           </div>
           <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', height: '100%' }}>
             <div style={{ textAlign: 'center', width: '100%' }}>
-              <h1 className="fade-in" style={{ 
-                color: '#ffffff', 
-                textShadow: '0 0 30px rgba(0,0,0,1), 0 0 50px rgba(0,0,0,0.9), 3px 3px 12px rgba(0,0,0,1), 0 0 80px rgba(0,0,0,0.8)',
-                fontWeight: '800',
-                letterSpacing: '3px',
-                WebkitTextStroke: '1px rgba(255,255,255,0.3)',
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              <h1 className="fade-in" style={{
+                color: 'white',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                fontWeight: '300',
                 marginBottom: '30px',
-                background: 'none',
-                WebkitBackgroundClip: 'unset',
-                WebkitTextFillColor: '#ffffff',
-                backgroundClip: 'unset',
-                fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                gap: '15px'
               }}>
                 Our Products
               </h1>
-              <p className="fade-in" style={{ 
+              <p className="section-subtitle fade-in" style={{ 
                 color: '#ffffff', 
-                textShadow: '0 0 30px rgba(0,0,0,1), 0 0 50px rgba(0,0,0,0.9), 4px 4px 15px rgba(0,0,0,1), 0 0 80px rgba(0,0,0,0.8)',
-                maxWidth: '600px', 
-                margin: '0 auto',
-                fontWeight: '700',
+                textShadow: '0 0 25px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.9), 3px 3px 10px rgba(0,0,0,1)',
                 fontSize: '1.2rem',
-                WebkitTextFillColor: '#ffffff',
-                fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-                WebkitTextStroke: '0.5px rgba(255,255,255,0.2)',
-                letterSpacing: '0.5px',
-                lineHeight: '1.8'
+                fontWeight: '600',
+                letterSpacing: '0.02em',
+                marginTop: '20px',
+                textAlign: 'center',
+                maxWidth: '800px',
+                margin: '20px auto',
+                lineHeight: '1.6',
+                WebkitTextFillColor: '#ffffff'
               }}>
-                Innovation, quality, and reliability at the core of everything we build. Our customer-first approach drives exceptional digital solutions.
+                From concept to creation — explore our product lineup
               </p>
             </div>
           </div>
