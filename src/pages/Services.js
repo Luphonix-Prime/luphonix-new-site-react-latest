@@ -488,16 +488,17 @@ const Services = () => {
               />
             </h1>
             <p className="section-subtitle fade-in" style={{ 
-              color: 'rgba(255,255,255,0.9)', 
-              textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+              color: '#ffffff', 
+              textShadow: '0 0 25px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.9), 3px 3px 10px rgba(0,0,0,1)',
               fontSize: '1.2rem',
-              fontWeight: '400',
+              fontWeight: '600',
               letterSpacing: '0.02em',
               marginTop: '20px',
               textAlign: 'center',
               maxWidth: '800px',
               margin: '20px auto',
-              lineHeight: '1.6'
+              lineHeight: '1.6',
+              WebkitTextFillColor: '#ffffff'
             }}>
               Comprehensive digital solutions tailored to your business needs
             </p>

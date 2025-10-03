@@ -632,6 +632,13 @@ body {
     transition: var(--transition-fast);
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1001;
+}
+
 /* Main Content */
 .main-content {
     min-height: 100vh;
@@ -1168,6 +1175,17 @@ body {
     50% { opacity: 1; }
     75% { opacity: 0.9; }
 }
+
+@keyframes subtleFloat {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translate(20px, -20px) scale(1.1);
+        opacity: 0.8;
+    }
+}
 /* 
 .service-card:hover .service-icon {
     transform: rotateY(360deg) scale(1.1);
@@ -1616,9 +1634,16 @@ body {
 @media (max-width: 1200px) {
     .services-grid,
     .projects-grid,
-    .blog-grid {
+    .blog-grid,
+    .blog-grid-animated {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 30px;
+    }
+
+    .project-image,
+    .blog-image {
+        height: 280px;
+        object-fit: cover;
     }
 
     .gridMotion-container {
@@ -1639,9 +1664,16 @@ body {
 
     .services-grid,
     .projects-grid,
-    .blog-grid {
+    .blog-grid,
+    .blog-grid-animated {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
+    }
+
+    .project-image,
+    .blog-image {
+        height: 260px;
+        object-fit: cover;
     }
 
     .hero {
@@ -1702,6 +1734,13 @@ body {
         text-align: center;
     }
 
+    .nav-actions {
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     .section {
         padding: 80px 0;
     }
@@ -1713,9 +1752,35 @@ body {
 
     .services-grid,
     .projects-grid,
-    .blog-grid {
+    .blog-grid,
+    .blog-grid-animated {
         grid-template-columns: 1fr;
         gap: 25px;
+    }
+
+    .project-image,
+    .blog-image,
+    .blog-image-container img {
+        height: 220px !important;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .blog-card,
+    .blog-card-animated,
+    .project-card,
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    .tech-tag {
+        font-size: 10px !important;
+        padding: 4px 10px !important;
+    }
+
+    .cta-button {
+        padding: 12px 24px !important;
+        font-size: 13px !important;
     }
 
     .hero-title {
@@ -1742,6 +1807,28 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 40px;
+    }
+
+    .footer > .container > div:first-child {
+        padding: 35px 25px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .footer > .container > div:first-child h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .footer > .container > div:first-child p {
+        font-size: 1rem !important;
+    }
+
+    .footer .cta-button {
+        padding: 14px 28px !important;
+        font-size: 14px !important;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 
     .theme-switcher {
@@ -1802,6 +1889,20 @@ body {
         font-size: 16px;
     }
 
+    .nav-logo img {
+        height: 55px !important;
+        margin-right: 10px !important;
+    }
+
+    .nav-actions {
+        right: 60px;
+    }
+
+    .nav-actions button {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+    }
+
     .theme-toggle-btn {
         width: 40px;
         height: 40px;
@@ -1841,6 +1942,26 @@ body {
         font-size: 13px;
     }
 
+    .project-title,
+    .blog-title,
+    .blog-title-animated {
+        font-size: 1.2rem !important;
+    }
+
+    .project-description,
+    .blog-excerpt {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .hero-rotating-text {
+        font-size: 1rem !important;
+    }
+
+    img[alt*="Logo"] {
+        max-width: 100px !important;
+    }
+
     .form-submit {
         padding: 16px 32px;
         font-size: 13px;
@@ -1851,7 +1972,7 @@ body {
 @media (max-width: 480px) {
     .nav-container,
     .container {
-        padding: 0 20px;
+        padding: 0 15px;
     }
 
     .nav-container {
@@ -1870,6 +1991,56 @@ body {
 
     .nav-link {
         font-size: 16px;
+    }
+
+    .nav-logo img {
+        height: 50px !important;
+        margin-right: 5px !important;
+    }
+
+    .nav-actions {
+        right: 55px;
+    }
+
+    .nav-actions button {
+        font-size: 10px !important;
+        padding: 5px 8px !important;
+    }
+
+    .footer > .container > div:first-child {
+        padding: 25px 20px !important;
+        border-radius: 15px !important;
+    }
+
+    .footer > .container > div:first-child h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .footer > .container > div:first-child p {
+        font-size: 0.9rem !important;
+        margin-bottom: 25px !important;
+    }
+
+    .footer .cta-button {
+        padding: 12px 24px !important;
+        font-size: 12px !important;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .footer > .container > div:first-child > div {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+        font-size: 1.1rem;
     }
 
     .contact-form {
@@ -2076,6 +2247,35 @@ body {
     .nav-menu {
         top: 60px;
         height: calc(100vh - 60px);
+    }
+
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+
+    .section-title {
+        font-size: 1.6rem !important;
+    }
+
+    .project-image,
+    .blog-image {
+        height: 200px !important;
+    }
+
+    .service-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.2rem !important;
+    }
+
+    .social-links {
+        gap: 10px !important;
+    }
+
+    .social-link {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 14px !important;
     }
 
     .hero-title {

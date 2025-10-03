@@ -410,16 +410,27 @@ const Contact = () => {
                     value={formData.service}
                     onChange={handleInputChange}
                     required
+                    style={{
+                      appearance: 'none',
+                      WebkitAppearance: 'none',
+                      MozAppearance: 'none',
+                      backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2300d4aa\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'right 15px center',
+                      backgroundSize: '20px',
+                      paddingRight: '45px',
+                      cursor: 'pointer'
+                    }}
                   >
-                    <option value="">Select a service</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="mobile-app">Mobile App Development</option>
-                    <option value="ui-ux-design">UI/UX Design</option>
-                    <option value="ecommerce">E-commerce Solutions</option>
-                    <option value="ai-ml">AI/ML Development</option>
-                    <option value="blockchain">Blockchain Development</option>
-                    <option value="consulting">Technical Consulting</option>
-                    <option value="other">Other</option>
+                    <option value="" style={{ background: '#1a1a1a', color: '#a0a0a0' }}>Select a service</option>
+                    <option value="web-development" style={{ background: '#1a1a1a', color: '#ffffff' }}>Web Development</option>
+                    <option value="mobile-app" style={{ background: '#1a1a1a', color: '#ffffff' }}>Mobile App Development</option>
+                    <option value="ui-ux-design" style={{ background: '#1a1a1a', color: '#ffffff' }}>UI/UX Design</option>
+                    <option value="ecommerce" style={{ background: '#1a1a1a', color: '#ffffff' }}>E-commerce Solutions</option>
+                    <option value="ai-ml" style={{ background: '#1a1a1a', color: '#ffffff' }}>AI/ML Development</option>
+                    <option value="blockchain" style={{ background: '#1a1a1a', color: '#ffffff' }}>Blockchain Development</option>
+                    <option value="consulting" style={{ background: '#1a1a1a', color: '#ffffff' }}>Technical Consulting</option>
+                    <option value="other" style={{ background: '#1a1a1a', color: '#ffffff' }}>Other</option>
                   </select>
                 </div>
 
@@ -430,13 +441,24 @@ const Contact = () => {
                     name="budget"
                     value={formData.budget}
                     onChange={handleInputChange}
+                    style={{
+                      appearance: 'none',
+                      WebkitAppearance: 'none',
+                      MozAppearance: 'none',
+                      backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2300d4aa\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'right 15px center',
+                      backgroundSize: '20px',
+                      paddingRight: '45px',
+                      cursor: 'pointer'
+                    }}
                   >
-                    <option value="">Select budget range</option>
-                    <option value="5k-15k">$5K - $15K</option>
-                    <option value="15k-30k">$15K - $30K</option>
-                    <option value="30k-50k">$30K - $50K</option>
-                    <option value="50k-100k">$50K - $100K</option>
-                    <option value="100k+">$100K+</option>
+                    <option value="" style={{ background: '#1a1a1a', color: '#a0a0a0' }}>Select budget range</option>
+                    <option value="5k-15k" style={{ background: '#1a1a1a', color: '#ffffff' }}>$5K - $15K</option>
+                    <option value="15k-30k" style={{ background: '#1a1a1a', color: '#ffffff' }}>$15K - $30K</option>
+                    <option value="30k-50k" style={{ background: '#1a1a1a', color: '#ffffff' }}>$30K - $50K</option>
+                    <option value="50k-100k" style={{ background: '#1a1a1a', color: '#ffffff' }}>$50K - $100K</option>
+                    <option value="100k+" style={{ background: '#1a1a1a', color: '#ffffff' }}>$100K+</option>
                   </select>
                 </div>
 
