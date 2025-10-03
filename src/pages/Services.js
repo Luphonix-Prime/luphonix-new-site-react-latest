@@ -10,6 +10,7 @@ import { RotatingText } from '../components/ui/RotatingText';
 import Orb from '../components/Orb';
 import WebGLErrorBoundary from '../components/WebGLErrorBoundary';
 import { getImagePath } from '../utils/imageUtils';
+import { TestimonialsSection } from '../components/ui/TestimonialsWithMarquee';
 
 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
@@ -1008,46 +1009,65 @@ const Services = () => {
         </div>
       </section>
 
-      {/* All Services Grid with ChromaGrid */}
-      <section className="section" style={{ padding: '120px 0', backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
-        <div className="container">
-          <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>Complete Service Catalog</h2>
-
-          <div style={{ height: '1000px', position: 'relative' }} className="fade-in">
-            <ChromaGrid
-              items={services.map((service, index) => ({
-                image: service.image || [
-                  'https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=300&auto=format&fit=crop', // Web Development
-                  'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=300&auto=format&fit=crop', // Mobile App
-                  'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=300&auto=format&fit=crop', // UI/UX Design
-                  'https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=300&auto=format&fit=crop', // E-commerce
-                  'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=300&auto=format&fit=crop', // AI/ML
-                  'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=300&auto=format&fit=crop', // Blockchain
-                  'https://images.unsplash.com/photo-1544197150-b990a580bb7a8?q=80&w=300&auto=format&fit=crop', // Cloud Solutions
-                  'https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=300&auto=format&fit=crop', // DevOps
-                  'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=300&auto=format&fit=crop', // Cybersecurity
-                  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=300&auto=format&fit=crop', // Digital Marketing
-                  'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=300&auto=format&fit=crop', // 3D Visualization
-                  'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=300&auto=format&fit=crop'  // API Development
-                ][index] || `https://images.unsplash.com/photo-${1500000000000 + service.id}?q=80&w=300&auto=format&fit=crop`,
-                title: service.title,
-                subtitle: service.description.slice(0, 50) + '...',
-                handle: `@${service.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '')}`,
-                borderColor: service.color || 'var(--accent-green)',
-                gradient: service.gradient || `linear-gradient(145deg, ${service.color || 'var(--accent-green)'}, #000)`,
-                url: '/contact',
-                icon: service.icon,
-                features: service.features
-              }))}
-              radius={400}
-              damping={0.45}
-              fadeOut={0.6}
-              ease="power3.out"
-              columns={3}
-              rows={Math.ceil(services.length / 3)}
-            />
-          </div>
-        </div>
+      {/* Client Testimonials */}
+      <section className="fade-in" style={{ 
+        marginTop: '120px',
+        marginBottom: '120px'
+      }}>
+        <TestimonialsSection
+          title="Trusted by clients worldwide"
+          description="Join hundreds of satisfied clients who have transformed their digital presence with Luphonix"
+          testimonials={[
+            {
+              author: {
+                name: "Sarah Mitchell",
+                handle: "@sarahceo",
+                avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
+              },
+              text: "Luphonix transformed our e-commerce platform completely. The team's expertise in React and Node.js delivered a 40% increase in conversion rates. Highly recommended!",
+            },
+            {
+              author: {
+                name: "James Chen",
+                handle: "@jamestech",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+              },
+              text: "Working with Luphonix was a game-changer. Their AI/ML solutions helped us automate our workflow and save over 60% in operational costs.",
+            },
+            {
+              author: {
+                name: "Maria Garcia",
+                handle: "@mariadesign",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
+              },
+              text: "The UI/UX design work was exceptional. Our mobile app now has a 4.8-star rating thanks to the intuitive interface they created.",
+            },
+            {
+              author: {
+                name: "David Kumar",
+                handle: "@davidstartup",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+              },
+              text: "Luphonix helped us scale from 0 to 10,000 users in just 6 months. Their cloud infrastructure solutions are world-class.",
+            },
+            {
+              author: {
+                name: "Emily Roberts",
+                handle: "@emilymarketing",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+              },
+              text: "The SEO optimization and web development services exceeded our expectations. We saw a 250% increase in organic traffic within 3 months.",
+            },
+            {
+              author: {
+                name: "Alex Thompson",
+                handle: "@alexdevops",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+              },
+              text: "Their DevOps expertise streamlined our deployment process. What used to take days now takes minutes. Absolutely fantastic work!",
+            }
+          ]}
+        />
       </section>
 
     
