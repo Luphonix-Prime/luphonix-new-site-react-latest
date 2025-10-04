@@ -465,7 +465,7 @@ const Home = () => {
               border: '1px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
               position: 'relative',
-              overflow: 'hidden',
+              overflow: 'visible',
               margin: '30px auto',
               maxWidth: '100%'
             }}>
@@ -529,8 +529,10 @@ const Home = () => {
               margin: 40px 0 60px 0 !important;
             }
             .tech-stack-carousel-container {
-              padding: 30px 15px !important;
+              padding: 30px 10px !important;
               border-radius: 20px !important;
+              overflow: visible !important;
+              margin: 30px 0 !important;
             }
             .tech-stack-decorator-top {
               width: 60px !important;
@@ -559,8 +561,10 @@ const Home = () => {
               margin: 30px 0 50px 0 !important;
             }
             .tech-stack-carousel-container {
-              padding: 20px 10px !important;
+              padding: 20px 5px !important;
               border-radius: 15px !important;
+              overflow: visible !important;
+              margin: 30px 0 !important;
             }
           }
         `}} />
