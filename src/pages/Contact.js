@@ -51,11 +51,20 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('');
-
+  
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
+      const response = await fetch('http://localhost:7000/api/contact', {  // Updated port to 7000
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+  
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -66,6 +75,7 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
+      console.error('Error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

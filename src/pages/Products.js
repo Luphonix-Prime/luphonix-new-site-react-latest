@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { WavyBackground } from '../components/WavyBackground';
 import SEOHead from '../components/SEOHead';
-import { Link } from 'react-router-dom'; // Ensure Link is imported
+import { Link } from 'react-router-dom';
+import './Products.css'; // Import the CSS file
 
 const Products = () => {
   const productsStructuredData = {
@@ -26,6 +27,47 @@ const Products = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Product page header styles
+  const glassTextStyles = {
+    header: {
+      fontSize: 'clamp(3rem, 8vw, 5rem)',
+      fontWeight: '700',
+      letterSpacing: '0.05em',
+      textAlign: 'center',
+      color: '#ffffff', // Solid white color
+      textShadow: '0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3)',
+      backdropFilter: 'blur(8px)',
+      WebkitBackdropFilter: 'blur(8px)',
+      padding: '0.5em 1em',
+      borderRadius: '15px',
+      background: 'rgba(255, 255, 255, 0.05)', // Reduced opacity
+      border: '1px solid rgba(255, 255, 255, 0.3)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 255, 255, 0.1)',
+      margin: '0 auto 20px',
+      maxWidth: '90%',
+      transition: 'all 0.3s ease',
+      mixBlendMode: 'difference' // This helps with contrast
+    },
+    subheader: {
+      fontSize: 'clamp(1rem, 3vw, 1.3rem)',
+      fontWeight: '400',
+      lineHeight: '1.6',
+      textAlign: 'center',
+      color: '#ffffff', // Solid white color
+      maxWidth: '800px',
+      margin: '0 auto 60px',
+      padding: '1em 2em',
+      backdropFilter: 'blur(5px)',
+      WebkitBackdropFilter: 'blur(5px)',
+      background: 'rgba(255, 255, 255, 0.03)', // Reduced opacity
+      borderRadius: '10px',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15), 0 0 8px rgba(255, 255, 255, 0.1)',
+      transition: 'all 0.3s ease',
+      mixBlendMode: 'difference' // This helps with contrast
+    }
+  };
 
   const productCategories = [
     {
@@ -129,7 +171,15 @@ const Products = () => {
       />
       <div className="products-page">
         {/* Header Section */}
-        <section className="section" style={{ position: 'relative', height: '60vh', overflow: 'hidden' }}>
+        <section className="section" style={{ 
+          position: 'relative', 
+          height: '60vh', 
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.95) 100%)'
+        }}>
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
             <WavyBackground
               containerClassName=""
@@ -141,13 +191,45 @@ const Products = () => {
               waveOpacity={0.4}
             />
           </div>
-          <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', height: '100%' }}>
-            <div style={{ textAlign: 'center', width: '100%' }}>
-              <h1 className="section-title fade-in" style={{ color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>LUPHONIX Products</h1>
-              <p className="section-subtitle fade-in" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)', maxWidth: '600px', margin: '0 auto' }}>
-                Innovation, quality, and reliability at the core of everything we build. Our customer-first approach drives exceptional digital solutions.
-              </p>
-            </div>
+          <div className="container" style={{ 
+            position: 'relative', 
+            zIndex: 2, 
+            textAlign: 'center',
+            padding: '0 20px'
+          }}>
+            <h1 className="section-title fade-in" style={{ 
+              color: '#ffffff',
+              fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
+              fontWeight: '600',
+              letterSpacing: '0.02em',
+              textShadow: '0 0 20px rgba(255,255,255,0.3)',
+              marginBottom: '30px',
+              background: 'rgba(255,255,255,0.1)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              padding: '20px 40px',
+              borderRadius: '15px',
+              border: '1px solid rgba(255,255,255,0.2)',
+              display: 'inline-block'
+            }}>
+              LUPHONIX Products
+            </h1>
+            <p className="section-subtitle fade-in" style={{ 
+              color: '#ffffff',
+              fontSize: 'clamp(1rem, 3vw, 1.2rem)',
+              lineHeight: '1.6',
+              maxWidth: '800px',
+              margin: '0 auto',
+              background: 'rgba(255,255,255,0.05)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              padding: '15px 30px',
+              borderRadius: '10px',
+              border: '1px solid rgba(255,255,255,0.1)'
+            }}>
+              Innovation, quality, and reliability at the core of everything we build. 
+              Our customer-first approach drives exceptional digital solutions.
+            </p>
           </div>
         </section>
 
