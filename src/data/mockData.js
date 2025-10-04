@@ -68,7 +68,7 @@ export const projects = [
     technologies: ["React", "Typescript", "Neontech", "razorpay", "CMS"],
     category: "Fitness & Wellness",
     featured: true,
-    project_url: "https://ecotech-marketplace.demo",
+    project_url: "https://reshape.fitness",
     github_url: "https://github.com/luphonix/"
   },
   {
