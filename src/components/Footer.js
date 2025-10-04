@@ -104,16 +104,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-section">
-            <h4>Resources</h4>
-            <ul>
+          {/* <div className="footer-section">
+            <h4>Resources</h4> */}
+            {/* <ul>
               <li><Link to="/documentation">Documentation</Link></li>
               <li><Link to="/case-studies">Case Studies</Link></li>
               <li><Link to="/tutorials">Tutorials</Link></li>
               <li><Link to="/support">Support</Link></li>
               <li><Link to="/privacy">Privacy Policy</Link></li>
-            </ul>
-          </div>
+            </ul> */}
+          {/* </div> */}
 
           <div className="footer-section">
             <h4>Get In Touch</h4>
