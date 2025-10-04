@@ -12,7 +12,6 @@ const BlogCreate = () => {
     content: '',
     featured_image: '',
     tags: '',
-    author: '',
     read_time: 5
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,7 +43,7 @@ const BlogCreate = () => {
         ...formData,
         slug: generateSlug(formData.title),
         tags: formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag),
-        author: formData.author || 'Luphonix Team',
+        author: 'Luphonix',
         created_at: new Date().toISOString(),
         read_time: parseInt(formData.read_time) || 5,
         featured_image: formData.featured_image || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
@@ -189,67 +188,35 @@ const BlogCreate = () => {
               />
             </div>
 
-            {/* Row for Featured Image and Author */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-              <div>
-                <label style={{ 
-                  display: 'block', 
-                  marginBottom: '8px', 
+            {/* Featured Image */}
+            <div>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '8px', 
+                color: 'var(--text-primary)',
+                fontSize: '14px',
+                fontWeight: '300'
+              }}>
+                Featured Image URL
+              </label>
+              <input
+                type="url"
+                name="featured_image"
+                value={formData.featured_image}
+                onChange={handleChange}
+                placeholder="https://example.com/image.jpg"
+                style={{
+                  width: '100%',
+                  padding: '16px 20px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '12px',
                   color: 'var(--text-primary)',
-                  fontSize: '14px',
-                  fontWeight: '300'
-                }}>
-                  Featured Image URL
-                </label>
-                <input
-                  type="url"
-                  name="featured_image"
-                  value={formData.featured_image}
-                  onChange={handleChange}
-                  placeholder="https://example.com/image.jpg"
-                  style={{
-                    width: '100%',
-                    padding: '16px 20px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '12px',
-                    color: 'var(--text-primary)',
-                    fontSize: '16px',
-                    outline: 'none',
-                    transition: 'var(--transition-fast)'
-                  }}
-                />
-              </div>
-
-              <div>
-                <label style={{ 
-                  display: 'block', 
-                  marginBottom: '8px', 
-                  color: 'var(--text-primary)',
-                  fontSize: '14px',
-                  fontWeight: '300'
-                }}>
-                  Author
-                </label>
-                <input
-                  type="text"
-                  name="author"
-                  value={formData.author}
-                  onChange={handleChange}
-                  placeholder="Author name (optional)"
-                  style={{
-                    width: '100%',
-                    padding: '16px 20px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '12px',
-                    color: 'var(--text-primary)',
-                    fontSize: '16px',
-                    outline: 'none',
-                    transition: 'var(--transition-fast)'
-                  }}
-                />
-              </div>
+                  fontSize: '16px',
+                  outline: 'none',
+                  transition: 'var(--transition-fast)'
+                }}
+              />
             </div>
 
             {/* Row for Tags and Read Time */}
