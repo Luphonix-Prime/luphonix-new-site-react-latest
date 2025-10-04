@@ -53,7 +53,8 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      const response = await fetch('https://luphonix.com/api/contact', {
+      // Use relative path or environment variable for API URL
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
