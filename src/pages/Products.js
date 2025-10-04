@@ -32,21 +32,21 @@ const Products = () => {
       icon: "fas fa-laptop-code",
       name: "Software Solutions",
       description: "Advanced inventory systems, security checkers, and custom web applications",
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=250&fit=crop",
+      image: "/images/products/soft-sol.png",
       features: ["Custom Development", "Cloud Integration", "Real-time Analytics"]
     },
     {
       icon: "fas fa-microchip",
       name: "IoT Solutions",
       description: "Smart farming systems like Prithvi Sahay – innovative agricultural automation",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop",
+      image: "/images/products/iot1.jpg",
       features: ["Smart Sensors", "Remote Monitoring", "Automated Control"]
     },
     {
       icon: "fas fa-shopping-cart",
       name: "eCommerce Platforms",
       description: "Complete e-commerce solutions like NixKart with modern features",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+      image: "/images/products/ecommerce.png",
       features: ["Payment Integration", "Inventory Management", "Mobile Responsive"]
     }
   ];

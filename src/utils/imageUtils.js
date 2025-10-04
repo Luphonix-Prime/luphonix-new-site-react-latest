@@ -1,4 +1,4 @@
-export const getImagePath = (imageName, category = 'services') => {
-  if (!imageName) return '';
-  return `/images/${category}/${imageName}`;
+export const getImagePath = (path, folder = 'services') => {
+  if (!path) return '';
+  return `/${folder}/${path}`;
 };
