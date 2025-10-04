@@ -1021,51 +1021,51 @@ const Services = () => {
           testimonials={[
             {
               author: {
-                name: "Sarah Mitchell",
-                handle: "@sarahceo",
-                avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
+                name: "Ivelox Team",
+                handle: "@ivelox",
+                avatar: "https://ivelox.in/wp-content/uploads/2024/07/logo-2.png"
               },
-              text: "Luphonix transformed our e-commerce platform completely. The team's expertise in React and Node.js delivered a 40% increase in conversion rates. Highly recommended!",
+              text: "The website developed by Luphonix gave our brand a modern identity. Smooth performance and elegant design made a huge difference!"
             },
             {
               author: {
-                name: "James Chen",
-                handle: "@jamestech",
-                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                name: "Reshape Fitness",
+                handle: "@reshapefit",
+                avatar: getImagePath('reshape.jpg', 'testimonials')
               },
-              text: "Working with Luphonix was a game-changer. Their AI/ML solutions helped us automate our workflow and save over 60% in operational costs.",
+              text: "Luphonix built not just our public website but also a complete platform for our admins and trainers to manage customers seamlessly. It transformed our operations."
             },
             {
               author: {
-                name: "Maria Garcia",
-                handle: "@mariadesign",
-                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
+                name: "Tracelytag",
+                handle: "@tracelytag",
+                avatar: getImagePath('tracely-tag.png', 'testimonials')
               },
-              text: "The UI/UX design work was exceptional. Our mobile app now has a 4.8-star rating thanks to the intuitive interface they created.",
+              text: "From a sleek website to an ERPNext inventory management system, Luphonix delivered end-to-end solutions that improved our efficiency and visibility."
             },
             {
               author: {
-                name: "David Kumar",
-                handle: "@davidstartup",
-                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+                name: "Infinite Jobs Solution",
+                handle: "@infinitejobs",
+                avatar: "https://infinitejobssolutions.com/assets/logo-Cm1FeLLJ.png"
               },
-              text: "Luphonix helped us scale from 0 to 10,000 users in just 6 months. Their cloud infrastructure solutions are world-class.",
+              text: "Our website now looks professional and attracts more candidates thanks to Luphonix. The process was smooth and the results exceeded expectations."
             },
             {
               author: {
-                name: "Emily Roberts",
-                handle: "@emilymarketing",
-                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+                name: "6VC",
+                handle: "@6vc",
+                avatar: "https://demo-usa-pied.vercel.app/assets/logo.png"
               },
-              text: "The SEO optimization and web development services exceeded our expectations. We saw a 250% increase in organic traffic within 3 months.",
+              text: "The website built by Luphonix gave us a strong digital presence. Their team understood our vision and delivered exactly what we needed."
             },
             {
               author: {
-                name: "Alex Thompson",
-                handle: "@alexdevops",
-                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                name: "Shree Krishna Dairy Farm",
+                handle: "@shreekrishna",
+                avatar: "https://shree-krishna-dairy-farm-omega.vercel.app/assets/logo-BFVoECXw.png"
               },
-              text: "Their DevOps expertise streamlined our deployment process. What used to take days now takes minutes. Absolutely fantastic work!",
+              text: "Our dairy farm’s website beautifully showcases our products and values. Thanks to Luphonix, we can now reach more customers directly."
             }
           ]}
         />
