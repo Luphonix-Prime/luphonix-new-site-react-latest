@@ -211,9 +211,9 @@ const Navbar = () => {
             style={{
               height: '75px',
               width: 'auto',
-              marginTop: '10px',
-              paddingTop: '5px',
-              paddingBottom: '5px',
+              marginTop: '5px',
+              paddingTop: '10px',
+              paddingBottom: '17px',
               filter: 'brightness(1) saturate(1.2)',
               transition: 'var(--transition-fast)',
               transform: 'scale(1.1)',
