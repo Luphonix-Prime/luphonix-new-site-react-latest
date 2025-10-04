@@ -57,7 +57,16 @@ const Footer = () => {
 
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Luphonix</h3>
+            <h3>
+              <img 
+                src="logodk.png" 
+                alt="Luphonix Logo" 
+                style={{ 
+                  height: '150px',
+                  marginBottom: '35px'
+                }} 
+              />
+            </h3>
             <p>
               We create cutting-edge digital experiences that transform businesses and captivate audiences.
               Your partner in digital innovation and growth.
