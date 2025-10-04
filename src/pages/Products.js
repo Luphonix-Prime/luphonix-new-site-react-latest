@@ -76,11 +76,11 @@ const Products = () => {
 
   const caseStudies = [
     {
-      title: "Suchi Tracker",
-      description: "Advanced tracking system that improved operational efficiency by 65%",
-      stats: "65% Efficiency Boost",
-      icon: "fas fa-chart-line",
-      tech: ["React", "Node.js", "MongoDB"]
+      title: "LupSync",
+  description: "Collaboration and synchronization platform that improved workflow efficiency by 70%",
+  stats: "70% Workflow Efficiency Boost",
+  icon: "fas fa-sync-alt",
+  tech: ["React", "Node.js", "GraphQL", "PostgreSQL"]
     },
     {
       title: "NixKart E-commerce",
@@ -90,11 +90,11 @@ const Products = () => {
       tech: ["Next.js", "PostgreSQL", "Stripe"]
     },
     {
-      title: "Prithvi Sahay IoT",
-      description: "Smart farming solution reducing water usage by 40%",
-      stats: "40% Water Savings",
-      icon: "fas fa-leaf",
-      tech: ["IoT", "Python", "Firebase"]
+      title: "IoT Business Solutions",
+      description: "Tailored IoT solutions designed to match each customer’s unique business needs, improving automation and decision-making.",
+      stats: "60% Operational Efficiency Boost",
+      icon: "fas fa-microchip",
+      tech: ["IoT Devices", "MQTT", "Node.js", "Python", "Cloud Integration"]
     }
   ];
 
