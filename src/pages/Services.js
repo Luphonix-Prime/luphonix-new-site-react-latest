@@ -1023,7 +1023,7 @@ const Services = () => {
               author: {
                 name: "Ivelox Team",
                 handle: "@ivelox",
-                avatar: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=150&h=150&fit=crop&crop=face"
+                avatar: "https://ivelox.in/wp-content/uploads/2024/07/logo-2.png"
               },
               text: "The website developed by Luphonix gave our brand a modern identity. Smooth performance and elegant design made a huge difference!"
             },
@@ -1031,7 +1031,7 @@ const Services = () => {
               author: {
                 name: "Reshape Fitness",
                 handle: "@reshapefit",
-                avatar: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=150&h=150&fit=crop&crop=face"
+                avatar: getImagePath('reshape.jpg', 'testimonials')
               },
               text: "Luphonix built not just our public website but also a complete platform for our admins and trainers to manage customers seamlessly. It transformed our operations."
             },
@@ -1039,7 +1039,7 @@ const Services = () => {
               author: {
                 name: "Tracelytag",
                 handle: "@tracelytag",
-                avatar: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=150&h=150&fit=crop&crop=face"
+                avatar: getImagePath('tracely-tag.png', 'testimonials')
               },
               text: "From a sleek website to an ERPNext inventory management system, Luphonix delivered end-to-end solutions that improved our efficiency and visibility."
             },
@@ -1047,7 +1047,7 @@ const Services = () => {
               author: {
                 name: "Infinite Jobs Solution",
                 handle: "@infinitejobs",
-                avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
+                avatar: "https://infinitejobssolutions.com/assets/logo-Cm1FeLLJ.png"
               },
               text: "Our website now looks professional and attracts more candidates thanks to Luphonix. The process was smooth and the results exceeded expectations."
             },
@@ -1055,7 +1055,7 @@ const Services = () => {
               author: {
                 name: "6VC",
                 handle: "@6vc",
-                avatar: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face"
+                avatar: "https://demo-usa-pied.vercel.app/assets/logo.png"
               },
               text: "The website built by Luphonix gave us a strong digital presence. Their team understood our vision and delivered exactly what we needed."
             },
@@ -1063,7 +1063,7 @@ const Services = () => {
               author: {
                 name: "Shree Krishna Dairy Farm",
                 handle: "@shreekrishna",
-                avatar: "https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=150&h=150&fit=crop&crop=face"
+                avatar: "https://shree-krishna-dairy-farm-omega.vercel.app/assets/logo-BFVoECXw.png"
               },
               text: "Our dairy farm’s website beautifully showcases our products and values. Thanks to Luphonix, we can now reach more customers directly."
             }
