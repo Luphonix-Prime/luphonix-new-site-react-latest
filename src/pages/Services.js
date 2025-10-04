@@ -65,7 +65,7 @@ const ProcessStepsSection = () => {
   const currentStep = processSteps[activeStep];
 
   return (
-    <div style={{
+    <div className="process-steps-grid" style={{
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
       gap: '60px',
@@ -693,7 +693,7 @@ const Services = () => {
               marginBottom: '100px',
               animationDelay: `${index * 0.2}s`
             }}>
-              <div style={{
+              <div className="service-detail-grid" style={{
                 display: 'grid',
                 gridTemplateColumns: index % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
                 gap: '60px',
@@ -1120,6 +1120,46 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Responsive Styles for Services Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @media (max-width: 768px) {
+          .process-steps-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            margin-bottom: 60px !important;
+          }
+          .service-detail-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+          .service-detail-grid > div {
+            order: 1 !important;
+          }
+          .service-detail-grid img {
+            order: 2 !important;
+          }
+          .service-features-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .process-steps-grid {
+            gap: 30px !important;
+            margin-bottom: 50px !important;
+          }
+          .service-detail-grid {
+            gap: 30px !important;
+          }
+          .service-detail-title {
+            font-size: 24px !important;
+          }
+          .service-detail-description {
+            font-size: 16px !important;
+          }
+        }
+      `}} />
      
       </div>
     </>

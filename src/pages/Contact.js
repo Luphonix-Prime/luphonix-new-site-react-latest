@@ -509,7 +509,36 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
+      {/* Responsive Styles for Contact Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @media (max-width: 768px) {
+          .contact-header {
+            height: 50vh !important;
+            min-height: 400px !important;
+          }
+          .contact-info-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+          .contact-form {
+            padding: 40px 30px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .contact-header {
+            height: 45vh !important;
+            min-height: 350px !important;
+          }
+          .contact-form {
+            padding: 30px 20px !important;
+          }
+          .form-submit {
+            padding: 14px 28px !important;
+            font-size: 15px !important;
+          }
+        }
+      `}} />
 
       </div>
     </>
