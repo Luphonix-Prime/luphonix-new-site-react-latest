@@ -63,19 +63,19 @@ const Footer = () => {
               Your partner in digital innovation and growth.
             </p>
             <div className="social-links">
-              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter">
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
                 <i className="fab fa-github"></i>
               </a>
-              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Dribbble">
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Dribbble">
                 <i className="fab fa-dribbble"></i>
               </a>
             </div>

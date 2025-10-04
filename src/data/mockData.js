@@ -69,7 +69,7 @@ export const projects = [
     category: "Fitness & Wellness",
     featured: true,
     project_url: "https://reshape.fitness",
-    github_url: "https://github.com/luphonix/"
+    
   },
   {
     id: 2,
@@ -80,7 +80,7 @@ export const projects = [
     category: "SaaS / Identity Management",
     featured: true,
     project_url: "https://www.tracelytag.com/",
-    github_url: "https://github.com/luphonix/financeai-dashboard"
+    
   },
   {
     id: 3,
@@ -90,7 +90,8 @@ export const projects = [
     technologies: ["html", "css", "javascript", "Django"],
     category: "Mobile App",
     featured: true,
-    project_url: "https://healthtrack-app.demo"
+    project_url: "https://www.tracelytag.com/"
+    
   },
   {
     id: 4,
@@ -101,7 +102,7 @@ export const projects = [
     category: "Blockchain",
     featured: false,
     project_url: "https://cryptovault-defi.demo",
-    github_url: "https://github.com/luphonix/cryptovault-defi"
+    
   },
   {
     id: 5,
@@ -111,7 +112,7 @@ export const projects = [
     technologies: ["Vue.js", "Node.js", "InfluxDB", "Grafana", "MQTT"],
     category: "Web Development",
     featured: false,
-    project_url: "https://smartcity-iot.demo"
+   
   },
   {
     id: 6,
@@ -122,7 +123,7 @@ export const projects = [
     category: "Web Development",
     featured: false,
     project_url: "https://edulearn-lms.demo",
-    github_url: "https://github.com/luphonix/edulearn-lms"
+    
   }
 ];
 
