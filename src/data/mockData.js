@@ -1025,45 +1025,45 @@ export const caseStudies = [
   },
   {
     id: 2,
-    title: "Prithvi Sahay IoT Farming Solution: 40% Water Conservation",
-    slug: "prithvi-sahay-iot-farming-case-study",
-    excerpt: "Revolutionary IoT-based farming car project that achieved 40% water savings through smart irrigation and crop monitoring.",
-    featured_image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["IoT", "Agriculture", "Sensors", "Automation", "Case Study"],
-    client: "Prithvi Sahay Project",
-    duration: "8 months",
-    team_size: "4 engineers",
-    technologies: ["Arduino", "Raspberry Pi", "Python", "MongoDB", "React"],
-    challenges: ["Harsh Environment", "Real-time Data", "Power Management"],
+    title: "Customized IoT Solutions: 60% Operational Efficiency Boost",
+    slug: "customized-iot-solutions-case-study",
+    excerpt: "Tailored IoT systems built to match customer business needs, boosting automation, monitoring, and efficiency by 60%.",
+    featured_image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["IoT", "Automation", "Real-time", "Customization", "Case Study"],
+    client: "Multiple Industry Clients",
+    duration: "6 months",
+    team_size: "5 developers",
+    technologies: ["IoT Devices", "MQTT", "Node.js", "Python", "Cloud Integration", "Docker"],
+    challenges: ["Custom Integration", "Scalability", "Device Security", "Real-time Data Processing"],
     results: {
-      water_savings: "40%",
-      crop_yield: "30% increase",
-      automation: "90% automated processes",
-      roi: "300% ROI in first year"
+      efficiency: "60% improvement in operations",
+      response_time: "55% faster decision-making",
+      accuracy: "97% data reliability",
+      cost_savings: "30% operational cost reduction"
     },
-    created_at: "2024-01-18T14:00:00Z",
-    read_time: 12
+    created_at: "2024-03-12T11:15:00Z",
+    read_time: 11
   },
   {
     id: 3,
-    title: "Suchi Tracker Security System: 65% Efficiency Boost",
-    slug: "suchi-tracker-security-system-case-study",
-    excerpt: "Advanced security tracking system that improved operational efficiency by 65% through real-time monitoring and automated alerts.",
-    featured_image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Security", "Tracking", "Real-time", "Dashboard", "Case Study"],
-    client: "Suchi Security Solutions",
-    duration: "4 months",
-    team_size: "3 developers",
-    technologies: ["React", "Node.js", "WebSocket", "PostgreSQL", "Docker"],
-    challenges: ["Real-time Updates", "Data Security", "Scalability"],
+    title: "LupSync Collaboration Platform: 70% Workflow Efficiency Boost",
+    slug: "lupsync-collaboration-platform-case-study",
+    excerpt: "A next-gen collaboration and synchronization platform that improved workflow efficiency by 70% through seamless data sync, real-time communication, and intelligent automation.",
+    featured_image: "https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["Collaboration", "Synchronization", "Automation", "Dashboard", "Case Study"],
+    client: "Luphonix Solutions",
+    duration: "5 months",
+    team_size: "4 developers",
+    technologies: ["React", "Node.js", "GraphQL", "WebSocket", "PostgreSQL", "Docker", "Kubernetes"],
+    challenges: ["Seamless Data Sync", "Cross-platform Scalability", "Real-time Collaboration"],
     results: {
-      efficiency: "65% improvement",
-      response_time: "50% faster alerts",
-      accuracy: "98% tracking accuracy",
-      cost_savings: "35% operational cost reduction"
+      efficiency: "70% improvement in workflows",
+      response_time: "60% faster sync operations",
+      accuracy: "99% data consistency",
+      cost_savings: "40% operational cost reduction"
     },
-    created_at: "2024-01-16T09:30:00Z",
-    read_time: 10
+    created_at: "2024-02-20T10:00:00Z",
+    read_time: 9
   }
 ];
 
