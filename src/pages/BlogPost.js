@@ -5,7 +5,7 @@ import { useBlog } from '../context/BlogContext';
 const BlogPost = () => {
   const { slug } = useParams();
   const { state } = useBlog();
-  const { posts: blogPosts, isAdmin } = state;
+  const { posts: blogPosts } = state;
   const post = blogPosts.find(p => p.slug === slug);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const BlogPost = () => {
 
   return (
     <div className="blog-post" style={{ paddingTop: '120px' }}>
-      <div className="container" style={{ maxWidth: '900px' }}>
+      <div className="container" style={{ maxWidth: '1600px', width: '100%', padding: '0 40px' }}>
         <Link to="/blog" className="back-link" style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -74,7 +74,7 @@ const BlogPost = () => {
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <i className="fas fa-user" style={{ color: 'var(--accent-green)' }}></i>
-                {post.author || 'Luphonix Team'}
+                {post.author?.name || 'Luphonix'}
               </span>
             </div>
 
@@ -217,8 +217,8 @@ const BlogPost = () => {
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
               <img 
-                src={post.author.avatar} 
-                alt={post.author.name}
+                src={post.author?.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80'} 
+                alt={post.author?.name || 'Luphonix'}
                 style={{ 
                   width: '80px', 
                   height: '80px', 
@@ -227,9 +227,9 @@ const BlogPost = () => {
                 }}
               />
               <div style={{ flex: 1 }}>
-                <h4 style={{ fontSize: '1.3rem', marginBottom: '8px' }}>About {post.author.name}</h4>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '8px' }}>About {post.author?.name || 'Luphonix'}</h4>
                 <p style={{ color: 'var(--accent-green)', marginBottom: '10px', fontSize: '1rem', fontWeight: '500' }}>
-                  {post.author.title}
+                  {post.author?.title || 'Digital Innovation Team'}
                 </p>
                 <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                   Passionate about creating innovative digital solutions and sharing knowledge with the tech community. 
