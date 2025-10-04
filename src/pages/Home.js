@@ -76,9 +76,8 @@ const Home = () => {
             gap: '60px', 
             alignItems: 'center',
             minHeight: '100vh',
-            padding: '40px 0 80px 0',
-            alignItems: 'flex-start',
-            paddingTop: '120px'
+            padding: '20px 0 80px 0',
+            alignItems: 'flex-start'
           }}>
             {/* Left Content */}
             <div className="hero-content fade-in" style={{ textAlign: 'center' }}>
@@ -134,7 +133,7 @@ const Home = () => {
               borderRadius: '20px',
               overflow: 'hidden',
               background: 'transparent',
-              marginTop: '-80px'
+              marginTop: '-20px'
             }}>
               <ParticleImageEffect 
                 imageSize={300}

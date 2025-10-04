@@ -270,7 +270,7 @@ const Navbar = () => {
           <span></span>
         </div>
 
-        <div className="nav-actions">
+        <div className="nav-actions" style={{ display: 'none' }}>
             <AdminToggle />
           </div>
       </div>

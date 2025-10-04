@@ -7,6 +7,182 @@ import BackgroundPaths from '../components/BackgroundPaths';
 import SplineSceneBasic from '../components/SplineSceneBasic';
 import '../components/BlogAnimations.css';
 
+// Import AdminToggle component from Navbar
+const AdminToggle = () => {
+  const { state, authenticateAdmin, logoutAdmin } = useBlog();
+  const { isAdmin } = state;
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleAdminClick = () => {
+    if (isAdmin) {
+      logoutAdmin();
+    } else {
+      setShowPasswordModal(true);
+      setPassword('');
+      setErrorMessage('');
+    }
+  };
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    if (authenticateAdmin(password)) {
+      setShowPasswordModal(false);
+      setPassword('');
+      setErrorMessage('');
+    } else {
+      setErrorMessage('Incorrect password. Please try again.');
+      setPassword('');
+    }
+  };
+
+  const handleModalClose = () => {
+    setShowPasswordModal(false);
+    setPassword('');
+    setErrorMessage('');
+  };
+
+  return (
+    <>
+      <button
+        onClick={handleAdminClick}
+        style={{
+          padding: '12px 20px',
+          background: isAdmin ? 'var(--accent-green)' : 'transparent',
+          color: isAdmin ? 'var(--primary-bg)' : 'var(--text-secondary)',
+          border: `1px solid ${isAdmin ? 'var(--accent-green)' : 'var(--border-color)'}`,
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontSize: '14px',
+          transition: 'var(--transition-fast)',
+        }}
+        title={isAdmin ? 'Logout Admin' : 'Admin Login'}
+      >
+        <i className={`fas ${isAdmin ? 'fa-user-shield' : 'fa-lock'}`} style={{ marginRight: '6px' }}></i>
+        {isAdmin ? 'Admin' : 'Login'}
+      </button>
+
+      {/* Password Modal */}
+      {showPasswordModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.8)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10000,
+          backdropFilter: 'blur(10px)'
+        }}>
+          <div style={{
+            background: 'var(--primary-bg)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '16px',
+            padding: '40px',
+            width: '100%',
+            maxWidth: '400px',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
+          }}>
+            <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+              <i className="fas fa-shield-alt" style={{
+                fontSize: '2rem',
+                color: 'var(--accent-green)',
+                marginBottom: '20px'
+              }}></i>
+              <h3 style={{
+                color: 'var(--text-primary)',
+                marginBottom: '10px',
+                fontSize: '1.5rem'
+              }}>
+                Admin Access
+              </h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>
+                Enter the admin password to continue
+              </p>
+            </div>
+
+            <form onSubmit={handlePasswordSubmit}>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter admin password"
+                autoFocus
+                style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: `1px solid ${errorMessage ? '#ff3b30' : 'var(--border-color)'}`,
+                  borderRadius: '8px',
+                  color: 'var(--text-primary)',
+                  fontSize: '14px',
+                  outline: 'none',
+                  marginBottom: '10px',
+                  transition: 'var(--transition-fast)'
+                }}
+              />
+
+              {errorMessage && (
+                <p style={{
+                  color: '#ff3b30',
+                  fontSize: '12px',
+                  marginBottom: '20px',
+                  textAlign: 'center'
+                }}>
+                  <i className="fas fa-exclamation-triangle" style={{ marginRight: '6px' }}></i>
+                  {errorMessage}
+                </p>
+              )}
+
+              <div style={{ display: 'flex', gap: '15px' }}>
+                <button
+                  type="button"
+                  onClick={handleModalClose}
+                  style={{
+                    flex: 1,
+                    padding: '12px',
+                    background: 'transparent',
+                    color: 'var(--text-secondary)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    transition: 'var(--transition-fast)'
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  style={{
+                    flex: 1,
+                    padding: '12px',
+                    background: 'var(--accent-green)',
+                    color: 'var(--primary-bg)',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    transition: 'var(--transition-fast)'
+                  }}
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+
 const Blog = () => {
   const { state } = useBlog();
   const { posts: blogPosts, isAdmin } = state;
@@ -18,7 +194,7 @@ const Blog = () => {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Luphonix Tech Blog | Digital Innovation Insights",
-    "description": "Latest insights, tutorials, and updates on web development, AI/ML, 3D visualization, and digital innovation trends.",
+    "description": "Latest insights, tutorials, and updates on web development, AI/ML, 3D visualization, digital innovation trends.",
     "url": "https://luphonix.com/blog",
     "publisher": {
       "@type": "Organization",
@@ -58,7 +234,7 @@ const Blog = () => {
     filtered.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     setFilteredPosts(filtered);
-  }, [searchTerm, selectedTag, blogPosts, categories]);
+  }, [searchTerm, selectedTag, blogPosts]);
 
   useEffect(() => {
     // Add fade-in animation on scroll
@@ -97,8 +273,8 @@ const Blog = () => {
         <section className="section" style={{ paddingTop: '20px', paddingBottom: 0 }}>
           <div className="container">
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Link 
-                to="/blog/admin" 
+              <Link
+                to="/blog/admin"
                 className="cta-button"
                 style={{ fontSize: '14px', padding: '12px 20px' }}
               >
@@ -113,9 +289,9 @@ const Blog = () => {
       {/* Featured Articles Section */}
       <section className="section" style={{ paddingTop: '20px', paddingBottom: '40px', position: 'relative', zIndex: 10 }}>
         <div className="container">
-          <h2 style={{ 
-            fontSize: '2.5rem', 
-            textAlign: 'center', 
+          <h2 style={{
+            fontSize: '2.5rem',
+            textAlign: 'center',
             marginBottom: '50px',
             background: 'linear-gradient(135deg, var(--text-primary), var(--accent-green))',
             backgroundClip: 'text',
@@ -124,11 +300,11 @@ const Blog = () => {
           }}>
             Editor's Pick
           </h2>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
-            gap: '30px', 
-            marginBottom: '60px' 
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+            gap: '30px',
+            marginBottom: '60px'
           }}>
             {featuredPosts.slice(0, 3).map((post, index) => (
               <div key={post.id} style={{
@@ -153,14 +329,14 @@ const Blog = () => {
                   FEATURED
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
-                  <img 
-                    src={post.author?.avatar || ''} 
+                  <img
+                    src={post.author?.avatar || ''}
                     alt={post.author?.name || 'Author'}
-                    style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      borderRadius: '50%', 
-                      border: '2px solid var(--accent-green)' 
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      border: '2px solid var(--accent-green)'
                     }}
                   />
                   <div>
@@ -171,10 +347,10 @@ const Blog = () => {
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '15px', lineHeight: '1.4' }}>{post.title}</h3>
                 <div style={{ marginBottom: '15px' }}>
                   {post.summary_points.map((point, idx) => (
-                    <div key={idx} style={{ 
-                      display: 'flex', 
-                      alignItems: 'flex-start', 
-                      gap: '10px', 
+                    <div key={idx} style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '10px',
                       marginBottom: '8px',
                       fontSize: '14px',
                       color: 'var(--text-secondary)'
@@ -189,7 +365,7 @@ const Blog = () => {
                     <span><i className="fas fa-heart" style={{ color: 'var(--accent-green)' }}></i> {post.likes}</span>
                     <span><i className="fas fa-clock" style={{ color: 'var(--accent-green)' }}></i> {post.read_time} min</span>
                   </div>
-                  <Link 
+                  <Link
                     to={`/blog/${post.slug}`}
                     className="cta-button"
                     style={{ fontSize: '12px', padding: '8px 16px' }}
@@ -206,10 +382,10 @@ const Blog = () => {
       {/* Search and Filter Section */}
       <section className="section" style={{ paddingTop: '20px', paddingBottom: '60px', position: 'relative', zIndex: 10 }}>
         <div className="container">
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '30px', 
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '30px',
             marginBottom: '60px',
             alignItems: 'center'
           }}>
@@ -239,10 +415,10 @@ const Blog = () => {
             {/* Category Filters */}
             <div style={{ textAlign: 'center', marginBottom: '30px' }}>
               <h4 style={{ marginBottom: '20px', color: 'var(--text-secondary)', fontSize: '1rem' }}>Categories</h4>
-              <div style={{ 
-                display: 'flex', 
-                flexWrap: 'wrap', 
-                gap: '15px', 
+              <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '15px',
                 justifyContent: 'center',
                 marginBottom: '30px'
               }}>
@@ -273,11 +449,11 @@ const Blog = () => {
             {/* Tag Filter */}
             <div style={{ textAlign: 'center' }}>
               <h4 style={{ marginBottom: '20px', color: 'var(--text-secondary)', fontSize: '1rem' }}>Tags</h4>
-              <div style={{ 
-                display: 'flex', 
-                flexWrap: 'wrap', 
-                gap: '10px', 
-                justifyContent: 'center' 
+              <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '10px',
+                justifyContent: 'center'
               }}>
                 {allTags.slice(1, 15).map(tag => (
                   <button
@@ -316,30 +492,30 @@ const Blog = () => {
             {filteredPosts.map((post, index) => {
               const isNew = new Date(post.created_at) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
               return (
-                <div 
-                  key={post.id} 
+                <div
+                  key={post.id}
                   className={`blog-card-animated fade-in ${isNew ? 'blog-card-new' : ''}`}
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="blog-image-container">
-                    <img 
-                      src={post.featured_image} 
-                      alt={post.title} 
-                      className="blog-image blog-image-animated" 
+                    <img
+                      src={post.featured_image}
+                      alt={post.title}
+                      className="blog-image blog-image-animated"
                     />
                     <div className="reading-progress"></div>
                   </div>
                   <div className="blog-content-animated">
                     {/* Author Info */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                      <img 
-                        src={post.author?.avatar || ''} 
+                      <img
+                        src={post.author?.avatar || ''}
                         alt={post.author?.name || 'Author'}
-                        style={{ 
-                          width: '35px', 
-                          height: '35px', 
-                          borderRadius: '50%', 
-                          border: '2px solid var(--accent-green)' 
+                        style={{
+                          width: '35px',
+                          height: '35px',
+                          borderRadius: '50%',
+                          border: '2px solid var(--accent-green)'
                         }}
                       />
                       <div>
@@ -363,10 +539,10 @@ const Blog = () => {
 
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '15px' }}>
                       {post.tags.slice(0, 3).map((tag, tagIndex) => (
-                        <span 
-                          key={tag} 
-                          className="tech-tag tech-tag-animated" 
-                          style={{ 
+                        <span
+                          key={tag}
+                          className="tech-tag tech-tag-animated"
+                          style={{
                             fontSize: '9px',
                             padding: '4px 8px',
                             animationDelay: `${(index * 0.1) + (tagIndex * 0.05)}s`
@@ -377,14 +553,14 @@ const Blog = () => {
                       ))}
                     </div>
                     <h3 className="blog-title blog-title-animated">{post.title}</h3>
-                    
+
                     {/* Summary Points */}
                     <div style={{ marginBottom: '20px' }}>
                       {post.summary_points && post.summary_points.slice(0, 2).map((point, idx) => (
-                        <div key={idx} style={{ 
-                          display: 'flex', 
-                          alignItems: 'flex-start', 
-                          gap: '8px', 
+                        <div key={idx} style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '8px',
                           marginBottom: '8px',
                           fontSize: '13px',
                           color: 'var(--text-secondary)',
@@ -395,7 +571,7 @@ const Blog = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="blog-meta blog-meta-animated" style={{ 
+                    <div className="blog-meta blog-meta-animated" style={{
                       marginBottom: '25px',
                       display: 'flex',
                       justifyContent: 'space-between',
@@ -403,24 +579,24 @@ const Blog = () => {
                       fontSize: '12px'
                     }}>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                        <span style={{ 
-                          display: 'flex', 
+                        <span style={{
+                          display: 'flex',
                           alignItems: 'center',
                           transition: 'transform 0.3s ease'
                         }}>
-                          <i className="fas fa-clock" style={{ 
-                            marginRight: '6px', 
+                          <i className="fas fa-clock" style={{
+                            marginRight: '6px',
                             color: 'var(--accent-green)',
                             transition: 'color 0.3s ease'
                           }}></i>
                           {post.read_time} min read
                         </span>
-                        <span style={{ 
-                          display: 'flex', 
+                        <span style={{
+                          display: 'flex',
                           alignItems: 'center',
                           transition: 'transform 0.3s ease'
                         }}>
-                          <i className="fas fa-calendar" style={{ 
+                          <i className="fas fa-calendar" style={{
                             marginRight: '6px',
                             color: 'var(--accent-green)',
                             transition: 'color 0.3s ease'
@@ -452,12 +628,12 @@ const Blog = () => {
                         {post.likes}
                       </button>
                     </div>
-                    <Link 
-                      to={`/blog/${post.slug}`} 
-                      className="cta-button cta-button-animated" 
-                      style={{ 
-                        fontSize: '12px', 
-                        padding: '12px 24px', 
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="cta-button cta-button-animated"
+                      style={{
+                        fontSize: '12px',
+                        padding: '12px 24px',
                         position: 'relative',
                         zIndex: 2,
                         display: 'inline-flex',
@@ -466,8 +642,8 @@ const Blog = () => {
                       }}
                     >
                       Read More
-                      <i className="fas fa-arrow-right" style={{ 
-                        transition: 'transform 0.3s ease' 
+                      <i className="fas fa-arrow-right" style={{
+                        transition: 'transform 0.3s ease'
                       }}></i>
                     </Link>
                   </div>
@@ -487,11 +663,11 @@ const Blog = () => {
 
       {/* Animated Background Paths Section */}
       <section style={{ margin: '80px 0', padding: '0 20px' }}>
-        <BackgroundPaths 
+        <BackgroundPaths
           title="Explore Our Insights"
           subtitle="Dive deeper into the world of technology and innovation with our curated content"
           showButton={false}
-          containerStyle={{ 
+          containerStyle={{
             minHeight: '60vh',
             borderRadius: '20px',
             background: 'var(--secondary-bg)',
@@ -533,7 +709,7 @@ const Blog = () => {
                   fontSize: '16px'
                 }}
               />
-              <button 
+              <button
                 className="cta-button"
                 style={{ padding: '15px 30px', whiteSpace: 'nowrap', fontSize: '16px' }}
               >
@@ -544,8 +720,6 @@ const Blog = () => {
         </div>
       </section>
 
-     
-      
       </div>
     </>
   );
