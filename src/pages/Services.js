@@ -96,8 +96,10 @@ const ProcessStepsSection = () => {
                   ? '2px solid var(--accent-green)'
                   : '1px solid rgba(255, 255, 255, 0.1)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                transform: activeStep === index ? 'translateX(10px)' : 'translateX(0)'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: activeStep === index ? 'translateX(10px)' : 'translateX(0)',
+                willChange: 'transform, background, border',
+                backfaceVisibility: 'hidden'
               }}
             >
               <div style={{
@@ -213,6 +215,8 @@ const Services = () => {
   };
 
   useEffect(() => {
+    // Enable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'smooth';
 
     // Enhanced scroll animation observer for all fade-in elements
     const observer = new IntersectionObserver((entries) => {
@@ -258,6 +262,8 @@ const Services = () => {
     return () => {
       observer.disconnect();
       processObserver.disconnect();
+      // Reset scroll behavior on unmount
+      document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
@@ -1021,51 +1027,51 @@ const Services = () => {
           testimonials={[
             {
               author: {
-                name: "Ivelox Team",
-                handle: "@ivelox",
-                avatar: "https://ivelox.in/wp-content/uploads/2024/07/logo-2.png"
+                name: "Sarah Mitchell",
+                handle: "@sarahceo",
+                avatar: "/images/testimonials/sarah.jpg"
               },
-              text: "The website developed by Luphonix gave our brand a modern identity. Smooth performance and elegant design made a huge difference!"
+              text: "Luphonix transformed our e-commerce platform completely. The team's expertise in React and Node.js delivered a 40% increase in conversion rates. Highly recommended!",
             },
             {
               author: {
-                name: "Reshape Fitness",
-                handle: "@reshapefit",
-                avatar: getImagePath('reshape.jpg', 'testimonials')
+                name: "James Chen",
+                handle: "@jamestech",
+                avatar: "/images/testimonials/james.jpg"
               },
-              text: "Luphonix built not just our public website but also a complete platform for our admins and trainers to manage customers seamlessly. It transformed our operations."
+              text: "Working with Luphonix was a game-changer. Their AI/ML solutions helped us automate our workflow and save over 60% in operational costs.",
             },
             {
               author: {
-                name: "Tracelytag",
-                handle: "@tracelytag",
-                avatar: getImagePath('tracely-tag.png', 'testimonials')
+                name: "Maria Garcia",
+                handle: "@mariadesign",
+                avatar: "/images/testimonials/maria.jpg"
               },
-              text: "From a sleek website to an ERPNext inventory management system, Luphonix delivered end-to-end solutions that improved our efficiency and visibility."
+              text: "The UI/UX design work was exceptional. Our mobile app now has a 4.8-star rating thanks to the intuitive interface they created.",
             },
             {
               author: {
-                name: "Infinite Jobs Solution",
-                handle: "@infinitejobs",
-                avatar: "https://infinitejobssolutions.com/assets/logo-Cm1FeLLJ.png"
+                name: "David Kumar",
+                handle: "@davidstartup",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
               },
-              text: "Our website now looks professional and attracts more candidates thanks to Luphonix. The process was smooth and the results exceeded expectations."
+              text: "Luphonix helped us scale from 0 to 10,000 users in just 6 months. Their cloud infrastructure solutions are world-class.",
             },
             {
               author: {
-                name: "6VC",
-                handle: "@6vc",
-                avatar: "https://demo-usa-pied.vercel.app/assets/logo.png"
+                name: "Emily Roberts",
+                handle: "@emilymarketing",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
               },
-              text: "The website built by Luphonix gave us a strong digital presence. Their team understood our vision and delivered exactly what we needed."
+              text: "The SEO optimization and web development services exceeded our expectations. We saw a 250% increase in organic traffic within 3 months.",
             },
             {
               author: {
-                name: "Shree Krishna Dairy Farm",
-                handle: "@shreekrishna",
-                avatar: "https://shree-krishna-dairy-farm-omega.vercel.app/assets/logo-BFVoECXw.png"
+                name: "Alex Thompson",
+                handle: "@alexdevops",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
               },
-              text: "Our dairy farm’s website beautifully showcases our products and values. Thanks to Luphonix, we can now reach more customers directly."
+              text: "Their DevOps expertise streamlined our deployment process. What used to take days now takes minutes. Absolutely fantastic work!",
             }
           ]}
         />
@@ -1122,6 +1128,31 @@ const Services = () => {
 
       {/* Responsive Styles for Services Page */}
       <style dangerouslySetInnerHTML={{__html: `
+        /* Smooth scrolling optimizations */
+        .services-page {
+          scroll-behavior: smooth;
+        }
+        
+        .services-page * {
+          -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Optimize animations for 60fps */
+        .fade-in.animated {
+          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
         @media (max-width: 768px) {
           .process-steps-grid {
             grid-template-columns: 1fr !important;
