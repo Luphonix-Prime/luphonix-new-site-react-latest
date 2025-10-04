@@ -96,8 +96,10 @@ const ProcessStepsSection = () => {
                   ? '2px solid var(--accent-green)'
                   : '1px solid rgba(255, 255, 255, 0.1)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                transform: activeStep === index ? 'translateX(10px)' : 'translateX(0)'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: activeStep === index ? 'translateX(10px)' : 'translateX(0)',
+                willChange: 'transform, background, border',
+                backfaceVisibility: 'hidden'
               }}
             >
               <div style={{
@@ -213,6 +215,8 @@ const Services = () => {
   };
 
   useEffect(() => {
+    // Enable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'smooth';
 
     // Enhanced scroll animation observer for all fade-in elements
     const observer = new IntersectionObserver((entries) => {
@@ -258,6 +262,8 @@ const Services = () => {
     return () => {
       observer.disconnect();
       processObserver.disconnect();
+      // Reset scroll behavior on unmount
+      document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
@@ -1122,6 +1128,31 @@ const Services = () => {
 
       {/* Responsive Styles for Services Page */}
       <style dangerouslySetInnerHTML={{__html: `
+        /* Smooth scrolling optimizations */
+        .services-page {
+          scroll-behavior: smooth;
+        }
+        
+        .services-page * {
+          -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Optimize animations for 60fps */
+        .fade-in.animated {
+          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
         @media (max-width: 768px) {
           .process-steps-grid {
             grid-template-columns: 1fr !important;
