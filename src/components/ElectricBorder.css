@@ -1,3 +1,4 @@
+
 .electric-border {
   --electric-light-color: oklch(from var(--electric-border-color) l c h);
   --eb-border-width: 2px;
@@ -5,6 +6,7 @@
   border-radius: inherit;
   overflow: visible;
   isolation: isolate;
+  will-change: auto;
 }
 
 .eb-svg {
@@ -38,4 +40,7 @@
   pointer-events: none;
   box-sizing: border-box;
   border: var(--eb-border-width) solid var(--electric-border-color);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
