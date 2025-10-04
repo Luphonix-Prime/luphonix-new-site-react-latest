@@ -63,21 +63,21 @@ const Footer = () => {
               Your partner in digital innovation and growth.
             </p>
             <div className="social-links">
-              <button className="social-link" aria-label="Twitter">
+              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
-              </button>
-              <button className="social-link" aria-label="LinkedIn">
+              </a>
+              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
-              </button>
-              <button className="social-link" aria-label="GitHub">
+              </a>
+              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
                 <i className="fab fa-github"></i>
-              </button>
-              <button className="social-link" aria-label="Instagram">
+              </a>
+              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
-              </button>
-              <button className="social-link" aria-label="Dribbble">
+              </a>
+              <a href="www.linkedin.com/in/luphonix-innovators-0669bb359" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Dribbble">
                 <i className="fab fa-dribbble"></i>
-              </button>
+              </a>
             </div>
           </div>
 
