@@ -249,7 +249,7 @@ const Blog = () => {
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [filteredPosts]);
+  }, []);
 
   return (
     <>
@@ -300,9 +300,9 @@ const Blog = () => {
           }}>
             Editor's Pick
           </h2>
-          <div style={{
+          <div className="blog-grid-featured" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '30px',
             marginBottom: '60px'
           }}>
@@ -719,6 +719,30 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      {/* Responsive Styles for Blog Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @media (max-width: 768px) {
+          .blog-grid-featured {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .blog-header-section {
+            height: 50vh !important;
+            min-height: 400px !important;
+          }
+          .blog-subscribe-section input {
+            font-size: 14px !important;
+            padding: 12px 20px !important;
+          }
+          .blog-subscribe-section button {
+            font-size: 14px !important;
+            padding: 12px 24px !important;
+          }
+        }
+      `}} />
 
       </div>
     </>

@@ -698,6 +698,36 @@ const Products = () => {
           </div>
         </section>
 
+      {/* Responsive Styles for Products Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @media (max-width: 768px) {
+          .products-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+          .product-tech-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+            gap: 20px !important;
+          }
+          .product-process-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .products-header {
+            height: 50vh !important;
+            min-height: 400px !important;
+          }
+          .product-card {
+            padding: 30px 20px !important;
+          }
+          .product-process-grid {
+            gap: 25px !important;
+          }
+        }
+      `}} />
  
        
       </div>
