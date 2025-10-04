@@ -266,7 +266,7 @@ const Contact = () => {
       <div className="contact-page">
       {/* Header Section */}
       <section className="section" style={{ position: 'relative', height: '60vh', overflow: 'hidden' }}>
-        {!isMobile && useMemo(() => (
+        {!isMobile ? (
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, pointerEvents: 'none' }}>
             <Suspense fallback={<div style={{ background: 'var(--primary-bg)' }} />}>
               <Hyperspeed
@@ -310,8 +310,7 @@ const Contact = () => {
               />
             </Suspense>
           </div>
-        ), [isMobile])}
-        {isMobile && (
+        ) : (
           <div style={{ 
             position: 'absolute', 
             top: 0, 
@@ -493,7 +492,7 @@ const Contact = () => {
               </div>
 
               {/* 3D Model Section - Only on desktop */}
-              {!isMobile && useMemo(() => (
+              {!isMobile && (
                 <div style={{ marginTop: '50px' }}>
                   <h4 style={{ 
                     color: 'var(--text-primary)', 
@@ -534,7 +533,7 @@ const Contact = () => {
                     Explore our 3D visualization capabilities
                   </p>
                 </div>
-              ), [isMobile])}
+              )}
 
               {/* Follow Us Section - Moved below 3D model */}
               <div style={{ marginTop: '50px' }}>
