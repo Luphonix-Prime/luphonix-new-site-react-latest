@@ -484,10 +484,10 @@ const Contact = () => {
                   }}>
                     <i className="fas fa-map-marker-alt" style={{ color: 'white' }}></i>
                   </div>
-                  <div>
+                  {/* <div>
                     <h4 style={{ color: 'var(--text-primary)', marginBottom: '5px', fontWeight: '300' }}>Office</h4>
                     <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>123 Tech Street, Digital City</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
