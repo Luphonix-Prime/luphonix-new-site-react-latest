@@ -467,7 +467,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--text-primary)', marginBottom: '5px', fontWeight: '300' }}>Phone</h4>
-                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>+1 97254 87298</p>
+                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>+91 97254 87298</p>
                   </div>
                 </div>
 
