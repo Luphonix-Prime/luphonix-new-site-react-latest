@@ -128,16 +128,16 @@ const Footer = () => {
             <h4>Get In Touch</h4>
             <p>
               <i className="fas fa-envelope" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
-              hello@luphonix.com
+              luphonix.prime@gmail.com
             </p>
             <p>
               <i className="fas fa-phone" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
-              +1 (555) 123-4567
+              +91 97254 87298
             </p>
-            <p>
+            {/* <p>
               <i className="fas fa-map-marker-alt" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
               123 Tech Street<br />Digital City, DC 12345
-            </p>
+            </p> */}
           </div>
         </div>
 

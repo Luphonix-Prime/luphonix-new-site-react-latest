@@ -448,7 +448,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--text-primary)', marginBottom: '5px', fontWeight: '300' }}>Email</h4>
-                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>hello@luphonix.com</p>
+                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>luphonix.prime@gmail.com</p>
                   </div>
                 </div>
 
@@ -467,7 +467,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--text-primary)', marginBottom: '5px', fontWeight: '300' }}>Phone</h4>
-                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>+1 (555) 123-4567</p>
+                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>+1 97254 87298</p>
                   </div>
                 </div>
 

@@ -800,8 +800,8 @@ const Services = () => {
                         color: 'var(--text-secondary)'
                       }}>
                         <i className="fas fa-envelope" style={{ color: service.color, width: '16px' }}></i>
-                        <a href="mailto:contact@luphonix.com" style={{ color: service.color, textDecoration: 'none' }}>
-                          contact@luphonix.com
+                        <a href="mailto:luphonix.prime@gmail.com" style={{ color: service.color, textDecoration: 'none' }}>
+                        luphonix.prime@gmail.com
                         </a>
                       </div>
                       <div style={{
