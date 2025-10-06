@@ -88,14 +88,14 @@ module.exports = async (req, res) => {
         <p style="color: #fff;">Dear ${name},</p>
         <p style="color: #fff;">Thank you for reaching out to us through our website! We truly appreciate your interest and the time you took to share your details. Your submission has been successfully received.</p>
         <p style="color: #fff;">At Luphonix, we are committed to delivering innovative solutions and ensuring the best customer experience. Our team will review your request and get back to you shortly.</p>
-        <p style="color: #fff;">If you have any urgent queries or need further assistance, feel free to contact us at <span style="color: #00c3ff;">support@luphonix.com</span>.</p>
+        <p style="color: #fff;">If you have any urgent queries or need further assistance, feel free to contact us at <span style="color: #00c3ff;">luphonix.primodial@gmail.com</span>.</p>
         <p style="color: #fff;">We look forward to assisting you and hope to make a positive impact together!</p>
 
         <!-- Team signature -->
         <div style="color: #fff; display: flex; align-items: center; justify-content: flex-start; margin-top: 20px;">
             <div style="flex: 1;">
                 <p style="margin: 0;">Warm regards,<br>The Luphonix Team<br>
-                <span style="font-size: 0.9em;">support@luphonix.com</span></p>
+                <span style="font-size: 0.9em;">luphonix.primodial@gmail.com</span></p>
             </div>
             <div style="flex: 0 0 70px; margin-left: 15px;">
                 <img src="https://ik.imagekit.io/nzsjpnm8w/blue_phoenix_logo.jpg?updatedAt=1743683879054" alt="Luphonix Logo" style="width: 70px;">
