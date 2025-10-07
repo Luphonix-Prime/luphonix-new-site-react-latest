@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import { getImagePath } from '../utils/imageUtils';
 
 class Particle {
   constructor() {
@@ -131,17 +132,23 @@ class Particle {
 
 // Technology showcase sequence: Luphonix logo alternating with tech stack
 const DEFAULT_IMAGE_URLS = [
-  "/bird-logo1.png",        // 1. Luphonix logo
-  "/figma-logo.png",        // 2. Figma
-  "/bird-logo2.png",        // 3. Luphonix logo variant
-  "/react-logo.png",        // 4. React
-  "/bird-logo1.png",        // 5. Luphonix logo
-  "/html-css-logo.jpg",     // 6. HTML/CSS
-  "/bird-logo2.png",        // 7. Luphonix logo variant
-  "/django-logo.png",       // 8. Django
-  "/bird-logo1.png",        // 9. Luphonix logo
-  "/docker-logo.png",       // 10. Docker
-]
+  "/images/logos/bird-logo1.png",    // 1. Luphonix logo
+  "/images/logos/1.png",             // 2. Figma
+  "/images/logos/bird-logo2.png",    // 3. Luphonix logo variant
+  "/images/logos/2.png",             // 4. React
+  "/images/logos/bird-logo1.png",    // 5. Luphonix logo
+  "/images/logos/5.png",             // 6. HTML/CSS
+  "/images/logos/bird-logo2.png",    // 7. Luphonix logo variant
+  "/images/logos/6.png",             // 8. Django
+  "/images/logos/bird-logo1.png",    // 9. Luphonix logo
+  "/images/logos/8.png",             // 10. Other tech
+  "/images/logos/bird-logo1.png",    // 11. Luphonix logo
+  "/images/logos/3.png",             // 12. Other tech
+  "/images/logos/bird-logo1.png",    // 13. Luphonix logo
+  "/images/logos/4.png",             // 14. Other tech
+  "/images/logos/bird-logo1.png",    // 15. Luphonix logo
+  "/images/logos/7.png",             // 16. Docker
+];
 
 export function ParticleImageEffect({ 
   imageUrls = DEFAULT_IMAGE_URLS, 
@@ -180,23 +187,30 @@ export function ParticleImageEffect({
   }
 
   const loadImages = async () => {
-    const loadedImages = []
-
+    const loadedImages = [];
+  
     for (const url of imageUrls) {
-      const img = new Image()
-      img.crossOrigin = "anonymous" // For CORS if loading external images
-
-      await new Promise((resolve, reject) => {
-        img.onload = resolve
-        img.onerror = reject
-        img.src = url
-      })
-
-      loadedImages.push(img)
+      try {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = (error) => {
+            console.error(`Failed to load image: ${url}`, error);
+            reject(error);
+          };
+          img.src = url;
+        });
+  
+        loadedImages.push(img);
+      } catch (error) {
+        console.error(`Error loading image ${url}:`, error);
+      }
     }
-
-    loadedImagesRef.current = loadedImages
-  }
+  
+    loadedImagesRef.current = loadedImages;
+  };
 
   const nextImage = (imageIndex, canvas) => {
     const loadedImages = loadedImagesRef.current

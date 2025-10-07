@@ -1,8 +1,170 @@
-import React, { useEffect, useState } from 'react';
-import Hyperspeed from '../components/Hyperspeed';
-import Model3D from '../components/Model3D';
+import React, { useEffect, useState, lazy, Suspense, memo, useCallback } from 'react';
 import { RotatingText } from '../components/ui/RotatingText';
 import SEOHead from '../components/SEOHead';
+import LightRays from '../components/LightRays';
+import { Vortex } from '../components/ui/Vortex';
+
+// Lazy load heavy components
+const Hyperspeed = lazy(() => import('../components/Hyperspeed'));
+const Model3D = lazy(() => import('../components/Model3D'));
+
+// Memoized Form Component to prevent re-renders
+const ContactFormMemo = memo(({ formData, handleInputChange, handleSubmit, isSubmitting, submitStatus }) => {
+  return (
+    <form onSubmit={handleSubmit} className="contact-form" id="contact-form" style={{ padding: '50px 40px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '30px', border: '1px solid rgba(0, 212, 170, 0.1)' }}>
+      <h3 style={{
+        color: 'var(--text-primary)',
+        marginBottom: '30px',
+        fontSize: '1.5rem',
+        fontWeight: '300',
+        textAlign: 'center'
+      }}>
+        Start Your Project
+      </h3>
+
+      <div className="form-group" style={{ marginBottom: '30px' }}>
+        <label htmlFor="name">Full Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+          required
+          placeholder="Enter your full name"
+        />
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '30px' }}>
+        <label htmlFor="email">Email Address *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+          placeholder="Enter your email address"
+        />
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '30px' }}>
+        <label htmlFor="company">Company</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          value={formData.company}
+          onChange={handleInputChange}
+          placeholder="Enter your company name"
+        />
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '30px' }}>
+        <label htmlFor="service">Service Required *</label>
+        <select
+          id="service"
+          name="service"
+          value={formData.service}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Select a service</option>
+          <option value="web-development">Web Development</option>
+          <option value="mobile-app">Mobile App Development</option>
+          <option value="ui-ux-design">UI/UX Design</option>
+          <option value="ecommerce">E-commerce Solutions</option>
+          <option value="ai-ml">AI/ML Development</option>
+          <option value="blockchain">Blockchain Development</option>
+          <option value="consulting">Technical Consulting</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '30px' }}>
+        <label htmlFor="budget">Project Budget</label>
+        <select
+          id="budget"
+          name="budget"
+          value={formData.budget}
+          onChange={handleInputChange}
+        >
+          <option value="">Select budget range</option>
+          <option value="5k-15k">$5K - $15K</option>
+          <option value="15k-30k">$15K - $30K</option>
+          <option value="30k-50k">$30K - $50K</option>
+          <option value="50k-100k">$50K - $100K</option>
+          <option value="100k+">$100K+</option>
+        </select>
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '40px' }}>
+        <label htmlFor="message">Project Details *</label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
+          rows="5"
+          required
+          placeholder="Tell us about your project requirements..."
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        className="form-submit"
+        disabled={isSubmitting}
+        style={{
+          opacity: isSubmitting ? 0.7 : 1,
+          cursor: isSubmitting ? 'not-allowed' : 'pointer'
+        }}
+      >
+        {isSubmitting ? (
+          <>
+            <i className="fas fa-spinner fa-spin" style={{ marginRight: '10px' }}></i>
+            Sending...
+          </>
+        ) : (
+          <>
+            Send Message
+            <i className="fas fa-paper-plane" style={{ marginLeft: '10px' }}></i>
+          </>
+        )}
+      </button>
+
+      {submitStatus === 'success' && (
+        <div style={{
+          padding: '20px',
+          background: 'rgba(0, 212, 170, 0.1)',
+          border: '1px solid var(--accent-green)',
+          borderRadius: '12px',
+          color: 'var(--accent-green)',
+          textAlign: 'center',
+          marginTop: '20px'
+        }}>
+          <i className="fas fa-check-circle" style={{ marginRight: '10px' }}></i>
+          Thank you! Your message has been sent successfully. We'll get back to you soon.
+        </div>
+      )}
+
+      {submitStatus === 'error' && (
+        <div style={{
+          padding: '20px',
+          background: 'rgba(255, 68, 68, 0.1)',
+          border: '1px solid #ff4444',
+          borderRadius: '12px',
+          color: '#ff4444',
+          textAlign: 'center',
+          marginTop: '20px'
+        }}>
+          <i className="fas fa-exclamation-triangle" style={{ marginRight: '10px' }}></i>
+          Sorry, there was an error sending your message. Please try again.
+        </div>
+      )}
+    </form>
+  );
+});
 
 const Contact = () => {
   const contactStructuredData = {
@@ -24,6 +186,17 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile devices
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // Add fade-in animation on scroll
@@ -40,21 +213,31 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleInputChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('');
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
       setSubmitStatus('success');
       setFormData({
@@ -66,11 +249,12 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
+      console.error('Error sending message:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [formData]);
 
   return (
     <>
@@ -84,52 +268,122 @@ const Contact = () => {
       <div className="contact-page">
       {/* Header Section */}
       <section className="section" style={{ position: 'relative', height: '60vh', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
-          <Hyperspeed
-            effectOptions={{
-              onSpeedUp: () => { },
-              onSlowDown: () => { },
-              distortion: 'turbulentDistortion',
-              length: 400,
-              roadWidth: 10,
-              islandWidth: 2,
-              lanesPerRoad: 3,
-              fov: 90,
-              fovSpeedUp: 150,
-              speedUp: 2,
-              carLightsFade: 0.4,
-              totalSideLightSticks: 20,
-              lightPairsPerRoadWay: 40,
-              shoulderLinesWidthPercentage: 0.05,
-              brokenLinesWidthPercentage: 0.1,
-              brokenLinesLengthPercentage: 0.5,
-              lightStickWidth: [0.12, 0.5],
-              lightStickHeight: [1.3, 1.7],
-              movingAwaySpeed: [60, 80],
-              movingCloserSpeed: [-120, -160],
-              carLightsLength: [400 * 0.03, 400 * 0.2],
-              carLightsRadius: [0.05, 0.14],
-              carWidthPercentage: [0.3, 0.5],
-              carShiftX: [-0.8, 0.8],
-              carFloorSeparation: [0, 5],
-              colors: {
-                roadColor: 0x080808,
-                islandColor: 0x0a0a0a,
-                background: 0x000000,
-                shoulderLines: 0x131318,
-                brokenLines: 0x131318,
-                leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
-                rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
-                sticks: 0x03B3C3,
-              }
-            }}
-          />
+        {!isMobile ? (
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, pointerEvents: 'none' }}>
+            <Suspense fallback={<div style={{ background: 'var(--primary-bg)' }} />}>
+              <Hyperspeed
+                effectOptions={{
+                  onSpeedUp: () => { },
+                  onSlowDown: () => { },
+                  distortion: 'turbulentDistortion',
+                  length: 400,
+                  roadWidth: 10,
+                  islandWidth: 2,
+                  lanesPerRoad: 3,
+                  fov: 90,
+                  fovSpeedUp: 150,
+                  speedUp: 2,
+                  carLightsFade: 0.4,
+                  totalSideLightSticks: 20,
+                  lightPairsPerRoadWay: 40,
+                  shoulderLinesWidthPercentage: 0.05,
+                  brokenLinesWidthPercentage: 0.1,
+                  brokenLinesLengthPercentage: 0.5,
+                  lightStickWidth: [0.12, 0.5],
+                  lightStickHeight: [1.3, 1.7],
+                  movingAwaySpeed: [60, 80],
+                  movingCloserSpeed: [-120, -160],
+                  carLightsLength: [400 * 0.03, 400 * 0.2],
+                  carLightsRadius: [0.05, 0.14],
+                  carWidthPercentage: [0.3, 0.5],
+                  carShiftX: [-0.8, 0.8],
+                  carFloorSeparation: [0, 5],
+                  colors: {
+                    roadColor: 0x080808,
+                    islandColor: 0x0a0a0a,
+                    background: 0x000000,
+                    shoulderLines: 0x131318,
+                    brokenLines: 0x131318,
+                    leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
+                    rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
+                    sticks: 0x03B3C3,
+                  }
+                }}
+              />
+            </Suspense>
+          </div>
+        ) : (
+          // Hero Section with Vortex
+        <div style={{
+          position: 'relative',
+          minHeight: '50vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          padding: '60px 20px 40px'
+        }}>
+          {/* Vortex Background - Only visible on mobile */}
+          <div className="mobile-only" style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1
+          }}>
+            <Vortex
+              backgroundColor="#000000"
+              rangeY={400}
+              particleCount={500}
+              className="flex items-center justify-center w-full h-full"
+              containerClassName="w-full h-full"
+            />
+          </div>
+
+          {/* Hero Text - Positioned above Vortex */}
+          <div style={{
+            position: 'relative',
+            zIndex: 10,
+            textAlign: 'center',
+            width: '100%',
+            padding: '0 20px'
+          }}>
+            <h1 style={{
+              color: 'white',
+              textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8)',
+              fontSize: 'clamp(2rem, 5vw, 4rem)',
+              fontWeight: '300',
+              marginBottom: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              gap: '15px'
+            }}>
+              <span>Let's Build</span>
+              <RotatingText
+                texts={["Amazing Websites", "Mobile Apps", "AI Solutions", "Your Vision", "Digital Magic"]}
+                mainClassName="px-4 py-2 bg-gradient-to-r from-cyan-400 to-purple-500 text-black rounded-lg overflow-hidden"
+                staggerFrom="center"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-120%", opacity: 0 }}
+                staggerDuration={0.03}
+                splitLevelClassName="overflow-hidden"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={3000}
+              />
+              <span>Together</span>
+            </h1>
+          </div>
         </div>
-        <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', height: '100%' }}>
+        )}
+        <div className="container desktop-only" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', height: '100%' }}>
           <div style={{ textAlign: 'center', width: '100%' }}>
             <div className="fade-in" style={{ marginBottom: '30px' }}>
-              <h1 style={{ 
-                color: 'white', 
+              <h1 style={{
+                color: 'white',
                 textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
                 fontSize: 'clamp(2rem, 5vw, 4rem)',
                 fontWeight: '300',
@@ -156,19 +410,19 @@ const Contact = () => {
                 Together
               </h1>
             </div>
-            {/* <p style={{ 
-                fontSize: '1.2rem', 
-                color: 'var(--text-secondary)', 
+            {/* <p style={{
+                fontSize: '1.2rem',
+                color: 'var(--text-secondary)',
                 marginBottom: '30px',
                 lineHeight: '1.6'
               }}>
-                Let's discuss your project and turn your vision into reality. 
+                Let's discuss your project and turn your vision into reality.
                 We're here to provide expert consultation and innovative solutions.
               </p> */}
 
-              <div style={{ 
-                display: 'flex', 
-                gap: '20px', 
+              <div style={{
+                display: 'flex',
+                gap: '20px',
                 marginBottom: '40px',
                 flexWrap: 'wrap',
                 justifyContent: 'center'
@@ -205,9 +459,9 @@ const Contact = () => {
       {/* Contact Content */}
       <section className="section" style={{ paddingTop: '80px', paddingBottom: '120px' }}>
         <div className="container">
-          <div className="contact-info-grid" style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          <div className="contact-info-grid" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '60px',
             alignItems: 'start',
             maxWidth: '1600px',
@@ -216,8 +470,8 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div className="fade-in" style={{ padding: '40px 0' }}>
-              <h2 style={{ 
-                color: 'var(--text-primary)', 
+              <h2 style={{
+                color: 'var(--text-primary)',
                 marginBottom: '40px',
                 fontSize: '2.2rem',
                 fontWeight: '300'
@@ -225,14 +479,14 @@ const Contact = () => {
                 Let's Work Together
               </h2>
 
-              <p style={{ 
-                color: 'var(--text-secondary)', 
+              <p style={{
+                color: 'var(--text-secondary)',
                 lineHeight: '1.7',
                 marginBottom: '40px',
                 fontSize: '16px',
                 fontWeight: '300'
               }}>
-                We're here to help you achieve your digital goals. Whether you need a new website, 
+                We're here to help you achieve your digital goals. Whether you need a new website,
                 mobile app, or custom software solution, our team is ready to deliver exceptional results.
               </p>
 
@@ -252,7 +506,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--text-primary)', marginBottom: '5px', fontWeight: '300' }}>Email</h4>
-                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>hello@luphonix.com</p>
+                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>luphonix.prime@gmail.com</p>
                   </div>
                 </div>
 
@@ -271,7 +525,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--text-primary)', marginBottom: '5px', fontWeight: '300' }}>Phone</h4>
-                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>+1 (555) 123-4567</p>
+                    <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>+91 97254 87298</p>
                   </div>
                 </div>
 
@@ -288,47 +542,61 @@ const Contact = () => {
                   }}>
                     <i className="fas fa-map-marker-alt" style={{ color: 'white' }}></i>
                   </div>
-                  <div>
+                  {/* <div>
                     <h4 style={{ color: 'var(--text-primary)', marginBottom: '5px', fontWeight: '300' }}>Office</h4>
                     <p style={{ color: 'var(--text-secondary)', fontWeight: '300' }}>123 Tech Street, Digital City</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
-              {/* 3D Model Section */}
-              <div style={{ marginTop: '50px' }}>
-                <h4 style={{ 
-                  color: 'var(--text-primary)', 
-                  marginBottom: '30px',
-                  fontSize: '1.2rem',
-                  fontWeight: '300',
-                  textAlign: 'center'
-                }}>
-                  Interactive 3D Experience
-                </h4>
-                <Model3D 
-                  modelPath="/Ganesha_V2.glb"
-                  containerStyle={{
-                    marginBottom: '50px'
-                  }}
-                  showBorder={false}
-                  enableRotation={false}
-                />
-                <p style={{ 
-                  color: 'var(--text-secondary)', 
-                  textAlign: 'center',
-                  fontSize: '12px',
-                  fontWeight: '300',
-                  marginTop: '10px'
-                }}>
-                  Explore our 3D visualization capabilities
-                </p>
-              </div>
+              {/* 3D Model Section - Only on desktop */}
+              {!isMobile && (
+                <div style={{ marginTop: '50px' }}>
+                  <h4 style={{
+                    color: 'var(--text-primary)',
+                    marginBottom: '30px',
+                    fontSize: '1.2rem',
+                    fontWeight: '300',
+                    textAlign: 'center'
+                  }}>
+                    Interactive 3D Experience
+                  </h4>
+                  <Suspense fallback={
+                    <div style={{
+                      height: '300px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--text-secondary)'
+                    }}>
+                      Loading 3D model...
+                    </div>
+                  }>
+                    <Model3D
+                      modelPath="/Ganesha_V2.glb"
+                      containerStyle={{
+                        marginBottom: '50px'
+                      }}
+                      showBorder={false}
+                      enableRotation={false}
+                    />
+                  </Suspense>
+                  <p style={{
+                    color: 'var(--text-secondary)',
+                    textAlign: 'center',
+                    fontSize: '12px',
+                    fontWeight: '300',
+                    marginTop: '10px'
+                  }}>
+                    Explore our 3D visualization capabilities
+                  </p>
+                </div>
+              )}
 
               {/* Follow Us Section - Moved below 3D model */}
               <div style={{ marginTop: '50px' }}>
-                <h4 style={{ 
-                  color: 'var(--text-primary)', 
+                <h4 style={{
+                  color: 'var(--text-primary)',
                   marginBottom: '20px',
                   fontWeight: '300'
                 }}>
@@ -353,163 +621,67 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="fade-in" style={{ padding: '40px 0' }}>
-              <form onSubmit={handleSubmit} className="contact-form" id="contact-form" style={{ padding: '50px 40px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '30px', border: '1px solid rgba(0, 212, 170, 0.1)' }}>
-                <h3 style={{ 
-                  color: 'var(--text-primary)', 
-                  marginBottom: '30px',
-                  fontSize: '1.5rem',
-                  fontWeight: '300',
-                  textAlign: 'center'
-                }}>
-                  Start Your Project
-                </h3>
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                  <label htmlFor="name">Full Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                  <label htmlFor="email">Email Address *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                  <label htmlFor="company">Company</label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    placeholder="Enter your company name"
-                  />
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                  <label htmlFor="service">Service Required *</label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">Select a service</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="mobile-app">Mobile App Development</option>
-                    <option value="ui-ux-design">UI/UX Design</option>
-                    <option value="ecommerce">E-commerce Solutions</option>
-                    <option value="ai-ml">AI/ML Development</option>
-                    <option value="blockchain">Blockchain Development</option>
-                    <option value="consulting">Technical Consulting</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                  <label htmlFor="budget">Project Budget</label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="5k-15k">$5K - $15K</option>
-                    <option value="15k-30k">$15K - $30K</option>
-                    <option value="30k-50k">$30K - $50K</option>
-                    <option value="50k-100k">$50K - $100K</option>
-                    <option value="100k+">$100K+</option>
-                  </select>
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '40px' }}>
-                  <label htmlFor="message">Project Details *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows="5"
-                    required
-                    placeholder="Tell us about your project requirements..."
-                  ></textarea>
-                </div>
-
-                <button 
-                  type="submit" 
-                  className="form-submit"
-                  disabled={isSubmitting}
-                  style={{
-                    opacity: isSubmitting ? 0.7 : 1,
-                    cursor: isSubmitting ? 'not-allowed' : 'pointer'
-                  }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <i className="fas fa-spinner fa-spin" style={{ marginRight: '10px' }}></i>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <i className="fas fa-paper-plane" style={{ marginLeft: '10px' }}></i>
-                    </>
-                  )}
-                </button>
-
-                {submitStatus === 'success' && (
-                  <div style={{
-                    padding: '20px',
-                    background: 'rgba(0, 212, 170, 0.1)',
-                    border: '1px solid var(--accent-green)',
-                    borderRadius: '12px',
-                    color: 'var(--accent-green)',
-                    textAlign: 'center',
-                    marginTop: '20px'
-                  }}>
-                    <i className="fas fa-check-circle" style={{ marginRight: '10px' }}></i>
-                    Thank you! Your message has been sent successfully. We'll get back to you soon.
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div style={{
-                    padding: '20px',
-                    background: 'rgba(255, 68, 68, 0.1)',
-                    border: '1px solid #ff4444',
-                    borderRadius: '12px',
-                    color: '#ff4444',
-                    textAlign: 'center',
-                    marginTop: '20px'
-                  }}>
-                    <i className="fas fa-exclamation-triangle" style={{ marginRight: '10px' }}></i>
-                    Sorry, there was an error sending your message. Please try again.
-                  </div>
-                )}
-              </form>
+              <ContactFormMemo
+                formData={formData}
+                handleInputChange={handleInputChange}
+                handleSubmit={handleSubmit}
+                isSubmitting={isSubmitting}
+                submitStatus={submitStatus}
+              />
             </div>
           </div>
         </div>
       </section>
+      {/* Responsive Styles for Contact Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .mobile-only {
+          display: none;
+        }
 
+        @media (max-width: 768px) {
+          .mobile-only {
+            display: block;
+          }
+          .desktop-only {
+            display: none;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact-page > div:first-child {
+            min-height: 45vh !important;
+            padding: 40px 15px 30px !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .contact-header {
+            height: 50vh !important;
+            min-height: 400px !important;
+          }
+          .contact-info-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+          .contact-form {
+            padding: 40px 30px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact-header {
+            height: 45vh !important;
+            min-height: 350px !important;
+          }
+          .contact-form {
+            padding: 30px 20px !important;
+          }
+          .form-submit {
+            padding: 14px 28px !important;
+            font-size: 15px !important;
+          }
+        }
+      `}} />
 
       </div>
     </>

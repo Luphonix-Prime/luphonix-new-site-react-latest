@@ -204,23 +204,33 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
+        <Link to="/" className="nav-logo" onClick={closeMobileMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img 
             src="/logodk.png" 
             alt="Luphonix Logo" 
             style={{
               height: '75px',
               width: 'auto',
-              marginRight: '30px',
-              marginTop: '10px',
-              paddingTop: '5px',
-              paddingBottom: '5px',
+              marginTop: '5px',
+              paddingTop: '10px',
+              paddingBottom: '17px',
               filter: 'brightness(1) saturate(1.2)',
               transition: 'var(--transition-fast)',
               transform: 'scale(1.1)',
               verticalAlign: 'middle'
             }}
           />
+          <span style={{
+            fontSize: '24px',
+            fontWeight: '700',
+            background: 'linear-gradient(135deg, var(--accent-green), var(--accent-blue))',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            letterSpacing: '1px'
+          }}>
+            Luphonix
+          </span>
         </Link>
 
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
@@ -270,7 +280,7 @@ const Navbar = () => {
           <span></span>
         </div>
 
-        <div className="nav-actions">
+        <div className="nav-actions" style={{ display: 'none' }}>
             <AdminToggle />
           </div>
       </div>

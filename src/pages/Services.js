@@ -10,6 +10,7 @@ import { RotatingText } from '../components/ui/RotatingText';
 import Orb from '../components/Orb';
 import WebGLErrorBoundary from '../components/WebGLErrorBoundary';
 import { getImagePath } from '../utils/imageUtils';
+import { TestimonialsSection } from '../components/ui/TestimonialsWithMarquee';
 
 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPython, SiAmazonwebservices, SiGooglecloud, SiMongodb, SiPostgresql, SiFigma, SiDocker } from 'react-icons/si';
@@ -64,7 +65,7 @@ const ProcessStepsSection = () => {
   const currentStep = processSteps[activeStep];
 
   return (
-    <div style={{
+    <div className="process-steps-grid" style={{
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
       gap: '60px',
@@ -95,8 +96,10 @@ const ProcessStepsSection = () => {
                   ? '2px solid var(--accent-green)'
                   : '1px solid rgba(255, 255, 255, 0.1)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                transform: activeStep === index ? 'translateX(10px)' : 'translateX(0)'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: activeStep === index ? 'translateX(10px)' : 'translateX(0)',
+                willChange: 'transform, background, border',
+                backfaceVisibility: 'hidden'
               }}
             >
               <div style={{
@@ -212,6 +215,8 @@ const Services = () => {
   };
 
   useEffect(() => {
+    // Enable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'smooth';
 
     // Enhanced scroll animation observer for all fade-in elements
     const observer = new IntersectionObserver((entries) => {
@@ -257,6 +262,8 @@ const Services = () => {
     return () => {
       observer.disconnect();
       processObserver.disconnect();
+      // Reset scroll behavior on unmount
+      document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
@@ -310,7 +317,7 @@ const Services = () => {
       title: "UI/UX Design",
       description: "Data-driven design solutions that convert visitors into customers through exceptional user experiences.",
       detailedDescription: "Our design philosophy centers on user-first thinking. We create intuitive, accessible, and visually stunning interfaces that not only look great but also drive conversions and enhance user satisfaction.",
-      image: "ui ux service.jpg",
+      image: "uiux.jpg",
       icon: "fas fa-paint-brush",
       technologies: ["Figma", "Adobe XD", "Sketch", "Framer", "Principle", "InVision", "Miro", "Hotjar"],
       features: [
@@ -487,16 +494,17 @@ const Services = () => {
               />
             </h1>
             <p className="section-subtitle fade-in" style={{ 
-              color: 'rgba(255,255,255,0.9)', 
-              textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+              color: '#ffffff', 
+              textShadow: '0 0 25px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.9), 3px 3px 10px rgba(0,0,0,1)',
               fontSize: '1.2rem',
-              fontWeight: '400',
+              fontWeight: '600',
               letterSpacing: '0.02em',
               marginTop: '20px',
               textAlign: 'center',
               maxWidth: '800px',
               margin: '20px auto',
-              lineHeight: '1.6'
+              lineHeight: '1.6',
+              WebkitTextFillColor: '#ffffff'
             }}>
               Comprehensive digital solutions tailored to your business needs
             </p>
@@ -691,7 +699,7 @@ const Services = () => {
               marginBottom: '100px',
               animationDelay: `${index * 0.2}s`
             }}>
-              <div style={{
+              <div className="service-detail-grid" style={{
                 display: 'grid',
                 gridTemplateColumns: index % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
                 gap: '60px',
@@ -792,8 +800,8 @@ const Services = () => {
                         color: 'var(--text-secondary)'
                       }}>
                         <i className="fas fa-envelope" style={{ color: service.color, width: '16px' }}></i>
-                        <a href="mailto:contact@luphonix.com" style={{ color: service.color, textDecoration: 'none' }}>
-                          contact@luphonix.com
+                        <a href="mailto:luphonix.prime@gmail.com" style={{ color: service.color, textDecoration: 'none' }}>
+                        luphonix.prime@gmail.com
                         </a>
                       </div>
                       <div style={{
@@ -1008,46 +1016,65 @@ const Services = () => {
         </div>
       </section>
 
-      {/* All Services Grid with ChromaGrid */}
-      <section className="section" style={{ padding: '120px 0', backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
-        <div className="container">
-          <h2 className="section-title fade-in" style={{ marginBottom: '60px' }}>Complete Service Catalog</h2>
-
-          <div style={{ height: '1000px', position: 'relative' }} className="fade-in">
-            <ChromaGrid
-              items={services.map((service, index) => ({
-                image: service.image || [
-                  'https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=300&auto=format&fit=crop', // Web Development
-                  'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=300&auto=format&fit=crop', // Mobile App
-                  'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=300&auto=format&fit=crop', // UI/UX Design
-                  'https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=300&auto=format&fit=crop', // E-commerce
-                  'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=300&auto=format&fit=crop', // AI/ML
-                  'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=300&auto=format&fit=crop', // Blockchain
-                  'https://images.unsplash.com/photo-1544197150-b990a580bb7a8?q=80&w=300&auto=format&fit=crop', // Cloud Solutions
-                  'https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=300&auto=format&fit=crop', // DevOps
-                  'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=300&auto=format&fit=crop', // Cybersecurity
-                  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=300&auto=format&fit=crop', // Digital Marketing
-                  'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=300&auto=format&fit=crop', // 3D Visualization
-                  'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=300&auto=format&fit=crop'  // API Development
-                ][index] || `https://images.unsplash.com/photo-${1500000000000 + service.id}?q=80&w=300&auto=format&fit=crop`,
-                title: service.title,
-                subtitle: service.description.slice(0, 50) + '...',
-                handle: `@${service.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '')}`,
-                borderColor: service.color || 'var(--accent-green)',
-                gradient: service.gradient || `linear-gradient(145deg, ${service.color || 'var(--accent-green)'}, #000)`,
-                url: '/contact',
-                icon: service.icon,
-                features: service.features
-              }))}
-              radius={400}
-              damping={0.45}
-              fadeOut={0.6}
-              ease="power3.out"
-              columns={3}
-              rows={Math.ceil(services.length / 3)}
-            />
-          </div>
-        </div>
+      {/* Client Testimonials */}
+      <section className="fade-in" style={{ 
+        marginTop: '120px',
+        marginBottom: '120px'
+      }}>
+        <TestimonialsSection
+          title="Trusted by clients worldwide"
+          description="Join hundreds of satisfied clients who have transformed their digital presence with Luphonix"
+          testimonials={[
+            {
+              author: {
+                name: "Ivelox Team",
+                handle: "@ivelox",
+                avatar: "https://ivelox.in/wp-content/uploads/2024/07/logo-2.png"
+              },
+              text: "The website developed by Luphonix gave our brand a modern identity. Smooth performance and elegant design made a huge difference!"
+            },
+            {
+              author: {
+                name: "Reshape Fitness",
+                handle: "@reshapefit",
+                avatar: getImagePath('reshape.jpg', 'testimonials')
+              },
+              text: "Luphonix built not just our public website but also a complete platform for our admins and trainers to manage customers seamlessly. It transformed our operations."
+            },
+            {
+              author: {
+                name: "Tracelytag",
+                handle: "@tracelytag",
+                avatar: getImagePath('tracely-tag.png', 'testimonials')
+              },
+              text: "From a sleek website to an ERPNext inventory management system, Luphonix delivered end-to-end solutions that improved our efficiency and visibility."
+            },
+            {
+              author: {
+                name: "Infinite Jobs Solution",
+                handle: "@infinitejobs",
+                avatar: "https://infinitejobssolutions.com/assets/logo-Cm1FeLLJ.png"
+              },
+              text: "Our website now looks professional and attracts more candidates thanks to Luphonix. The process was smooth and the results exceeded expectations."
+            },
+            {
+              author: {
+                name: "6VC",
+                handle: "@6vc",
+                avatar: "https://demo-usa-pied.vercel.app/assets/logo.png"
+              },
+              text: "The website built by Luphonix gave us a strong digital presence. Their team understood our vision and delivered exactly what we needed."
+            },
+            {
+              author: {
+                name: "Shree Krishna Dairy Farm",
+                handle: "@shreekrishna",
+                avatar: "https://shree-krishna-dairy-farm-omega.vercel.app/assets/logo-BFVoECXw.png"
+              },
+              text: "Our dairy farm’s website beautifully showcases our products and values. Thanks to Luphonix, we can now reach more customers directly."
+            }
+          ]}
+        />
       </section>
 
     
@@ -1099,6 +1126,71 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Responsive Styles for Services Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        /* Smooth scrolling optimizations */
+        .services-page {
+          scroll-behavior: smooth;
+        }
+        
+        .services-page * {
+          -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Optimize animations for 60fps */
+        .fade-in.animated {
+          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .process-steps-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            margin-bottom: 60px !important;
+          }
+          .service-detail-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+          .service-detail-grid > div {
+            order: 1 !important;
+          }
+          .service-detail-grid img {
+            order: 2 !important;
+          }
+          .service-features-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .process-steps-grid {
+            gap: 30px !important;
+            margin-bottom: 50px !important;
+          }
+          .service-detail-grid {
+            gap: 30px !important;
+          }
+          .service-detail-title {
+            font-size: 24px !important;
+          }
+          .service-detail-description {
+            font-size: 16px !important;
+          }
+        }
+      `}} />
      
       </div>
     </>

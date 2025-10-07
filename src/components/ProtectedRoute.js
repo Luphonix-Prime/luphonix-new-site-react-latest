@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
   const { isAdmin } = state;
 
   if (!isAdmin) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/blog/admin/login" replace />;
   }
 
   return children;

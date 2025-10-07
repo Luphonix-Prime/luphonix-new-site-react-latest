@@ -32,21 +32,21 @@ const Products = () => {
       icon: "fas fa-laptop-code",
       name: "Software Solutions",
       description: "Advanced inventory systems, security checkers, and custom web applications",
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=250&fit=crop",
+      image: "/images/products/soft-sol.png",
       features: ["Custom Development", "Cloud Integration", "Real-time Analytics"]
     },
     {
       icon: "fas fa-microchip",
       name: "IoT Solutions",
       description: "Smart farming systems like Prithvi Sahay – innovative agricultural automation",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop",
+      image: "/images/products/iot1.jpg",
       features: ["Smart Sensors", "Remote Monitoring", "Automated Control"]
     },
     {
       icon: "fas fa-shopping-cart",
       name: "eCommerce Platforms",
       description: "Complete e-commerce solutions like NixKart with modern features",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+      image: "/images/products/ecommerce.png",
       features: ["Payment Integration", "Inventory Management", "Mobile Responsive"]
     }
   ];
@@ -76,11 +76,11 @@ const Products = () => {
 
   const caseStudies = [
     {
-      title: "Suchi Tracker",
-      description: "Advanced tracking system that improved operational efficiency by 65%",
-      stats: "65% Efficiency Boost",
-      icon: "fas fa-chart-line",
-      tech: ["React", "Node.js", "MongoDB"]
+      title: "LupSync",
+  description: "Collaboration and synchronization platform that improved workflow efficiency by 70%",
+  stats: "70% Workflow Efficiency Boost",
+  icon: "fas fa-sync-alt",
+  tech: ["React", "Node.js", "GraphQL", "PostgreSQL"]
     },
     {
       title: "NixKart E-commerce",
@@ -90,11 +90,11 @@ const Products = () => {
       tech: ["Next.js", "PostgreSQL", "Stripe"]
     },
     {
-      title: "Prithvi Sahay IoT",
-      description: "Smart farming solution reducing water usage by 40%",
-      stats: "40% Water Savings",
-      icon: "fas fa-leaf",
-      tech: ["IoT", "Python", "Firebase"]
+      title: "IoT Business Solutions",
+      description: "Tailored IoT solutions designed to match each customer’s unique business needs, improving automation and decision-making.",
+      stats: "60% Operational Efficiency Boost",
+      icon: "fas fa-microchip",
+      tech: ["IoT Devices", "MQTT", "Node.js", "Python", "Cloud Integration"]
     }
   ];
 
@@ -143,9 +143,34 @@ const Products = () => {
           </div>
           <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', height: '100%' }}>
             <div style={{ textAlign: 'center', width: '100%' }}>
-              <h1 className="section-title fade-in" style={{ color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>LUPHONIX Products</h1>
-              <p className="section-subtitle fade-in" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)', maxWidth: '600px', margin: '0 auto' }}>
-                Innovation, quality, and reliability at the core of everything we build. Our customer-first approach drives exceptional digital solutions.
+              <h1 className="fade-in" style={{
+                color: 'white',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                fontWeight: '300',
+                marginBottom: '30px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                gap: '15px'
+              }}>
+                Our Products
+              </h1>
+              <p className="section-subtitle fade-in" style={{ 
+                color: '#ffffff', 
+                textShadow: '0 0 25px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.9), 3px 3px 10px rgba(0,0,0,1)',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                letterSpacing: '0.02em',
+                marginTop: '20px',
+                textAlign: 'center',
+                maxWidth: '800px',
+                margin: '20px auto',
+                lineHeight: '1.6',
+                WebkitTextFillColor: '#ffffff'
+              }}>
+                From concept to creation — explore our product lineup
               </p>
             </div>
           </div>
@@ -673,6 +698,36 @@ const Products = () => {
           </div>
         </section>
 
+      {/* Responsive Styles for Products Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @media (max-width: 768px) {
+          .products-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+          .product-tech-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+            gap: 20px !important;
+          }
+          .product-process-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .products-header {
+            height: 50vh !important;
+            min-height: 400px !important;
+          }
+          .product-card {
+            padding: 30px 20px !important;
+          }
+          .product-process-grid {
+            gap: 25px !important;
+          }
+        }
+      `}} />
  
        
       </div>

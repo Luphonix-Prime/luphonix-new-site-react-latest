@@ -83,6 +83,7 @@ const Slide = ({
     <div style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}>
       <li
         ref={slideRef}
+        className="carousel-slide"
         style={{
           display: 'flex',
           flex: '1',
@@ -199,7 +200,7 @@ const Slide = ({
           </div>
         </div>
 
-        <article style={{
+        <article className="carousel-slide-content" style={{
           position: 'relative',
           padding: '4vmin',
           paddingTop: '6vmin',
@@ -411,6 +412,7 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
 
   return (
     <div
+      className="carousel-main-container"
       style={{
         position: 'relative',
         width: '75vmin',
@@ -423,7 +425,7 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
       onMouseLeave={handleMouseLeave}
     >
       {/* Technology counter */}
-      <div style={{
+      <div className="carousel-counter" style={{
         position: 'absolute',
         top: '-40px',
         left: '50%',
@@ -441,6 +443,7 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
       </div>
 
       <ul
+        className="carousel-slide-wrapper"
         style={{
           position: 'absolute',
           display: 'flex',
@@ -461,7 +464,7 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
         ))}
       </ul>
       {/* Left Arrow - Absolutely positioned */}
-      <div style={{
+      <div className="carousel-arrow carousel-arrow-left" style={{
         position: 'absolute',
         left: '-80px',
         top: '50%',
@@ -476,7 +479,7 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
       </div>
 
       {/* Right Arrow - Absolutely positioned */}
-      <div style={{
+      <div className="carousel-arrow carousel-arrow-right" style={{
         position: 'absolute',
         right: '-80px',
         top: '50%',
@@ -526,6 +529,148 @@ function Carousel({ slides, autoRotate = true, rotationInterval = 4000 }) {
           />
         ))}
       </div>
+      
+      {/* Responsive Styles for Carousel */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @media (max-width: 1024px) {
+          .carousel-arrow {
+            width: 45px !important;
+            height: 45px !important;
+          }
+          .carousel-arrow-left {
+            left: -60px !important;
+          }
+          .carousel-arrow-right {
+            right: -60px !important;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .carousel-main-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            min-height: 500px !important;
+            padding: 1.5rem 0 7rem 0 !important;
+            margin: 0 !important;
+          }
+          .carousel-slide {
+            width: calc(100vw - 80px) !important;
+            max-width: calc(100vw - 80px) !important;
+            height: auto !important;
+            min-height: 450px !important;
+            margin: 0 10px !important;
+          }
+          .carousel-slide-wrapper {
+            margin: 0 -10px !important;
+          }
+          .carousel-slide-content {
+            padding: 2rem 1.5rem !important;
+            padding-top: 3rem !important;
+          }
+          .carousel-counter {
+            font-size: 0.8rem !important;
+            padding: 6px 14px !important;
+            top: -35px !important;
+          }
+          .carousel-arrow {
+            width: 44px !important;
+            height: 44px !important;
+          }
+          .carousel-arrow-left {
+            left: 5px !important;
+            top: auto !important;
+            bottom: 120px !important;
+            transform: none !important;
+          }
+          .carousel-arrow-right {
+            right: 5px !important;
+            top: auto !important;
+            bottom: 120px !important;
+            transform: none !important;
+          }
+          .carousel-arrow button {
+            width: 44px !important;
+            height: 44px !important;
+          }
+          .carousel-arrow svg {
+            width: 20px !important;
+            height: 20px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .carousel-main-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-height: 450px !important;
+            padding: 1rem 0 6rem 0 !important;
+            margin: 0 !important;
+          }
+          .carousel-slide {
+            width: calc(100vw - 60px) !important;
+            max-width: calc(100vw - 60px) !important;
+            min-height: 420px !important;
+            margin: 0 5px !important;
+          }
+          .carousel-slide-wrapper {
+            margin: 0 -5px !important;
+          }
+          .carousel-slide-content {
+            padding: 1.5rem 1rem !important;
+            padding-top: 2.5rem !important;
+          }
+          .carousel-counter {
+            font-size: 0.75rem !important;
+            padding: 5px 12px !important;
+            top: -30px !important;
+          }
+          .carousel-arrow {
+            width: 40px !important;
+            height: 40px !important;
+          }
+          .carousel-arrow-left {
+            left: 5px !important;
+            bottom: 110px !important;
+          }
+          .carousel-arrow-right {
+            right: 5px !important;
+            bottom: 110px !important;
+          }
+          .carousel-arrow button {
+            width: 40px !important;
+            height: 40px !important;
+          }
+          .carousel-arrow svg {
+            width: 18px !important;
+            height: 18px !important;
+          }
+        }
+        
+        @media (max-width: 360px) {
+          .carousel-slide {
+            width: calc(100vw - 40px) !important;
+            max-width: calc(100vw - 40px) !important;
+            min-height: 380px !important;
+          }
+          .carousel-slide-content {
+            padding: 1.2rem 0.8rem !important;
+            padding-top: 2rem !important;
+          }
+          .carousel-arrow {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          .carousel-arrow button {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          .carousel-arrow svg {
+            width: 16px !important;
+            height: 16px !important;
+          }
+        }
+      `}} />
     </div>
   );
 }

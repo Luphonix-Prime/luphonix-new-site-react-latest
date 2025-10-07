@@ -1,16 +1,26 @@
 
 {
-  "short_name": "Portfolio App",
-  "name": "Portfolio Application",
+  "short_name": "Luphonix",
+  "name": "Luphonix Digital Innovation",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "favicon/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00d4aa",
+  "background_color": "#0a0a0a"
 }

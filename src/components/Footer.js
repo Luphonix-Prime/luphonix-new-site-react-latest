@@ -57,27 +57,36 @@ const Footer = () => {
 
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Luphonix</h3>
+            <h3>
+              <img 
+                src="logodk.png" 
+                alt="Luphonix Logo" 
+                style={{ 
+                  height: '150px',
+                  marginBottom: '35px'
+                }} 
+              />
+            </h3>
             <p>
               We create cutting-edge digital experiences that transform businesses and captivate audiences.
               Your partner in digital innovation and growth.
             </p>
             <div className="social-links">
-              <button className="social-link" aria-label="Twitter">
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
-              </button>
-              <button className="social-link" aria-label="LinkedIn">
+              </a>
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
-              </button>
-              <button className="social-link" aria-label="GitHub">
+              </a>
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
                 <i className="fab fa-github"></i>
-              </button>
-              <button className="social-link" aria-label="Instagram">
+              </a>
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
-              </button>
-              <button className="social-link" aria-label="Dribbble">
+              </a>
+              <a href="https://www.linkedin.com/in/luphonix-innovators-0669bb359/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Dribbble">
                 <i className="fab fa-dribbble"></i>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -104,31 +113,31 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-section">
-            <h4>Resources</h4>
-            <ul>
+          {/* <div className="footer-section">
+            <h4>Resources</h4> */}
+            {/* <ul>
               <li><Link to="/documentation">Documentation</Link></li>
               <li><Link to="/case-studies">Case Studies</Link></li>
               <li><Link to="/tutorials">Tutorials</Link></li>
               <li><Link to="/support">Support</Link></li>
               <li><Link to="/privacy">Privacy Policy</Link></li>
-            </ul>
-          </div>
+            </ul> */}
+          {/* </div> */}
 
           <div className="footer-section">
             <h4>Get In Touch</h4>
             <p>
               <i className="fas fa-envelope" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
-              hello@luphonix.com
+              luphonix.prime@gmail.com
             </p>
             <p>
               <i className="fas fa-phone" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
-              +1 (555) 123-4567
+              +91 97254 87298
             </p>
-            <p>
+            {/* <p>
               <i className="fas fa-map-marker-alt" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
               123 Tech Street<br />Digital City, DC 12345
-            </p>
+            </p> */}
           </div>
         </div>
 

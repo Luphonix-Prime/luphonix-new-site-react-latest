@@ -193,6 +193,26 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scrolling performance optimizations */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for animations */
+.fade-in,
+.service-card,
+.project-card,
+.blog-card {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 body {
@@ -428,6 +448,11 @@ body {
     box-shadow: 
         inset 0 2px 4px rgba(0, 0, 0, 0.06),
         0 0 0 3px rgba(var(--accent-green-rgb), 0.1);
+}
+
+[data-theme="clean-white"] .form-group select option {
+    background: white;
+    color: var(--text-primary);
 }
 
 /* Tech Tags */
@@ -1444,9 +1469,19 @@ body {
     border-radius: 15px;
     color: var(--text-primary);
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition: border-color 0.2s ease, background 0.2s ease;
     font-family: inherit;
     resize: vertical;
+    will-change: auto;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    contain: layout style paint;
+}
+
+.form-group select option {
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    padding: 10px;
 }
 
 .form-group input:focus,

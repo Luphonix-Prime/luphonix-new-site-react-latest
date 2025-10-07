@@ -70,15 +70,14 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero" style={{ position: 'relative', overflow: 'hidden', paddingTop: '60px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ 
+          <div className="hero-grid" style={{ 
             display: 'grid', 
             gridTemplateColumns: '1fr 1fr', 
             gap: '60px', 
             alignItems: 'center',
             minHeight: '100vh',
-            padding: '40px 0 80px 0',
-            alignItems: 'flex-start',
-            paddingTop: '120px'
+            padding: '20px 0 80px 0',
+            alignItems: 'flex-start'
           }}>
             {/* Left Content */}
             <div className="hero-content fade-in" style={{ textAlign: 'center' }}>
@@ -134,7 +133,7 @@ const Home = () => {
               borderRadius: '20px',
               overflow: 'hidden',
               background: 'transparent',
-              marginTop: '-80px'
+              marginTop: '-20px'
             }}>
               <ParticleImageEffect 
                 imageSize={300}
@@ -367,7 +366,7 @@ const Home = () => {
       </section>
 
       {/* Languages Education Section */}
-      <section className="section" style={{ 
+      <section className="section tech-stack-section" style={{ 
         backgroundColor: 'var(--secondary-bg)', 
         padding: '120px 0',
         position: 'relative',
@@ -386,8 +385,8 @@ const Home = () => {
         }}></div>
 
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <div className="fade-in" style={{
+          <div className="tech-stack-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <div className="fade-in tech-stack-badge" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '15px',
@@ -412,8 +411,8 @@ const Home = () => {
               </span>
             </div>
 
-            <h2 className="section-title fade-in" style={{
-              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+            <h2 className="section-title fade-in tech-stack-title" style={{
+              fontSize: 'clamp(1.8rem, 5vw, 3.5rem)',
               fontWeight: '700',
               background: 'linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 50%, var(--accent-purple) 100%)',
               WebkitBackgroundClip: 'text',
@@ -427,7 +426,7 @@ const Home = () => {
             </h2>
 
             <p className="section-subtitle fade-in" style={{ 
-              fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+              fontSize: 'clamp(0.95rem, 2.5vw, 1.2rem)',
               maxWidth: '700px',
               margin: '0 auto',
               color: 'var(--text-secondary)',
@@ -440,13 +439,13 @@ const Home = () => {
           </div>
 
           {/* Enhanced Carousel Container */}
-          <div className="fade-in" style={{
+          <div className="fade-in tech-stack-carousel-wrapper" style={{
             animationDelay: '0.2s',
             position: 'relative',
             margin: '60px 0 80px 0'
           }}>
             {/* Decorative Elements */}
-            <div style={{
+            <div className="tech-stack-decorator-top" style={{
               position: 'absolute',
               top: '-30px',
               left: '50%',
@@ -458,7 +457,7 @@ const Home = () => {
               zIndex: 1
             }}></div>
 
-            <div style={{
+            <div className="tech-stack-carousel-container" style={{
               background: 'rgba(var(--card-bg-rgb), 0.5)',
               backdropFilter: 'blur(10px)',
               borderRadius: '25px',
@@ -466,7 +465,7 @@ const Home = () => {
               border: '1px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
               position: 'relative',
-              overflow: 'hidden',
+              overflow: 'visible',
               margin: '30px auto',
               maxWidth: '100%'
             }}>
@@ -490,7 +489,7 @@ const Home = () => {
             </div>
 
             {/* Bottom decorative line */}
-            <div style={{
+            <div className="tech-stack-decorator-bottom" style={{
               position: 'absolute',
               bottom: '-20px',
               left: '50%',
@@ -504,6 +503,71 @@ const Home = () => {
           </div>
 
         </div>
+        
+        {/* Responsive CSS for Tech Stack Section */}
+        <style dangerouslySetInnerHTML={{__html: `
+          @media (max-width: 768px) {
+            .tech-stack-section {
+              padding: 60px 0 !important;
+              min-height: 600px !important;
+            }
+            .tech-stack-header {
+              margin-bottom: 40px !important;
+            }
+            .tech-stack-badge {
+              padding: 10px 20px !important;
+              gap: 10px !important;
+              font-size: 12px !important;
+            }
+            .tech-stack-badge i {
+              font-size: 14px !important;
+            }
+            .tech-stack-title br {
+              display: none;
+            }
+            .tech-stack-carousel-wrapper {
+              margin: 40px 0 60px 0 !important;
+            }
+            .tech-stack-carousel-container {
+              padding: 30px 10px !important;
+              border-radius: 20px !important;
+              overflow: visible !important;
+              margin: 30px 0 !important;
+            }
+            .tech-stack-decorator-top {
+              width: 60px !important;
+              height: 3px !important;
+              top: -20px !important;
+            }
+            .tech-stack-decorator-bottom {
+              width: 40px !important;
+              height: 2px !important;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .tech-stack-section {
+              padding: 40px 0 !important;
+              min-height: 500px !important;
+            }
+            .tech-stack-header {
+              margin-bottom: 30px !important;
+            }
+            .tech-stack-badge {
+              padding: 8px 16px !important;
+              gap: 8px !important;
+            }
+            .tech-stack-carousel-wrapper {
+              margin: 30px 0 50px 0 !important;
+            }
+            .tech-stack-carousel-container {
+              padding: 20px 5px !important;
+              border-radius: 15px !important;
+              overflow: visible !important;
+              margin: 30px 0 !important;
+            }
+          }
+        `}} />
       </section>
 
       {/* Rolling Gallery Section */}
@@ -518,6 +582,146 @@ const Home = () => {
           </div>
         </div>
       </section>
+      
+      {/* Comprehensive Responsive Styles for Home Page */}
+      <style dangerouslySetInnerHTML={{__html: `
+        /* Hero Grid Responsive */
+        @media (max-width: 768px) {
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            min-height: auto !important;
+            padding: 40px 0 60px 0 !important;
+          }
+          .hero-content {
+            text-align: center !important;
+          }
+          .hero-title {
+            font-size: 2.5rem !important;
+          }
+          .hero-subtitle {
+            font-size: 1.1rem !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-grid {
+            gap: 30px !important;
+            padding: 30px 0 50px 0 !important;
+          }
+          .hero-title {
+            font-size: 2rem !important;
+          }
+          .hero-subtitle {
+            font-size: 1rem !important;
+          }
+        }
+        
+        /* Services Section Responsive */
+        @media (max-width: 768px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+          .service-card {
+            padding: 30px 25px !important;
+          }
+          .service-icon {
+            width: 60px !important;
+            height: 60px !important;
+            font-size: 28px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .service-card {
+            padding: 25px 20px !important;
+          }
+          .service-icon {
+            width: 50px !important;
+            height: 50px !important;
+            font-size: 24px !important;
+          }
+        }
+        
+        /* Featured Projects Responsive */
+        @media (max-width: 768px) {
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+          .project-card {
+            max-width: 100% !important;
+          }
+          .project-tech {
+            gap: 8px !important;
+          }
+          .tech-tag {
+            font-size: 0.75rem !important;
+            padding: 4px 10px !important;
+          }
+        }
+        
+        /* Blog Grid Responsive */
+        @media (max-width: 768px) {
+          .blog-grid-animated {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+          .blog-card-animated {
+            max-width: 100% !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .blog-grid-animated {
+            gap: 25px !important;
+          }
+        }
+        
+        /* CTA Buttons Responsive */
+        @media (max-width: 480px) {
+          .cta-button {
+            font-size: 14px !important;
+            padding: 14px 24px !important;
+          }
+          .hero-content .cta-button {
+            font-size: 15px !important;
+            padding: 16px 28px !important;
+          }
+        }
+        
+        /* Hero Content Responsive */
+        @media (max-width: 480px) {
+          .hero-content {
+            padding: 0 15px !important;
+          }
+          .hero-title {
+            font-size: 2rem !important;
+            line-height: 1.2 !important;
+          }
+          .hero-subtitle {
+            font-size: 1rem !important;
+            line-height: 1.5 !important;
+          }
+          .hero-rotating-text {
+            font-size: 1.1rem !important;
+          }
+        }
+        
+        /* Section Padding Responsive */
+        @media (max-width: 768px) {
+          .section {
+            padding: 60px 0 !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .section {
+            padding: 40px 0 !important;
+          }
+        }
+      `}} />
       </div>
     </>
   );
