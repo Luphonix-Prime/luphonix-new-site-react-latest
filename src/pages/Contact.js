@@ -1,8 +1,8 @@
 import React, { useEffect, useState, lazy, Suspense, memo, useCallback } from 'react';
 import { RotatingText } from '../components/ui/RotatingText';
 import SEOHead from '../components/SEOHead';
-import LightRays from '../components/LightRays';
 import { Vortex } from '../components/ui/Vortex';
+import { SparklesCore } from '../components/ui/Sparkles';
 
 // Lazy load heavy components
 const Hyperspeed = lazy(() => import('../components/Hyperspeed'));
@@ -313,7 +313,7 @@ const Contact = () => {
             </Suspense>
           </div>
         ) : (
-          // Hero Section with Vortex
+          // Hero Section with Sparkles
         <div style={{
           position: 'relative',
           minHeight: '50vh',
@@ -321,9 +321,10 @@ const Contact = () => {
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'hidden',
-          padding: '60px 20px 40px'
+          padding: '60px 20px 40px',
+          backgroundColor: '#000000'
         }}>
-          {/* Vortex Background - Only visible on mobile */}
+          {/* Sparkles Background - Only visible on mobile */}
           <div className="mobile-only" style={{
             position: 'absolute',
             top: 0,
@@ -332,16 +333,74 @@ const Contact = () => {
             bottom: 0,
             zIndex: 1
           }}>
-            <Vortex
-              backgroundColor="#000000"
-              rangeY={400}
-              particleCount={500}
-              className="flex items-center justify-center w-full h-full"
-              containerClassName="w-full h-full"
-            />
+            <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+              {/* Gradients */}
+              <div style={{
+                position: 'absolute',
+                left: '10%',
+                right: '10%',
+                top: 0,
+                height: '2px',
+                width: '80%',
+                background: 'linear-gradient(to right, transparent, rgb(99, 102, 241), transparent)',
+                filter: 'blur(4px)'
+              }} />
+              <div style={{
+                position: 'absolute',
+                left: '10%',
+                right: '10%',
+                top: 0,
+                height: '1px',
+                width: '80%',
+                background: 'linear-gradient(to right, transparent, rgb(99, 102, 241), transparent)'
+              }} />
+              <div style={{
+                position: 'absolute',
+                left: '30%',
+                right: '30%',
+                top: 0,
+                height: '5px',
+                width: '40%',
+                background: 'linear-gradient(to right, transparent, rgb(14, 165, 233), transparent)',
+                filter: 'blur(4px)'
+              }} />
+              <div style={{
+                position: 'absolute',
+                left: '30%',
+                right: '30%',
+                top: 0,
+                height: '1px',
+                width: '40%',
+                background: 'linear-gradient(to right, transparent, rgb(14, 165, 233), transparent)'
+              }} />
+
+              {/* Sparkles Core */}
+              <SparklesCore
+                background="transparent"
+                minSize={0.4}
+                maxSize={1}
+                particleDensity={1200}
+                className="w-full h-full"
+                particleColor="#FFFFFF"
+              />
+
+              {/* Radial Gradient Mask */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100%',
+                height: '100%',
+                background: 'black',
+                maskImage: 'radial-gradient(350px 200px at top, transparent 20%, white)',
+                WebkitMaskImage: 'radial-gradient(350px 200px at top, transparent 20%, white)'
+              }} />
+            </div>
           </div>
 
-          {/* Hero Text - Positioned above Vortex */}
+          {/* Hero Text - Positioned above Sparkles */}
           <div style={{
             position: 'relative',
             zIndex: 10,
