@@ -72,14 +72,17 @@ export const projects = [
     
   },
   {
-    id: 2,
-    title: "Tracelytag",
-    short_description: "A smart QR-based digital identity and asset tagging solution that enables easy tracking, authentication, and secure information sharing.",
-    image: "/images/home/tracelytag.png",
-    technologies: ["Html", "css", "javascript", "php", "wix"],
-    category: "SaaS / Identity Management",
-    featured: true,
-    project_url: "https://www.tracelytag.com/",
+    
+      id: 2,
+      title: "iVelox",
+      short_description: "iVelox offers innovative IT solutions, including strategic portfolio management, cybersecurity, digital transformation, application development, and IT infrastructure services, tailored to drive business growth and innovation.",
+      image: "/images/home/ivelox.png",
+      technologies: ["HTML", "CSS", "JavaScript", "PHP", "Wix"],
+      category: "SaaS / IT Solutions",
+      featured: true,
+      project_url: "https://ivelox.in/"
+  
+  
     
   },
   {
