@@ -134,10 +134,10 @@ const Footer = () => {
               <i className="fas fa-phone" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
               +91 97254 87298
             </p>
-            {/* <p>
+            <p>
               <i className="fas fa-map-marker-alt" style={{ marginRight: '10px', color: 'var(--accent-green)' }}></i>
-              123 Tech Street<br />Digital City, DC 12345
-            </p> */}
+              Ahmedabad<br />Gandhinagar
+            </p>
           </div>
         </div>
 
