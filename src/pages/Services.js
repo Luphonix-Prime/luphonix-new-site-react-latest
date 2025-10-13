@@ -623,13 +623,11 @@ const Services = () => {
                     {service.technologies.map(tech => (
                       <span
                         key={tech}
+                        className="tech-tag"
                         style={{
-                          background: 'rgba(255, 255, 255, 0.1)',
-                          color: 'var(--text-secondary)',
                           padding: '5px 12px',
-                          borderRadius: '15px',
-                          fontSize: '12px',
-                          border: '1px solid rgba(255, 255, 255, 0.1)'
+                          borderRadius: 'var(--icon-radius)',
+                          fontSize: '12px'
                         }}
                       >
                         {tech}
@@ -639,27 +637,12 @@ const Services = () => {
 
                   <Link
                     to="/contact"
+                    className="cta-button"
                     style={{
-                      background: service.color,
-                      color: 'white',
-                      border: 'none',
-                      padding: '12px 24px',
-                      borderRadius: '25px',
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
+                      display: 'inline-block',
                       width: '100%',
-                      position: 'relative',
-                      overflow: 'hidden'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.boxShadow = `0 8px 25px ${service.color}40`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = 'none';
+                      textAlign: 'center',
+                      textDecoration: 'none'
                     }}
                   >
                     Learn More
@@ -799,8 +782,8 @@ const Services = () => {
                         fontSize: '14px',
                         color: 'var(--text-secondary)'
                       }}>
-                        <i className="fas fa-envelope" style={{ color: service.color, width: '16px' }}></i>
-                        <a href="mailto:luphonix.prime@gmail.com" style={{ color: service.color, textDecoration: 'none' }}>
+                        <i className="fas fa-envelope" style={{ color: 'var(--accent-green)', width: '16px' }}></i>
+                        <a href="mailto:luphonix.prime@gmail.com" style={{ color: 'var(--accent-green)', textDecoration: 'none' }}>
                         luphonix.prime@gmail.com
                         </a>
                       </div>
@@ -811,7 +794,7 @@ const Services = () => {
                         fontSize: '14px',
                         color: 'var(--text-secondary)'
                       }}>
-                        <i className="fas fa-clock" style={{ color: service.color, width: '16px' }}></i>
+                        <i className="fas fa-clock" style={{ color: 'var(--accent-green)', width: '16px' }}></i>
                         <span>Delivery: {service.deliveryTime}</span>
                       </div>
                       <div style={{
@@ -821,7 +804,7 @@ const Services = () => {
                         fontSize: '14px',
                         color: 'var(--text-secondary)'
                       }}>
-                        <i className="fas fa-comments" style={{ color: service.color, width: '16px' }}></i>
+                        <i className="fas fa-comments" style={{ color: 'var(--accent-green)', width: '16px' }}></i>
                         <span>Free consultation & project estimation</span>
                       </div>
                     </div>
@@ -837,13 +820,11 @@ const Services = () => {
                     {service.technologies.map(tech => (
                       <span
                         key={tech}
+                        className="tech-tag"
                         style={{
-                          background: `${service.color}15`,
-                          color: service.color,
                           padding: '6px 12px',
-                          borderRadius: '15px',
-                          fontSize: '12px',
-                          border: `1px solid ${service.color}30`
+                          borderRadius: 'var(--icon-radius)',
+                          fontSize: '12px'
                         }}
                       >
                         {tech}
@@ -853,27 +834,9 @@ const Services = () => {
 
                   <Link
                     to="/contact"
+                    className="cta-button"
                     style={{
-                      display: 'inline-block',
-                      background: service.color,
-                      color: 'white',
-                      border: 'none',
-                      padding: '15px 30px',
-                      borderRadius: '25px',
-                      fontSize: '16px',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      textDecoration: 'none',
-                      textAlign: 'center'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.boxShadow = `0 10px 25px ${service.color}40`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = 'none';
+                      textDecoration: 'none'
                     }}
                   >
                     Contact Us for {service.title}
