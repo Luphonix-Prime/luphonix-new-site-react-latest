@@ -129,160 +129,160 @@ export const projects = [
 
 export const blogPosts = [
   {
-    id: 1,
-    title: "The Future of Web Development: Trends to Watch in 2024",
-    slug: "future-web-development-trends-2024",
-    excerpt: "Explore the cutting-edge technologies and methodologies shaping the future of web development, from AI integration to progressive web apps.",
-    content: "The web development landscape continues to evolve at an unprecedented pace...",
-    featured_image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Web Development", "Technology", "AI", "PWA"],
-    author: {
-      name: "james K.",
-      title: "Full-Stack Developer at LUPHONIX",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    "id": 1,
+    "title": "How LUPHONIX is Using Artificial Intelligence to Revolutionize Web Development",
+    "slug": "luphonix-ai-revolution-web-development",
+    "excerpt": "Discover how LUPHONIX leverages AI to enhance web applications, automate workflows, and deliver intelligent user experiences.",
+    "content": "Artificial Intelligence is not just a buzzword - it's the foundation of the next digital revolution. At LUPHONIX, we harness the power of AI to redefine how modern web development works. From predictive UI analytics that anticipate user behavior to automated backend optimization, every line of code we write is enhanced by intelligent insights.\n\nWith AI-powered automation, LUPHONIX reduces development errors by up to 60%, accelerates project delivery timelines, and ensures robust scalability for businesses of every size. Whether it's intelligent chatbots that provide 24/7 support, recommendation engines that boost engagement, or AI-assisted analytics for real-time decision-making, LUPHONIX integrates intelligence at every stage of the web lifecycle.\n\nBacked by years of expertise and innovation, LUPHONIX continues to lead the AI-first web revolution, helping brands achieve unmatched efficiency, smarter performance, and future-ready digital solutions.\n\nEmbrace the future. Partner with LUPHONIX - where Artificial Intelligence builds smarter worlds.",
+    "featured_image": "https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332",
+    "tags": ["LUPHONIX", "AI", "Web Development", "Machine Learning", "Automation"],
+    "author": {
+      "name": "Priya S.",
+      "title": "AI Engineer at LUPHONIX",
+      "avatar": "https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
     },
-    created_at: "2024-01-15T10:00:00Z",
-    read_time: 8,
-    is_featured: true,
-    is_trending: true,
-    category: "Web Dev",
-    summary_points: [
-      "AI integration transforming development workflows",
-      "Progressive Web Apps becoming mainstream",
-      "New frameworks revolutionizing frontend development"
+    "created_at": "2025-01-20T10:00:00Z",
+    "read_time": 8,
+    "is_featured": true,
+    "is_trending": true,
+    "category": "AI/ML",
+    "summary_points": [
+      "AI accelerates code generation and deployment.",
+      "Intelligent UX design powered by machine learning.",
+      "Automation and scalability redefine development standards."
     ],
-    likes: 142,
-    meta_description: "Discover the latest web development trends for 2024 including AI integration, PWAs, and revolutionary frameworks shaping the future."
+    "likes": 187,
+    "meta_description": "Explore how LUPHONIX uses AI to enhance web development with automation, smart UX, and scalable technology."
   },
   {
-    id: 2,
-    title: "Building Scalable Microservices with Node.js and Docker",
-    slug: "scalable-microservices-nodejs-docker",
-    excerpt: "Learn how to architect and deploy microservices that can handle millions of requests while maintaining performance and reliability.",
-    content: "Microservices architecture has become the gold standard for building scalable applications...",
-    featured_image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Node.js", "Docker", "Microservices", "DevOps", "Cloud"],
-    author: {
-      name: "Arjun P.",
-      title: "DevOps Engineer at LUPHONIX",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    "id": 2,
+    "title": "LUPHONIX Cloud Solutions: Powering Secure and Scalable Businesses",
+    "slug": "luphonix-cloud-solutions-scalable-businesses",
+    "excerpt": "Learn how LUPHONIX provides reliable, scalable, and secure cloud services that help businesses thrive in a data-driven world.",
+    "content": "In the era of digital acceleration, scalability and data security are mission-critical for enterprises. LUPHONIX Cloud Solutions empower businesses to innovate faster, operate efficiently, and scale globally with confidence. Our team specializes in building multi-cloud architectures using AWS, Google Cloud, and Microsoft Azure to deliver performance, flexibility, and cost efficiency.\n\nFrom seamless migration to proactive cloud management, LUPHONIX ensures your digital infrastructure remains optimized, resilient, and secure 24/7. Our AI-driven monitoring tools predict potential outages before they happen, while automated backups protect your mission-critical data against loss or corruption.\n\nWhether you’re running eCommerce platforms, enterprise apps, or complex analytics workloads, our DevOps and CI/CD automation pipelines keep your deployment cycles fast and reliable. With over 99.99% uptime, LUPHONIX provides the cloud stability you need to grow without limits.\n\nAt LUPHONIX, cloud isn’t just hosting — it’s transformation. Partner with us to power your business into the next generation of digital excellence.",
+    "featured_image": "https://plus.unsplash.com/premium_photo-1683836722608-60ab4d1b58e5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fENsb3VkJTIwU29sdXRpb25zfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=700",
+    "tags": ["LUPHONIX", "Cloud Computing", "AWS", "Google Cloud", "Azure", "DevOps", "Cloud Migration"],
+    "author": {
+      "name": "Jemi P.",
+      "title": "Cloud Architect at LUPHONIX",
+      "avatar": "https://plus.unsplash.com/premium_photo-1661964243697-734d7bd664ff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aW5kaWFuJTIwZ2lybHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
     },
-    created_at: "2024-01-10T14:30:00Z",
-    read_time: 12,
-    is_featured: true,
-    is_trending: false,
-    category: "Web Dev",
-    summary_points: [
-      "Microservices architecture patterns and best practices",
-      "Docker containerization for scalable deployments",
-      "Performance optimization strategies for high-load systems"
+    "created_at": "2025-01-22T09:45:00Z",
+    "read_time": 9,
+    "is_featured": true,
+    "is_trending": false,
+    "category": "Cloud",
+    "summary_points": [
+      "Multi-cloud architectures enhance global scalability.",
+      "End-to-end cloud migration and management solutions.",
+      "LUPHONIX ensures 99.99% uptime and advanced data security."
     ],
-    likes: 89,
-    meta_description: "Master microservices architecture with Node.js and Docker. Learn scalable deployment strategies for high-performance applications."
+    "likes": 112,
+    "meta_description": "Explore how LUPHONIX provides scalable, secure, and intelligent cloud solutions using AWS, Google Cloud, and Azure to power global business growth."
   },
   {
-    id: 3,
-    title: "AI-Powered UX: How Machine Learning is Transforming Design",
-    slug: "ai-powered-ux-machine-learning-design",
-    excerpt: "Discover how artificial intelligence is revolutionizing user experience design through personalization and predictive interfaces.",
-    content: "The intersection of AI and UX design is creating unprecedented opportunities...",
-    featured_image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["AI", "UX Design", "Machine Learning", "Personalization", "Design"],
-    author: {
-      name: "Priya S.",
-      title: "UI/UX Designer at LUPHONIX",
-      avatar: "https://images.unsplash.com/photo-1494790108755-24a72986d28f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    "id": 3,
+    "title": "Cybersecurity at LUPHONIX: Safeguarding the Future of Digital Transformation",
+    "slug": "luphonix-cybersecurity-digital-transformation",
+    "excerpt": "Discover how LUPHONIX protects enterprises with AI-driven cybersecurity, real-time threat intelligence, and zero-trust frameworks.",
+    "content": "In an era where digital transformation is redefining industries, cybersecurity has become the foundation of trust. At LUPHONIX, we go beyond conventional protection — we innovate in defense. Our cybersecurity framework integrates artificial intelligence, real-time analytics, and zero-trust models to keep your data, infrastructure, and users secure.\n\nWe implement predictive threat detection systems that analyze millions of events per second, identifying vulnerabilities before they’re exploited. Every website, API, and database we build follows end-to-end encryption and adheres to international compliance standards such as ISO, GDPR, and SOC 2.\n\nWith our AI-based incident response automation, businesses can mitigate cyberattacks in real time, ensuring operational continuity. Whether it’s ransomware defense, identity management, or network forensics, LUPHONIX secures every layer of your ecosystem.\n\nOur vision is simple — protect innovation. With LUPHONIX as your security partner, your digital future remains safe, compliant, and unstoppable.",
+    "featured_image": "https://images.unsplash.com/photo-1483817101829-339b08e8d83f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEN5YmVyc2VjdXJpdHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    "tags": ["LUPHONIX", "Cybersecurity", "Cloud Security", "Zero Trust", "Data Protection", "Encryption", "AI Threat Detection"],
+    "author": {
+      "name": "seema J.",
+      "title": "Cybersecurity Specialist at LUPHONIX",
+      "avatar": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGluZGlhbiUyMGdpcmx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600"
     },
-    created_at: "2024-01-05T09:15:00Z",
-    read_time: 6,
-    is_featured: true,
-    is_trending: true,
-    category: "AI/ML",
-    summary_points: [
-      "Machine learning algorithms enhancing user personalization",
-      "Predictive interfaces improving user experience",
-      "AI-driven design tools revolutionizing workflows"
+    "created_at": "2025-01-25T13:00:00Z",
+    "read_time": 10,
+    "is_featured": true,
+    "is_trending": true,
+    "category": "Cybersecurity",
+    "summary_points": [
+      "Zero-trust architecture for modern enterprises.",
+      "AI-powered threat monitoring and rapid response.",
+      "Compliance with GDPR, ISO, and SOC standards."
     ],
-    likes: 156,
-    meta_description: "Explore how AI and machine learning are transforming UX design through personalization and predictive interfaces."
+    "likes": 153,
+    "meta_description": "Learn how LUPHONIX defends businesses with AI-driven cybersecurity, zero-trust networks, and predictive analytics to ensure complete data protection."
   },
   {
-    id: 4,
-    title: "Blockchain Beyond Cryptocurrency: Real-World Applications",
-    slug: "blockchain-real-world-applications",
-    excerpt: "Explore practical blockchain implementations beyond digital currencies, including supply chain, healthcare, and identity management.",
-    content: "While cryptocurrency brought blockchain into the mainstream, its applications extend far beyond...",
-    featured_image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Blockchain", "Supply Chain", "Healthcare", "Identity", "Security"],
-    author: {
-      name: "Rahul M.",
-      title: "Blockchain Developer at LUPHONIX",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    "id": 4,
+    "title": "Full-Stack Development Excellence: The LUPHONIX Approach",
+    "slug": "luphonix-full-stack-development-excellence",
+    "excerpt": "See how LUPHONIX crafts powerful full-stack applications combining innovation, speed, and security for modern enterprises.",
+    "content": "At LUPHONIX, full-stack development is not just about building apps — it’s about engineering seamless digital ecosystems. Our expert developers specialize in React, Node.js, PHP, SQL, and modern JavaScript frameworks to create scalable, high-performance applications.\n\nEvery project begins with an agile strategy that emphasizes collaboration, speed, and quality. We integrate RESTful APIs, optimize database structures, and apply responsive design principles to ensure flawless performance across devices. Security is embedded into every layer, with code audits and real-time monitoring built into our CI/CD pipeline.\n\nBy balancing creative frontends with powerful backends, LUPHONIX delivers digital products that are visually stunning, fast, and secure. Our development culture promotes innovation, continuous learning, and client-focused results.\n\nThe LUPHONIX full-stack approach is where technology meets precision — transforming business ideas into sustainable digital realities.",
+    "featured_image": "https://plus.unsplash.com/premium_photo-1678565879444-f87c8bd9f241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RnVsbC1TdGFjayUyMERldmVsb3BtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    "tags": ["LUPHONIX", "Full Stack", "React", "Node.js", "Web Development", "Agile", "CI/CD"],
+    "author": {
+      "name": "James K.",
+      "title": "Full-Stack Developer at LUPHONIX",
+      "avatar": "https://plus.unsplash.com/premium_photo-1723754589476-37024bcd4870?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1hbiUyMGluZGlhbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
     },
-    created_at: "2024-01-01T16:45:00Z",
-    read_time: 10,
-    is_featured: false,
-    is_trending: false,
-    category: "Blockchain",
-    summary_points: [
-      "Supply chain transparency using blockchain technology",
-      "Healthcare data security and patient privacy solutions",
-      "Decentralized identity management systems"
+    "created_at": "2025-01-28T08:40:00Z",
+    "read_time": 7,
+    "is_featured": true,
+    "is_trending": false,
+    "category": "Web Development",
+    "summary_points": [
+      "Agile development ensures faster, quality delivery.",
+      "Full-stack expertise across React, Node.js, and PHP.",
+      "Built-in security and scalability for enterprise apps."
     ],
-    likes: 67,
-    meta_description: "Discover real-world blockchain applications beyond cryptocurrency in supply chain, healthcare, and identity management."
+    "likes": 175,
+    "meta_description": "Explore how LUPHONIX delivers agile, secure, and scalable full-stack applications using modern web technologies and best development practices."
   },
   {
-    id: 5,
-    title: "Mobile-First Development: Best Practices for 2024",
-    slug: "mobile-first-development-best-practices-2024",
-    excerpt: "Master the art of mobile-first design and development with these proven strategies for creating exceptional mobile experiences.",
-    content: "With mobile traffic now accounting for over 60% of web usage, mobile-first development isn't just a trend...",
-    featured_image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Mobile Development", "Responsive Design", "Performance", "UX", "Design"],
-    author: {
-      name: "Kavya R.",
-      title: "Mobile App Developer at LUPHONIX",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    "id": 5,
+    "title": "LUPHONIX and Blockchain: Building a Decentralized Future",
+    "slug": "luphonix-blockchain-decentralized-future",
+    "excerpt": "Discover how LUPHONIX is leveraging blockchain technology to create transparency, automation, and trust in digital ecosystems.",
+    "content": "Blockchain is more than cryptocurrency — it’s the future of trust and transparency. At LUPHONIX, we design decentralized applications (DApps), smart contracts, and private blockchain networks that empower industries to operate securely and efficiently.\n\nFrom supply chain tracking to fintech innovation, our blockchain engineers create systems that are tamper-proof, traceable, and transparent. Every record stored on the blockchain ensures integrity, reducing fraud and improving accountability.\n\nUsing technologies like Solidity, Hyperledger, and Web3.js, LUPHONIX builds custom blockchain solutions tailored to enterprise needs. Our developers also integrate blockchain APIs with AI and IoT systems, making transactions smarter and automated.\n\nLUPHONIX stands at the intersection of decentralization and innovation — driving the future where data is verifiable, secure, and owned by the user.",
+    "featured_image": "https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmxvY2tjaGFpbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    "tags": ["LUPHONIX", "Blockchain", "DApps", "Smart Contracts", "Decentralization", "Web3", "Transparency"],
+    "author": {
+      "name": "jinja M.",
+      "title": "Blockchain Developer at LUPHONIX",
+      "avatar": "https://media.istockphoto.com/id/1147066751/photo/hispanic-adult-standing-outside-and-smiling.webp?a=1&b=1&s=612x612&w=0&k=20&c=7Kn34Y4iKo0h_k3WgeWen69z9XVj5_HfcQhPsdIT7A0="
     },
-    created_at: "2023-12-28T11:20:00Z",
-    read_time: 7,
-    is_featured: false,
-    is_trending: true,
-    category: "Design",
-    summary_points: [
-      "Mobile-first responsive design principles",
-      "Performance optimization for mobile devices",
-      "Touch-friendly user interface patterns"
+    "created_at": "2025-01-30T11:00:00Z",
+    "read_time": 8,
+    "is_featured": false,
+    "is_trending": true,
+    "category": "Blockchain",
+    "summary_points": [
+      "Decentralized apps enhance transparency and trust.",
+      "Smart contract automation for business operations.",
+      "Blockchain integrated with AI and IoT ecosystems."
     ],
-    likes: 203,
-    meta_description: "Learn mobile-first development best practices for 2024. Create exceptional mobile experiences with proven strategies."
+    "likes": 142,
+    "meta_description": "See how LUPHONIX is reshaping industries with blockchain-powered decentralization, smart contracts, and secure digital frameworks."
   },
   {
-    id: 6,
-    title: "Cybersecurity in the Age of Cloud Computing",
-    slug: "cybersecurity-cloud-computing",
-    excerpt: "Essential security practices and strategies for protecting cloud-based applications and data in an increasingly connected world.",
-    content: "As businesses migrate to the cloud, cybersecurity challenges evolve and multiply...",
-    featured_image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    tags: ["Cybersecurity", "Cloud Computing", "Data Protection", "Security", "Cloud"],
-    author: {
-      name: "Nitin J.",
-      title: "Cybersecurity Specialist at LUPHONIX",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    "id": 6,
+    "title": "Design That Thinks: How LUPHONIX Blends AI and UX for Smarter Interfaces",
+    "slug": "luphonix-ai-ux-design",
+    "excerpt": "Explore how LUPHONIX merges AI with design thinking to build user interfaces that adapt, learn, and engage in real time.",
+    "content": "At LUPHONIX, design is more than aesthetics — it’s intelligence in motion. Our UX teams use artificial intelligence and behavioral analytics to create digital experiences that adapt to users’ needs in real-time.\n\nThrough AI-driven heatmaps, predictive behavior models, and micro-interaction testing, we ensure that every design decision is backed by data. Our interfaces evolve based on user patterns, offering personalization, accessibility, and engagement that grows with every interaction.\n\nWe apply modern design frameworks like Figma, Framer, and Tailwind CSS alongside AI-powered tools for content prediction, visual hierarchy, and adaptive color theory. This approach ensures consistency across platforms and maximizes user satisfaction.\n\nWith LUPHONIX, UX meets machine learning — delivering design that learns, thinks, and feels human.",
+    "featured_image": "https://images.unsplash.com/photo-1618788372246-79faff0c3742?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHVpJTJGdXglMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    "tags": ["LUPHONIX", "UX Design", "AI", "Personalization", "Design Thinking", "Human-Centered Design"],
+    "author": {
+      "name": "Kavya R.",
+      "title": "UI/UX Designer at LUPHONIX",
+      "avatar": "https://images.unsplash.com/photo-1626526804650-7118ac691b7a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJ1c3NpZW4lMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
     },
-    created_at: "2023-12-25T13:10:00Z",
-    read_time: 9,
-    is_featured: false,
-    is_trending: false,
-    category: "Cybersecurity",
-    summary_points: [
-      "Cloud security frameworks and compliance standards",
-      "Zero-trust architecture implementation strategies",
-      "Advanced threat detection and response protocols"
+    "created_at": "2025-02-02T10:10:00Z",
+    "read_time": 6,
+    "is_featured": true,
+    "is_trending": true,
+    "category": "Design",
+    "summary_points": [
+      "AI enhances design adaptability and user understanding.",
+      "Personalized UX that responds to user behavior.",
+      "Data-driven design ensures engagement and retention."
     ],
-    likes: 124,
-    meta_description: "Master cybersecurity in cloud computing environments. Learn essential security practices for cloud-based applications."
+    "likes": 198,
+    "meta_description": "Learn how LUPHONIX fuses AI and UX design to create intelligent, adaptive, and human-centered digital experiences."
   }
 ];
 
