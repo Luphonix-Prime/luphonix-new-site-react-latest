@@ -137,7 +137,7 @@ export const blogPosts = [
     featured_image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     tags: ["Web Development", "Technology", "AI", "PWA"],
     author: {
-      name: "Dhyey K.",
+      name: "james K.",
       title: "Full-Stack Developer at LUPHONIX",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
