@@ -167,6 +167,24 @@ const ContactFormMemo = memo(({ formData, handleInputChange, handleSubmit, isSub
 });
 
 const Contact = () => {
+  // Add Apollo Inbound Script
+  useEffect(() => {
+    const initApolloInbound = () => {
+      const nocache = Math.random().toString(36).substring(7);
+      const script = document.createElement('script');
+      script.src = 'https://assets.apollo.io/js/apollo-inbound.js?nocache=' + nocache;
+      script.defer = true;
+      script.onload = function() {
+        window.ApolloInbound.formEnrichment.init({
+          appId: '69048170ff98b00015f856da'
+        });
+      };
+      document.head.appendChild(script);
+    };
+
+    initApolloInbound();
+  }, []); // Empty dependency array means this runs once on component mount
+
   const contactStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
