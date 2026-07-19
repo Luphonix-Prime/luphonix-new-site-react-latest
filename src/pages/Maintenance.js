@@ -78,17 +78,6 @@ const Maintenance = () => {
                         <span className="countdown-lbl">Secs</span>
                     </div>
                 </div>
-
-                {/* Return Button with Developer Bypass override */}
-                <button 
-                    onClick={() => {
-                        localStorage.setItem('bypass_maintenance', 'true');
-                        window.location.href = '/?bypass=true';
-                    }} 
-                    className="home-btn"
-                >
-                    Return to Homepage
-                </button>
             </div>
 
             {/* Technician SVG illustration background at the bottom */}
