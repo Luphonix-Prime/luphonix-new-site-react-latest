@@ -49,33 +49,12 @@
     text-transform: uppercase;
     margin: 0;
     line-height: 1.1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70px; /* Prevent layout shift during text rotation transitions */
-}
-
-.rotating-title-wrapper {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0 4px;
-}
-
-.rotating-word {
-    display: inline-flex;
-}
-
-.rotating-char {
-    display: inline-block;
 }
 
 @media (max-width: 600px) {
     .maintenance-header-title {
         font-size: 38px;
         letter-spacing: -0.5px;
-        min-height: 50px;
     }
 }
 
