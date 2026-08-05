@@ -1,352 +1,191 @@
-/* Minimalist White / Light Theme Under Maintenance Styles */
+/* Stylized Illustration Maintenance Page CSS */
 
 .maintenance-wrapper {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-    background-color: #fafafa;
-    color: #18181b;
-    overflow-x: hidden;
-    font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+    height: 100vh;
+    background-color: #FAF0D8; /* Warm cream background */
+    color: #1A202C; /* Dark charcoal text */
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Minimalist Grid / Background Overlay */
+/* Background grid overlay */
 .maintenance-bg-grid {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(24, 24, 27, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
+    background-image: radial-gradient(rgba(26, 32, 44, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
     pointer-events: none;
     z-index: 1;
 }
 
-/* Physics Sandbox Canvas styling */
-.sandbox-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: auto; /* Allow mouse hover & clicks to interact with bubbles */
-}
-
-/* Center Content Layout */
+/* Content Container (Top half) */
 .maintenance-container {
     position: relative;
     z-index: 10;
     width: 100%;
-    max-width: 680px;
-    margin: auto;
-    padding: 80px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 24px 0px; /* Reduced top padding to allocate more room for illustration */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 32px;
-    pointer-events: none; /* Let pointer events fall through to the canvas */
-}
-
-/* Make interactive controls inside container clickable */
-.maintenance-container > * {
-    pointer-events: auto;
-}
-
-/* Status Badge */
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    background: #ffffff;
-    border: 1px solid #e4e4e7;
-    border-radius: 100px;
-    font-family: monospace;
-    font-size: 12px;
-    font-weight: 500;
-    color: #71717a;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-}
-
-.status-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #22c55e; /* Elegant Green */
-    border-radius: 50%;
-    box-shadow: 0 0 8px #22c55e;
-    animation: statusPulse 2s infinite;
-}
-
-@keyframes statusPulse {
-    0% { transform: scale(0.95); opacity: 0.6; }
-    50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 10px #22c55e; }
-    100% { transform: scale(0.95); opacity: 0.6; }
-}
-
-/* Branding & Logo */
-.maintenance-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 16px;
+    flex: 0 0 auto;
 }
 
-.maintenance-logo img {
-    height: 70px;
-    width: auto;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.maintenance-logo img:hover {
-    transform: rotate(180deg);
-}
-
-.maintenance-title {
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 1.2;
-    color: #18181b;
-    letter-spacing: -0.5px;
-    margin-top: 8px;
-}
-
-.maintenance-title span {
-    display: block;
-    background: linear-gradient(135deg, #2563eb, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 0.95em;
-    font-weight: 700;
+/* Main Headers matching reference image */
+.maintenance-header-title {
+    font-size: 58px;
+    font-weight: 900; /* Extra bold black font */
+    color: #1A202C; /* Matches the illustration's outlines and hair */
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
 }
 
 @media (max-width: 600px) {
-    .maintenance-title {
-        font-size: 32px;
+    .maintenance-header-title {
+        font-size: 38px;
+        letter-spacing: -0.5px;
     }
 }
 
-.maintenance-desc {
-    color: #71717a;
+.maintenance-header-subtitle {
+    font-size: 18px;
+    font-weight: 700; /* Bolder subtitle matching reference */
+    color: #1A202C; /* Darker charcoal */
+    margin: 0;
+    max-width: 680px;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .maintenance-header-subtitle {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
+
+/* Teal Homepage Button matching the image */
+.home-btn {
+    background-color: #0c8a7b; /* Teal color */
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    padding: 13px 32px;
     font-size: 15px;
-    line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto;
-}
-
-/* Rotating text container height alignment */
-.rotating-text-wrapper {
-    height: 24px;
-    overflow: hidden;
-    font-family: monospace;
-    font-size: 13px;
-    color: #2563eb;
-    display: flex;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    font-weight: 500;
-}
-
-/* Countdown Timer */
-.countdown-container {
-    display: flex;
-    gap: 12px;
+    gap: 8px;
     margin-top: 12px;
 }
 
-.countdown-box {
-    width: 80px;
-    padding: 12px 6px;
+.home-btn:hover {
+    background-color: #0a7367;
+    transform: translateY(-1px);
+}
+
+/* Illustration Container positioned at the bottom */
+.illustration-bg-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 2;
+    pointer-events: none;
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+}
+
+.illustration-bg-container svg {
+    width: auto;
+    height: 100%;
+    max-height: none;
+    max-width: 100%;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .illustration-bg-container {
+        margin-top: 10px;
+    }
+}
+
+/* Retro Cartoon Countdown Styling */
+.countdown-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    pointer-events: auto;
+}
+
+.countdown-pill {
     background: #ffffff;
-    border: 1px solid #e4e4e7;
-    border-radius: 12px;
+    border: 3.5px solid #1A202C;
+    border-radius: 14px;
+    padding: 10px 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    min-width: 75px;
+    box-shadow: 4px 4px 0px #1A202C;
+    transition: transform 0.2s ease;
 }
 
-.countdown-val {
-    font-size: 26px;
-    font-weight: 700;
-    color: #18181b;
-    font-family: monospace;
+.countdown-pill:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #1A202C;
+}
+
+.countdown-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: #1A202C;
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.1;
 }
 
 .countdown-lbl {
     font-size: 10px;
     text-transform: uppercase;
-    color: #a1a1aa;
-    margin-top: 2px;
+    font-weight: 800;
+    color: #1E40AF; /* Royal blue matching the reference design */
+    margin-top: 4px;
     letter-spacing: 0.5px;
 }
 
 @media (max-width: 480px) {
-    .countdown-container {
-        gap: 6px;
+    .countdown-row {
+        gap: 8px;
     }
-    .countdown-box {
-        width: 70px;
-        padding: 10px 4px;
+    .countdown-pill {
+        min-width: 60px;
+        padding: 6px 10px;
+        border-width: 2.5px;
+        box-shadow: 3px 3px 0px #1A202C;
     }
-    .countdown-val {
-        font-size: 20px;
+    .countdown-num {
+        font-size: 18px;
     }
     .countdown-lbl {
-        font-size: 9px;
-    }
-}
-
-/* Card glass styling for subscription */
-.subscribe-card {
-    width: 100%;
-    max-width: 460px;
-    background: #ffffff;
-    border: 1px solid #e4e4e7;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    margin-top: 8px;
-}
-
-.card-title {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #a1a1aa;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: monospace;
-}
-
-.card-title svg {
-    color: #2563eb;
-}
-
-/* Email Registration Form */
-.subscribe-form {
-    display: flex;
-    gap: 8px;
-}
-
-.subscribe-input {
-    flex: 1;
-    background: #fafafa;
-    border: 1px solid #e4e4e7;
-    border-radius: 10px;
-    padding: 12px 14px;
-    color: #18181b;
-    font-size: 14px;
-    outline: none;
-    transition: all 0.2s ease;
-}
-
-.subscribe-input:focus {
-    border-color: #2563eb;
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
-}
-
-.subscribe-btn {
-    background: #18181b;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    padding: 0 20px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease;
-}
-
-.subscribe-btn:hover {
-    background: #2563eb;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-}
-
-.subscribe-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
-
-@media (max-width: 480px) {
-    .subscribe-form {
-        flex-direction: column;
-    }
-    .subscribe-btn {
-        padding: 12px;
-        justify-content: center;
-    }
-}
-
-.form-feedback {
-    margin-top: 10px;
-    font-size: 11px;
-    font-family: monospace;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
-
-.form-feedback.success {
-    color: #16a34a;
-}
-
-.form-feedback.error {
-    color: #dc2626;
-}
-
-/* Footer elements */
-.maintenance-footer {
-    width: 100%;
-    max-width: 680px;
-    padding: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #f4f4f5;
-    z-index: 10;
-}
-
-.footer-socials {
-    display: flex;
-    gap: 16px;
-}
-
-.social-link {
-    color: #a1a1aa;
-    font-size: 16px;
-    transition: color 0.2s ease;
-}
-
-.social-link:hover {
-    color: #2563eb;
-}
-
-.footer-copyright {
-    color: #a1a1aa;
-    font-size: 11px;
-    font-family: monospace;
-}
-
-@media (max-width: 600px) {
-    .maintenance-footer {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
+        font-size: 8px;
     }
 }

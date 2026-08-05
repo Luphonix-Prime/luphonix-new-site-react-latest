@@ -25,28 +25,12 @@ const MAINTENANCE_MODE = true;
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState('default');
-  const [isBypassed, setIsBypassed] = useState(false);
 
   useEffect(() => {
     // Load saved theme
     const savedTheme = localStorage.getItem('selected-theme') || 'default';
     setCurrentTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
-
-    // Check for maintenance bypass via query parameter or localStorage
-    const params = new URLSearchParams(window.location.search);
-    const bypassParam = params.get('bypass');
-    const bypassStored = localStorage.getItem('bypass_maintenance');
-
-    if (bypassParam === 'true') {
-      localStorage.setItem('bypass_maintenance', 'true');
-      setIsBypassed(true);
-    } else if (bypassParam === 'false') {
-      localStorage.removeItem('bypass_maintenance');
-      setIsBypassed(false);
-    } else if (bypassStored === 'true') {
-      setIsBypassed(true);
-    }
   }, []);
 
   const handleThemeChange = (theme) => {
@@ -55,8 +39,8 @@ function App() {
     localStorage.setItem('selected-theme', theme);
   };
 
-  // If maintenance mode is active and not bypassed by a developer, show maintenance console
-  if (MAINTENANCE_MODE && !isBypassed) {
+  // If maintenance mode is active, unconditionally show maintenance page
+  if (MAINTENANCE_MODE) {
     return <Maintenance />;
   }
 
