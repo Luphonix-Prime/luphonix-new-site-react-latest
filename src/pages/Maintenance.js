@@ -12,18 +12,8 @@ const Maintenance = () => {
     });
 
     useEffect(() => {
-        // Retrieve or initialize the target date in localStorage to prevent resetting on refreshes
-        let targetDateStr = localStorage.getItem('maintenance_target_date');
-        
-        if (!targetDateStr) {
-            const initialTarget = new Date();
-            // Set target to exactly 10 days in the future
-            initialTarget.setDate(initialTarget.getDate() + 10);
-            targetDateStr = initialTarget.toISOString();
-            localStorage.setItem('maintenance_target_date', targetDateStr);
-        }
-
-        const targetDate = new Date(targetDateStr);
+        // Target date set to 20 Aug 2026
+        const targetDate = new Date('2026-08-20T00:00:00');
 
         const timer = setInterval(() => {
             const difference = +targetDate - +new Date();
