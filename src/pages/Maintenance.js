@@ -12,8 +12,8 @@ const Maintenance = () => {
     });
 
     useEffect(() => {
-        // Target date set to 20 Aug 2026
-        const targetDate = new Date('2026-08-20T00:00:00');
+        // Target date set to 26 Aug 2026
+        const targetDate = new Date('2026-08-26T00:00:00');
 
         const timer = setInterval(() => {
             const difference = +targetDate - +new Date();
